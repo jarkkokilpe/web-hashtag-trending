@@ -1,0 +1,40 @@
+.world-map {
+  background-color: #202121;
+}
+  
+.country {
+  stroke: #696f70;
+  fill: #4d4e50;
+  transition: none;
+}
+
+.country:hover {
+  cursor: pointer;
+  fill: #767c80;
+  transition: none;
+}
+
+.country-label {
+  fill: #393838;
+  text-anchor: middle;
+  transition: none;
+}
+
+  
+.state {
+  stroke: #696f70;
+  fill: #4d4e50;
+  transition: none;
+}
+
+.state:hover {
+  cursor: pointer;
+  fill: #767c80;
+  transition: none;
+}
+
+.state-label {
+  fill: #393838;
+  text-anchor: middle;
+  transition: none;
+}

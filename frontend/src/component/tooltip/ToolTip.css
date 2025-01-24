@@ -1,0 +1,9 @@
+.popup {
+  background-color: black;
+  color: rgb(197, 211, 238);
+  border-radius: 4px;
+  opacity: 0.6;
+  pointer-events: none;
+  display: flex;
+  text-align: center;
+}

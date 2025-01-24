@@ -1,0 +1,70 @@
+.sidebar {
+  position: fixed;
+  left: 0px;
+  top: 100px; /* Assuming your header height is 60px */
+  bottom: 0;
+  width: 250px; /* Adjust to your desired width */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(197, 211, 238);
+  padding: 20px;
+  overflow-y: auto; /* For scroll if content overflows */
+  z-index: 999; /* Below header but above other content */
+  transition: left 0.3s ease; /* Transition for sliding */
+}
+.sidebar.hidden {
+  left: -250px; /* Slide off-screen */
+}
+
+
+.tab-bar {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  left: 250px; /* Button position when sidebar is visible */
+  top: 100px; /* Below header */
+  background: rgba(0, 0, 0, 0.3);
+  color: rgb(197, 211, 238);
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  z-index: 1000; /* Above sidebar */
+  transition: left 0.3s ease; /* Transition for button movement */
+}
+
+.sidebar-toggle.hidden {
+  left: 0; /* Button position when sidebar is hidden */
+}
+
+.sidebar-toggle span {
+  font-size: 24px; /* Adjust size for visibility */
+}
+
+.grid {
+  background: rgba(0, 0, 0, 0.3);
+}
+

@@ -1,0 +1,23 @@
+.sticky-header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  align-items: center; /* Centers vertically if the container has a set height */
+}
+
+.sticky-header.sticky {
+  position: sticky;
+  align-items: center; /* Centers vertically if the container has a set height */
+}
+
+h1 {
+  font-family: Arial;
+  letter-spacing: 50px;
+  color: rgb(197, 211, 238);
+  align-items: center; /* Centers vertically if the container has a set height */
+}
