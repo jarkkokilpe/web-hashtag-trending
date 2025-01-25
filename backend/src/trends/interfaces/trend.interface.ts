@@ -1,5 +1,9 @@
-export interface Trend {
+export interface TrendObj {
   woeid: number;
-  trend: string;
-  count: number;
+  trends: TrendContent[];
+}
+
+export interface TrendContent {
+  name: string;
+  tweet_volume: number;
 }

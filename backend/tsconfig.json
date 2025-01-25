@@ -22,6 +22,7 @@
     "src",
     "dist",
     "src/**/*",
-    "test/**/*"
+    "test/**/*",
+    "src/extdata/mock/mockdata/trends.ts"
   ]
 }
