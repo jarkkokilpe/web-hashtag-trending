@@ -10,7 +10,7 @@ import { ZOOM_THRESHOLD_STATES } from '../map/Map'
 
 import './Bubbles.css';
 
-const BUBBLE_MIN_SIZE = 2;
+const BUBBLE_MIN_SIZE = 1;
 const BUBBLE_MAX_SIZE = 40;
 
 const BUBBLE_TOOLTIP_WIDTH = 120;

@@ -1,4 +1,4 @@
-export const mockTrends = [
+export const mockDataCity = [
   // United States
   {
     woeid: 2487956, // San Francisco, US
@@ -86,6 +86,89 @@ export const mockTrends = [
       { name: '#SaoPauloFashionWeek', tweet_volume: 21000 },
       { name: 'Football', tweet_volume: 20000 },
       { name: 'UrbanArt', tweet_volume: 17500 },
+    ],
+  },
+];
+
+export const mockDataCountry = [
+  {
+    woeid: 23424950, // Spain
+    trends: [
+      { name: '#LaLiga', tweet_volume: 30000 },
+      { name: 'Tapas', tweet_volume: 25000 },
+      { name: 'Flamenco', tweet_volume: 20000 },
+    ],
+  },
+  {
+    woeid: 23424954, // Sweden
+    trends: [
+      { name: '#MidnightSun', tweet_volume: 15000 },
+      { name: 'IKEA', tweet_volume: 12000 },
+      { name: 'ABBA', tweet_volume: 10000 },
+    ],
+  },
+  {
+    woeid: 23424957, // Switzerland
+    trends: [
+      { name: '#Alps', tweet_volume: 18000 },
+      { name: 'SwissWatch', tweet_volume: 16000 },
+      { name: 'Chocolate', tweet_volume: 14000 },
+    ],
+  },
+  {
+    woeid: 23424960, // Thailand
+    trends: [
+      { name: '#Songkran', tweet_volume: 22000 },
+      { name: 'Bangkok', tweet_volume: 20000 },
+      { name: 'PadThai', tweet_volume: 18000 },
+    ],
+  },
+  {
+    woeid: 23424969, // Turkey
+    trends: [
+      { name: '#Istanbul', tweet_volume: 28000 },
+      { name: 'TurkishDelight', tweet_volume: 24000 },
+      { name: 'Bosphorus', tweet_volume: 21000 },
+    ],
+  },
+  {
+    woeid: 23424976, // Ukraine
+    trends: [
+      { name: '#Kyiv', tweet_volume: 17000 },
+      { name: 'Borscht', tweet_volume: 15000 },
+      { name: 'Chernobyl', tweet_volume: 13000 },
+    ],
+  },
+  {
+    woeid: 23424738, // United Arab Emirates
+    trends: [
+      { name: '#Dubai', tweet_volume: 35000 },
+      { name: 'BurjKhalifa', tweet_volume: 30000 },
+      { name: 'DesertSafari', tweet_volume: 27000 },
+    ],
+  },
+  {
+    woeid: 23424975, // United Kingdom
+    trends: [
+      { name: '#RoyalFamily', tweet_volume: 40000 },
+      { name: 'PremierLeague', tweet_volume: 38000 },
+      { name: 'FishAndChips', tweet_volume: 35000 },
+    ],
+  },
+  {
+    woeid: 23424977, // United States
+    trends: [
+      { name: '#SuperBowl', tweet_volume: 50000 },
+      { name: 'SiliconValley', tweet_volume: 45000 },
+      { name: 'Broadway', tweet_volume: 42000 },
+    ],
+  },
+  {
+    woeid: 23424982, // Venezuela
+    trends: [
+      { name: '#Caracas', tweet_volume: 19000 },
+      { name: 'Arepa', tweet_volume: 17000 },
+      { name: 'AngelFalls', tweet_volume: 15000 },
     ],
   },
 ];

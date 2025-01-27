@@ -2,8 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { XapiService } from '../extdata/xapi/xapi.service';
 import { MockService } from '../extdata/mock/mock.service';
 import { TrendObj } from '../trends/interfaces/trend.interface';
-//import { XApiTrendObj } from '../extdata/xapi/interfaces/xapi.interface';
-import { MockTrendObj } from '../extdata/mock/interfaces/mock.interface';
+import {
+  FETCH_INTERVAL_MS,
+  XAPI_IN_USE,
+  XAPI_RATE_LIMIT,
+  XAPI_RATE_LIMIT_WINDOW_MS,
+} from '../constants';
 
 @Injectable()
 export class RefinerService {
@@ -13,24 +17,25 @@ export class RefinerService {
   ) {}
 
   async getRefinedTrends(woeid: number) {
-    /*const trends: XApiTrendObj | undefined =
-      await this.xapiService.fetchDataByWoeId(woeid);
-    if (!trends) {
-      throw new Error('No trends data found');
-    }*/
+    let trendObj: TrendObj | undefined;
 
-    const trends: MockTrendObj | undefined =
-      await this.mockService.fetchDataByWoeId(woeid);
-    if (!trends) {
-      throw new Error('No trends data found');
+    if (XAPI_IN_USE) {
+      if (FETCH_INTERVAL_MS < XAPI_RATE_LIMIT_WINDOW_MS / XAPI_RATE_LIMIT) {
+        throw new Error(
+          'Fetch interval is too low - may exceed XAPI rate limits.',
+        );
+      }
+      trendObj = await this.xapiService.fetchDataByWoeId(woeid);
+      if (!trendObj) {
+        throw new Error('No trend data found from XAPI');
+      }
+    } else {
+      trendObj = await this.mockService.fetchDataByWoeId(woeid);
+      if (!trendObj) {
+        throw new Error('No trends data found from MOCK data');
+      }
     }
-    //const trends = await this.xapiService.fetchTrendsByWoeid(woeid);
-    //this.t = { woeid: 123, trends: [{ name: 'asd', tweet_volume: 12345 }] };
-    // Refine and adapt the data as needed
-    /*return trends.map((trend: TrendObj) => ({
-      name: trend.name,
-      volume: trend.tweet_volume,
-    })) as TrendObj;*/
-    return trends as TrendObj;
+
+    return trendObj;
   }
 }

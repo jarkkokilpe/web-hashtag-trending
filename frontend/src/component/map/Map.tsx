@@ -20,7 +20,7 @@ import {
   getFontSize,
   isCountryLabelVisible 
 } from '../../utils/maptools'
-import usePan from '../../hooks/usePan'
+import { fetchAllTrends } from '../../utils/datafetch';
 import './Map.css';
 
 const COUNTRY_TOOLTIP_WIDTH = 120;
@@ -45,8 +45,6 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const [zoomScale, setZoomScale] = useState<number>(1);
   const [infoBoxData, setInfoBoxData] = useState<BubbleData | null>(null);
   const [currentTransform, setCurrentTransform] = useState<d3.ZoomTransform>();
-  const [panMap, setPanMap] = useState<number>(1);
-  const pan = usePan(svgRef);
   
   const countryTooltipSize:SizeProps = {
     width: COUNTRY_TOOLTIP_WIDTH,
@@ -84,8 +82,25 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
       svg
         .attr("width", width)
         .attr("height", height);
+        // Set up the interval loop to fetch trends every second
     }
   }, [width, height]);
+
+  useEffect(() => {
+    // Set up the interval loop to fetch trends every second
+    const intervalId = setInterval(async () => {
+      try {
+        const trends = await fetchAllTrends();
+        console.log('Fetched trends:', trends);
+        // Update your state or perform any other actions with the fetched trends
+      } catch (error) {
+        console.error('Error fetching trends:', error);
+      }
+    }, 1000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
 
   const updateSelectedBubbleData = (bubbleData: BubbleData | null) => {
     setInfoBoxData(bubbleData);
@@ -121,6 +136,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
         const currentTransform = d3.zoomTransform(svgRef.current as SVGSVGElement);
         setZoomScale(currentTransform.k);
         svg.selectAll('path, circle, text').attr('transform', currentTransform.toString());
+        setCurrentTransform(d3.zoomTransform(svgRef.current as SVGSVGElement));
       });
   };
 
@@ -159,12 +175,6 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const handleCloseInfoBox = () => {
     setIsInfoBoxVisible(false);
   };
-  
-  const handlePan = (x: number, y: number) => {
-    pan({ x, y });
-  };
-  
-  //handlePan(1, 1);
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>

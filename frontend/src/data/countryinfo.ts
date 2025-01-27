@@ -495,7 +495,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 4526722,
     hashtag: { 
       hashstr: '#ERI',
-      count:  1000, 
+      count:  1, 
     },
   },
   {
@@ -504,7 +504,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 6668356,
     hashtag: { 
       hashstr: '#SLV',
-      count:  100, 
+      count:  1, 
     },
   },
   {
@@ -549,7 +549,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 5246004,
     hashtag: { 
       hashstr: '#FIN',
-      count:  100, 
+      count:  1, 
     },
   },
   {
@@ -918,7 +918,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 2301793,
     hashtag: { 
       hashstr: '#LVA',
-      count:  1000, 
+      count:  1, 
     },
   },
   {
@@ -1584,7 +1584,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 143953092,
     hashtag: { 
       hashstr: '#RUS',
-      count:  10000, 
+      count:  1, 
     },
   },
   {
@@ -1890,7 +1890,7 @@ export const numData: { code: string; value: number; name: string; hashtag:HashO
     value: 299846449,
     hashtag: { 
       hashstr: '#USA',
-      count:  100000, 
+      count:  1, 
     },
   },
   {
