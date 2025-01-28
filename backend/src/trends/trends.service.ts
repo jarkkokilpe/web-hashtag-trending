@@ -1,17 +1,12 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { TrendObj } from './interfaces/trend.interface';
 import { RefinerService } from '../refiner/refiner.service';
-import { mockDataCountry } from '../extdata/mock/data/mocktrends';
 import { FETCH_INTERVAL_MS } from '../constants';
 
 @Injectable()
 export class TrendsService {
   private intervalId: NodeJS.Timeout;
   private readonly trends: TrendObj[] = [];
-
-  private woeids = mockDataCountry.map((trend) => trend.woeid);
-  private readonly woeidCount = this.woeids.length;
-  private woeidCounter = 0;
 
   constructor(private readonly refinerService: RefinerService) {}
 
@@ -41,33 +36,18 @@ export class TrendsService {
     }
   }
 
-  private async fetchDataByWoeId(woeId: number) {
-    try {
-      const refinedTrends: TrendObj =
-        await this.refinerService.getRefinedTrends(woeId);
-      this.updateNewObjectToTrendsArray(refinedTrends);
-    } catch (error) {
-      console.error('Error fetching refined trends:', error);
-    }
-  }
-
   private startFetchingData() {
     this.intervalId = setInterval(() => {
-      console.log(
-        'Current woeid, index',
-        this.woeids[this.woeidCounter],
-        this.woeidCounter,
-      );
-      const woeid = this.woeids[this.woeidCounter];
-      this.fetchDataByWoeId(woeid).catch((error) =>
-        console.error('Error in fetchData:', error),
-      );
-      this.woeidCounter = (this.woeidCounter + 1) % this.woeidCount;
+      console.log('fetch');
+      this.refinerService
+        .getNextTrend()
+        .then((nextTrend) => {
+          this.updateNewObjectToTrendsArray(nextTrend);
+        })
+        .catch((error) => {
+          console.error('Error fetching refined trends:', error);
+        });
     }, FETCH_INTERVAL_MS);
-  }
-
-  create(trend: TrendObj) {
-    this.trends.push(trend);
   }
 
   findAll(): TrendObj[] {

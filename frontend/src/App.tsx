@@ -3,6 +3,8 @@ import Map from './component/map/Map';
 import Header from './component/header/Header';
 import SideBar from './component/sidebar/SideBar';
 import { SizeProps } from './utils/maptools'
+import { TrendsProvider } from './component/context/TrendsContext';
+
 import './App.css';
 
 export default function App() {
@@ -13,9 +15,11 @@ export default function App() {
 
   return (
     <div className="base">
-      <Header />
-      <SideBar />
-      <Map mapprops={mapprops} />
+      <TrendsProvider>
+        <Header />
+        <SideBar />
+        <Map mapprops={mapprops} />
+      </TrendsProvider>
     </div>
   );
 };

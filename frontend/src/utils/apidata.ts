@@ -1,12 +1,14 @@
 import axios from 'axios';
 
 // Fetch all trends
-export async function fetchAllTrends() {
+export const fetchAllTrends = async (): Promise<any[]> => {
   try {
     const response = await axios.get('http://localhost:4000/trends/all');
     console.log('All Trends:', response.data);
+    return response.data;
   } catch (error) {
     console.error('Error fetching all trends:', error);
+    return [];
   }
 }
 

@@ -16,7 +16,7 @@ export class RefinerService {
     private readonly mockService: MockService,
   ) {}
 
-  async getRefinedTrends(woeid: number) {
+  async getNextTrend() {
     let trendObj: TrendObj | undefined;
 
     if (XAPI_IN_USE) {
@@ -25,14 +25,14 @@ export class RefinerService {
           'Fetch interval is too low - may exceed XAPI rate limits.',
         );
       }
-      trendObj = await this.xapiService.fetchDataByWoeId(woeid);
+      trendObj = await this.xapiService.fetchNextData();
       if (!trendObj) {
         throw new Error('No trend data found from XAPI');
       }
     } else {
-      trendObj = await this.mockService.fetchDataByWoeId(woeid);
+      trendObj = await this.mockService.fetchNextData();
       if (!trendObj) {
-        throw new Error('No trends data found from MOCK data');
+        throw new Error('No trend data found from MOCK data');
       }
     }
 

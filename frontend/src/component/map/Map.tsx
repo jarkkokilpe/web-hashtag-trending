@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
+import { TrendObj, CountryInfo } from '../../data/countryinfo';
 import Bubbles from '../bubbles/Bubbles';
 import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
@@ -8,6 +9,7 @@ import { geoData, CountryFeature, CountryProps } from '../../data/worldbounds'
 //import { geoData } from '../../data/finebounds'
 import { geoJsonUsStates } from '../../data/us/statebounds';
 import { getMapname } from '../../utils/stats'
+import { useTrends } from '../context/TrendsContext';
 import { 
   SizeProps, 
   PositionOnMap, 
@@ -20,7 +22,7 @@ import {
   getFontSize,
   isCountryLabelVisible 
 } from '../../utils/maptools'
-import { fetchAllTrends } from '../../utils/datafetch';
+import { fetchAllTrends } from '../../utils/apidata';
 import './Map.css';
 
 const COUNTRY_TOOLTIP_WIDTH = 120;
@@ -38,6 +40,7 @@ interface MapComponentProps {
 const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const { width = 1200, height = 800 } = mapprops; 
   const svgRef = useRef<SVGSVGElement>(null!);
+  const { numData } = useTrends();
   const [infoBoxCountry, setInfoBoxCountry] = useState<string>('');
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -85,22 +88,6 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
         // Set up the interval loop to fetch trends every second
     }
   }, [width, height]);
-
-  useEffect(() => {
-    // Set up the interval loop to fetch trends every second
-    const intervalId = setInterval(async () => {
-      try {
-        const trends = await fetchAllTrends();
-        console.log('Fetched trends:', trends);
-        // Update your state or perform any other actions with the fetched trends
-      } catch (error) {
-        console.error('Error fetching trends:', error);
-      }
-    }, 1000);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []);
 
   const updateSelectedBubbleData = (bubbleData: BubbleData | null) => {
     setInfoBoxData(bubbleData);

@@ -2,13 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { XApiTrendObj } from './interfaces/xapi.interface';
+import { rollingXapiWoeid } from './data/request';
 
 @Injectable()
 export class XapiService {
+  private woeids = rollingXapiWoeid.map((country) => country.woeid);
+  private woeidCounter = 0;
+
   constructor(private readonly httpService: HttpService) {}
 
-  async fetchDataByWoeId(woeid: number): Promise<XApiTrendObj | undefined> {
+  async fetchNextData(): Promise<XApiTrendObj | undefined> {
     try {
+      const woeid = this.woeids[this.woeidCounter];
       const response = await firstValueFrom(
         this.httpService.get(`https://api.x.com/2/trends/by/woeid/${woeid}`, {
           headers: {
@@ -17,6 +22,7 @@ export class XapiService {
         }),
       );
       const data: XApiTrendObj = response.data as XApiTrendObj;
+      this.woeidCounter = (this.woeidCounter + 1) % this.woeids.length;
       console.log('XAPI: fetchTrendsByWoeid ', data);
       return data;
     } catch (error) {

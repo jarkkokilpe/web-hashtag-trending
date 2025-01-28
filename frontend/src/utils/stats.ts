@@ -1,10 +1,17 @@
 import { CountryFeature } from '../data/worldbounds';
 import { BubbleData } from '../component/bubbles/Bubbles';
 
+// Normalized Tweet Volume = (Total Tweets / (Population * Posts/Inhabitant/Day)) * Scaling Factor
+// Trend Change = (Newest Tweet Volume - Comparison Point Tweet Volume) / Comparison Point Tweet Volume * 100
 export function getTrendVolume(regiData: any): number {
   if (regiData.value === 0) {
     return 0;
   }
+
+  if (regiData.ppd !== 0) {
+    return (10**10 * (regiData.hashtag.count / (regiData.value * regiData.ppd)));
+  }
+
   return (10**12 * regiData.hashtag.count / regiData.value)
 }
 

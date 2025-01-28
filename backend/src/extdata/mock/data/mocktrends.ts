@@ -142,9 +142,9 @@ export const mockDataCountry = [
   {
     woeid: 23424738, // United Arab Emirates
     trends: [
-      { name: '#Dubai', tweet_volume: 35000 },
-      { name: 'BurjKhalifa', tweet_volume: 30000 },
-      { name: 'DesertSafari', tweet_volume: 27000 },
+      { name: '#Dubai', tweet_volume: 3500 },
+      { name: 'BurjKhalifa', tweet_volume: 3000 },
+      { name: 'DesertSafari', tweet_volume: 2700 },
     ],
   },
   {

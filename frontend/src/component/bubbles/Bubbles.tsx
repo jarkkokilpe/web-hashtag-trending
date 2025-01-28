@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useTrends } from '../context/TrendsContext';
 import * as d3 from 'd3';
 import ToolTip from '../tooltip/ToolTip'
-import { numData, HashObj } from '../../data/countryinfo';
+import { HashObj } from '../../data/countryinfo';
 import { usNumData } from '../../data/us/stateinfo';
 import { getFixedCountryCentroid, getUsStateCentroid } from '../../utils/maptools'
 import { SizeProps, PositionOnMap, getTooltipPosition } from '../../utils/maptools'
@@ -38,6 +39,8 @@ const Bubbles: React.FC<BubblesProps> = ({
   zoomTransformStr,
   svgRef,
   updateSelectedBubbleData }) => {
+    
+  const { numData } = useTrends();
   const [selectedBubble, setSelectedBubble] = useState<BubbleData | null>(null);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [hoveredBubbleData, setHoveredBubbleData] = useState<BubbleData | null>(null);
