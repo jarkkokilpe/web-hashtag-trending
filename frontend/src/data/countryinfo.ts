@@ -1,22 +1,4 @@
-export interface TrendObj { 
-  name: string;
-  tweet_volume: number;
-}
-
-export interface HashObj {
-  hashstr: string;
-  count: number;
-}
-
-export interface CountryInfo {
-  name: string,
-  code: string,
-  woeid: number,
-  value: number,
-  ppd: number,  // posts per inhabitant per day
-  trends: TrendObj[],
-  hashtag: HashObj,
-}
+import { TrendObj, HashObj } from '../types/interfaces';
 
 export const numData: { 
   code: string; 
@@ -25,7 +7,7 @@ export const numData: {
   woeid: number; 
   ppd: number; 
   trends: TrendObj[]; 
-  hashtag:HashObj }[] = [
+  hashtag: HashObj }[] = [
   {
     name: 'Antigua and Barbuda',
     code: 'ATG',
@@ -3460,8 +3442,8 @@ export const numData: {
   {
     name: 'Taiwan',
     code: 'TWN',
-    woeid: 0,
     value: 23588932,
+    woeid: 0,
     ppd: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },

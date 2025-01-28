@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { fetchAllTrends } from '../../utils/apidata';
-import { numData as initialNumData, CountryInfo, TrendObj } from '../../data/countryinfo';
+import { numData as initialNumData  } from '../../data/countryinfo';
+import { CountryInfo, TrendObj  } from '../../types/interfaces';
 
 interface TrendsContextProps {
   numData: CountryInfo[];

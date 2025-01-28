@@ -1,10 +1,22 @@
-import { HashObj } from '../countryinfo';
+import { TrendObj, HashObj } from '../../types/interfaces';
 
-export const usNumData: { code: string; value: number; name: string; hashtag:HashObj }[] = [
+export const usNumData: { 
+  code: string; 
+  value: number; 
+  woeid: number; 
+  name: string; 
+  ppd: number;
+  trends: TrendObj[]; 
+  hashtag: HashObj }[] = [
     {
       name: 'Alabama',
       code: '01',
       value: 5039877,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#AL',
         count: 1,
@@ -14,6 +26,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Alaska',
       code: '02',
       value: 733583,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#AK',
         count: 1,
@@ -23,6 +40,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Arizona',
       code: '04',
       value: 7359197,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#AZ',
         count: 1,
@@ -32,6 +54,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Arkansas',
       code: '05',
       value: 3025891,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#AR',
         count: 1,
@@ -41,6 +68,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'California',
       code: '06',
       value: 39538223,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#CA',
         count: 1,
@@ -50,6 +82,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Colorado',
       code: '08',
       value: 5839926,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#CO',
         count: 1,
@@ -59,6 +96,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Connecticut',
       code: '09',
       value: 3626205,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#CT',
         count: 1,
@@ -68,6 +110,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Delaware',
       code: '10',
       value: 1003384,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#DE',
         count: 1,
@@ -77,6 +124,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'District of Columbia',
       code: '11',
       value: 689545,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#DC',
         count: 1,
@@ -86,6 +138,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Florida',
       code: '12',
       value: 21781128,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#FL',
         count: 1,
@@ -95,6 +152,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Georgia',
       code: '13',
       value: 10711908,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#GA',
         count: 1,
@@ -104,6 +166,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Hawaii',
       code: '15',
       value: 1440194,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#HI',
         count: 1,
@@ -113,6 +180,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Idaho',
       code: '16',
       value: 1900923,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#ID',
         count: 1,
@@ -122,6 +194,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Illinois',
       code: '17',
       value: 12582032,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#IL',
         count: 1,
@@ -131,6 +208,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Indiana',
       code: '18',
       value: 6805985,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#IN',
         count: 1,
@@ -140,6 +222,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Iowa',
       code: '19',
       value: 3190369,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#IA',
         count: 1,
@@ -149,6 +236,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Kansas',
       code: '20',
       value: 2937880,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#KS',
         count: 1,
@@ -158,6 +250,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Kentucky',
       code: '21',
       value: 4505836,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#KY',
         count: 1,
@@ -167,6 +264,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Louisiana',
       code: '22',
       value: 4624047,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#LA',
         count: 1,
@@ -176,6 +278,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Maine',
       code: '23',
       value: 1362359,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#ME',
         count: 1,
@@ -185,6 +292,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Maryland',
       code: '24',
       value: 6177224,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MD',
         count: 1,
@@ -194,6 +306,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Massachusetts',
       code: '25',
       value: 6984723,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MA',
         count: 1,
@@ -203,6 +320,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Michigan',
       code: '26',
       value: 10077331,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MI',
         count: 1,
@@ -212,6 +334,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Minnesota',
       code: '27',
       value: 5706494,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MN',
         count: 1,
@@ -221,6 +348,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Mississippi',
       code: '28',
       value: 2949965,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MS',
         count: 1,
@@ -230,6 +362,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Missouri',
       code: '29',
       value: 6154913,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MO',
         count: 1,
@@ -239,6 +376,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Montana',
       code: '30',
       value: 1104271,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#MT',
         count: 1,
@@ -248,6 +390,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Nebraska',
       code: '31',
       value: 1961504,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NE',
         count: 1,
@@ -257,6 +404,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Nevada',
       code: '32',
       value: 3143991,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NV',
         count: 1,
@@ -266,6 +418,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'New Hampshire',
       code: '33',
       value: 1377529,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NH',
         count: 1,
@@ -275,6 +432,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'New Jersey',
       code: '34',
       value: 9288994,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NJ',
         count: 1,
@@ -284,6 +446,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'New Mexico',
       code: '35',
       value: 2117522,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NM',
         count: 1,
@@ -293,6 +460,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'New York',
       code: '36',
       value: 19453561,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NY',
         count: 1,
@@ -302,6 +474,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'North Carolina',
       code: '37',
       value: 10551162,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#NC',
         count: 1,
@@ -311,6 +488,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'North Dakota',
       code: '38',
       value: 779094,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#ND',
         count: 1,
@@ -320,6 +502,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Ohio',
       code: '39',
       value: 11799448,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#OH',
         count: 1,
@@ -329,6 +516,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Oklahoma',
       code: '40',
       value: 3959353,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#OK',
         count: 1,
@@ -338,6 +530,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Oregon',
       code: '41',
       value: 4246155,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#OR',
         count: 1,
@@ -347,6 +544,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Pennsylvania',
       code: '42',
       value: 13002700,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#PA',
         count: 1,
@@ -356,6 +558,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Rhode Island',
       code: '44',
       value: 1097379,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#RI',
         count: 1,
@@ -365,6 +572,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'South Carolina',
       code: '45',
       value: 5148714,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#SC',
         count: 1,
@@ -374,6 +586,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'South Dakota',
       code: '46',
       value: 886667,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#SD',
         count: 1,
@@ -383,6 +600,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Tennessee',
       code: '47',
       value: 6910840,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#TN',
         count: 1,
@@ -392,6 +614,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Texas',
       code: '48',
       value: 29527941,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#TX',
         count: 1,
@@ -401,6 +628,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Utah',
       code: '49',
       value: 3337975,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#UT',
         count: 1,
@@ -410,6 +642,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Vermont',
       code: '50',
       value: 643077,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#VT',
         count: 1,
@@ -419,6 +656,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Virginia',
       code: '51',
       value: 8654542,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#VA',
         count: 1,
@@ -428,6 +670,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Washington',
       code: '53',
       value: 7705281,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#WA',
         count: 1,
@@ -437,6 +684,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'West Virginia',
       code: '54',
       value: 1792147,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#WV',
         count: 1,
@@ -446,6 +698,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Wisconsin',
       code: '55',
       value: 5893718,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#WI',
         count: 1,
@@ -455,6 +712,11 @@ export const usNumData: { code: string; value: number; name: string; hashtag:Has
       name: 'Wyoming',
       code: '56',
       value: 577737,
+      woeid: 0,
+      ppd: 0,
+      trends: [
+        { name: '#foo', tweet_volume: 0 },
+      ],
       hashtag: {
         hashstr: '#WY',
         count: 1,

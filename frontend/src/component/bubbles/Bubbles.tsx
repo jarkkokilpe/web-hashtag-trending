@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTrends } from '../context/TrendsContext';
 import * as d3 from 'd3';
 import ToolTip from '../tooltip/ToolTip'
-import { HashObj } from '../../data/countryinfo';
+import { HashObj } from '../../types/interfaces';
 import { usNumData } from '../../data/us/stateinfo';
 import { getFixedCountryCentroid, getUsStateCentroid } from '../../utils/maptools'
 import { SizeProps, PositionOnMap, getTooltipPosition } from '../../utils/maptools'
