@@ -110,9 +110,9 @@ export const mockDataCountry = [
   {
     woeid: 23424957, // Switzerland
     trends: [
-      { name: '#Alps', tweet_volume: 18000 },
-      { name: 'SwissWatch', tweet_volume: 16000 },
-      { name: 'Chocolate', tweet_volume: 14000 },
+      { name: '#Alps', tweet_volume: 1800 },
+      { name: 'SwissWatch', tweet_volume: 1600 },
+      { name: 'Chocolate', tweet_volume: 1400 },
     ],
   },
   {

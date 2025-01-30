@@ -26,15 +26,17 @@ export const TrendsProvider: React.FC<TrendsProviderProps> = ({ children }) => {
             const trendData = trends.find((trend: { woeid: number }) => trend.woeid === countryInfo.woeid);
             if (trendData) {
               const totalTweetVolume = trendData.trends.reduce((sum: number, trend: TrendObj) => sum + trend.tweet_volume, 0);
+              const topTrend = trendData.trends.reduce((prev: TrendObj, current: TrendObj) => (current.tweet_volume > prev.tweet_volume ? current : prev), trendData.trends[0]);
               return {
                 ...countryInfo,
                 trends: trendData.trends.map((trend: TrendObj) => ({
                   name: trend.name,
                   tweet_volume: trend.tweet_volume,
                 })),
+                totalvolume: totalTweetVolume,
                 hashtag: {
-                  hashstr: '-',
-                  count: totalTweetVolume,
+                  hashstr: topTrend.name,
+                  count: topTrend.tweet_volume,
                 },
               };
             }

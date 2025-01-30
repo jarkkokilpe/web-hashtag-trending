@@ -9,7 +9,7 @@ export function getTrendVolume(regiData: any): number {
   }
 
   if (regiData.ppd !== 0) {
-    return (10**10 * (regiData.hashtag.count / (regiData.value * regiData.ppd)));
+    return (10**12 * (regiData.hashtag.count / (regiData.value * regiData.ppd)));
   }
 
   return (10**12 * regiData.hashtag.count / regiData.value)

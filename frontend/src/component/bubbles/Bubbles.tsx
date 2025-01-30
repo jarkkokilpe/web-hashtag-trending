@@ -2,17 +2,16 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTrends } from '../context/TrendsContext';
 import * as d3 from 'd3';
 import ToolTip from '../tooltip/ToolTip'
-import { HashObj } from '../../types/interfaces';
+import { SizeProps, HashObj } from '../../types/interfaces';
 import { usNumData } from '../../data/us/stateinfo';
-import { getFixedCountryCentroid, getUsStateCentroid } from '../../utils/maptools'
-import { SizeProps, PositionOnMap, getTooltipPosition } from '../../utils/maptools'
+import { getFixedCountryCentroid, getFixedUsStateCentroid } from '../../utils/maptools'
+import { PositionOnMap, getTooltipPosition } from '../../utils/maptools'
 import { getTrendVolume } from '../../utils/stats'
 import { ZOOM_THRESHOLD_STATES } from '../map/Map'
-
 import './Bubbles.css';
 
-const BUBBLE_MIN_SIZE = 1;
-const BUBBLE_MAX_SIZE = 40;
+const BUBBLE_MIN_SIZE = 1.5;
+const BUBBLE_MAX_SIZE = 5;
 
 const BUBBLE_TOOLTIP_WIDTH = 120;
 const BUBBLE_TOOLTIP_HEIGHT = 40;
@@ -31,6 +30,7 @@ export interface BubbleData {
   position: PositionOnMap;
   code: string;
   value: number;
+  totalvolume: number;
 }
 
 const Bubbles: React.FC<BubblesProps> = ({ 
@@ -128,12 +128,14 @@ const Bubbles: React.FC<BubblesProps> = ({
 
     // Find the centroid of the region
     const fixedCentroid = getFixedCountryCentroid(region.code, mapprops);
+    
     const bubble:BubbleData = {
       name: region.name,
       hash: region.hashtag,
       position: {top: 0, left: 0},
       code: region.code,
-      value: region.value
+      value: region.value,
+      totalvolume: region.totalvolume
     }
 
     // Draw a circle
@@ -162,13 +164,14 @@ const Bubbles: React.FC<BubblesProps> = ({
     .map((region, i) => {
 
     // Find the centroid of the region
-    const fixedCentroid = getUsStateCentroid(region.code, mapprops);
+    const fixedCentroid = getFixedUsStateCentroid(region.code, mapprops);
     const bubble:BubbleData = {
       name: region.name,
       hash: region.hashtag,
       position: {top: 0, left: 0},
       code: region.code,
-      value: region.value
+      value: region.value,
+      totalvolume: region.totalvolume,
     }
 
     // Draw a circle

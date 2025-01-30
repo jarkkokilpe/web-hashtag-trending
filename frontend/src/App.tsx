@@ -2,7 +2,7 @@ import React from 'react';
 import Map from './component/map/Map';
 import Header from './component/header/Header';
 import SideBar from './component/sidebar/SideBar';
-import { SizeProps } from './utils/maptools'
+import { SizeProps } from './types/interfaces'
 import { TrendsProvider } from './component/context/TrendsContext';
 
 import './App.css';

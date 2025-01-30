@@ -5018,15 +5018,6 @@ export const geoData = {
               [179.364143, -16.801354],
             ],
           ],
-          [
-            [
-              [-179.917369, -16.501783],
-              [-180, -16.555217],
-              [-180, -16.067133],
-              [-179.79332, -16.020882],
-              [-179.917369, -16.501783],
-            ],
-          ],
         ],
       },
       id: 'FJI',
@@ -5113,29 +5104,6 @@ export const geoData = {
           ],
           [
             [
-              [-52.556425, 2.504705],
-              [-52.939657, 2.124858],
-              [-53.418465, 2.053389],
-              [-53.554839, 2.334897],
-              [-53.778521, 2.376703],
-              [-54.088063, 2.105557],
-              [-54.524754, 2.311849],
-              [-54.27123, 2.738748],
-              [-54.184284, 3.194172],
-              [-54.011504, 3.62257],
-              [-54.399542, 4.212611],
-              [-54.478633, 4.896756],
-              [-53.958045, 5.756548],
-              [-53.618453, 5.646529],
-              [-52.882141, 5.409851],
-              [-51.823343, 4.565768],
-              [-51.657797, 4.156232],
-              [-52.249338, 3.241094],
-              [-52.556425, 2.504705],
-            ],
-          ],
-          [
-            [
               [9.560016, 42.152492],
               [9.229752, 41.380007],
               [8.775723, 41.583612],
@@ -5195,7 +5163,7 @@ export const geoData = {
     {
       type: 'Feature',
       properties: { 
-        name: 'Great Britain',
+        name: 'United Kingdom',
         mapname: 'Britain'
       },
       geometry: {
@@ -13245,6 +13213,1207 @@ export const geoData = {
         ],
       },
       id: 'ZWE',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Gibraltar' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-5.353585, 36.140751],
+            [-5.353585, 36.140752],
+            [-5.353586, 36.140751],
+          ],
+        ],
+      },
+      id: 'GIB',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Pitcairn' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-128.3243, -24.3768],
+            [-128.3244, -24.3768],
+            [-128.3243, -24.3767],
+          ],
+        ],
+      },
+      id: 'PCN',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'United States Minor Outlying Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [169.5312, 16.7346],     
+            [169.5312, 16.7347],     
+            [169.5313, 16.7346],
+          ],
+        ],
+      },
+      id: 'UMI',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Monaco' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [7.4128, 43.7533],       
+            [7.4128, 43.7534],       
+            [7.4129, 43.7533],
+          ],
+        ],
+      },
+      id: 'MCO',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Cocos (Keeling) Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [96.8432, -12.1796],     
+            [96.8432, -12.1795],     
+            [96.8433, -12.1796],
+          ],
+        ],
+      },
+      id: 'CCK',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Holy See (Vatican City)' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [12.4534, 41.9029],      
+            [12.4534, 41.9030],      
+            [12.4535, 41.9029],
+          ],
+        ],
+      },
+      id: 'VAT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Tokelau' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-171.8558, -8.9673],    
+            [-171.8558, -8.9672],    
+            [-171.8557, -8.9673],
+          ],
+        ],
+      },
+      id: 'TKL',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Niue' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-169.8672, -19.0544],   
+            [-169.8672, -19.0543],   
+            [-169.8671, -19.0544],
+          ],
+        ],
+      },
+      id: 'NIU',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Norfolk Island' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [167.9547, -29.0408],    
+            [167.9547, -29.0407],    
+            [167.9548, -29.0408],
+          ],
+        ],
+      },
+      id: 'NFK',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Christmas Island' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [105.6904, -10.4475],    
+            [105.6904, -10.4474],    
+            [105.6905, -10.4475],
+          ],
+        ],
+      },
+      id: 'CXR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Svalbard' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [15.6268, 78.2232],      
+            [15.6268, 78.2233],      
+            [15.6269, 78.2232],
+          ],
+        ],
+      },
+      id: 'SJM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Montserrat' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-62.1874, 16.7425],     
+            [-62.1874, 16.7426],     
+            [-62.1873, 16.7425],
+          ],
+        ],
+      },
+      id: 'MSR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Marshall Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [171.1845, 7.1315],      
+            [171.1845, 7.1316],      
+            [171.1846, 7.1315],
+          ],
+        ],
+      },
+      id: 'MHL',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Pierre and Miquelon' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-56.2747, 46.8600],     
+            [-56.2747, 46.8601],     
+            [-56.2746, 46.8600],
+          ],
+        ],
+      },
+      id: 'SPM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Helena' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-5.7089, -15.965],      
+            [-5.7089, -15.964],      
+            [-5.7088, -15.965],    
+          ],
+        ],
+      },
+      id: 'SHN',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Martin' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-63.0501, 18.0708],     
+            [-63.0501, 18.0709],     
+            [-63.0500, 18.0708],   
+          ],
+        ],
+      },
+      id: 'MAF',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Sint Maarten' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-63.0615, 18.0309],     
+            [-63.0615, 18.0309],     
+            [-63.0615, 18.0309],   
+          ],
+        ],
+      },
+      id: 'SXM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Nauru' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [166.9315, -0.5228],     
+            [166.9315, -0.5227],     
+            [166.9316, -0.5228],
+          ],
+        ],
+      },
+      id: 'NRU',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Tuvalu' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [177.6493, -7.1095],     
+            [177.6493, -7.1094],     
+            [177.6494, -7.1095],  
+          ],
+        ],
+      },
+      id: 'TUV',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Barthelemy' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-62.8333, 17.9000],     
+            [-62.8333, 17.9001],     
+            [-62.8332, 17.9000],
+          ],
+        ],
+      },
+      id: 'BLM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Anguilla' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-63.0686, 18.2206],     
+            [-63.0686, 18.2207],     
+            [-63.0685, 18.2206],
+          ],
+        ],
+      },
+      id: 'AIA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Cook Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-159.7655, -21.2388],   
+            [-159.7655, -21.2387],   
+            [-159.7654, -21.2388],
+          ],
+        ],
+      },
+      id: 'COK',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Wallis and Futuna Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-177.1561, -13.7687],   
+            [-177.1561, -13.7686],   
+            [-177.1560, -13.7687],
+          ],
+        ],
+      },
+      id: 'WLF',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Lucia' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-60.9789, 13.9094],     
+            [-60.9789, 13.9095],     
+            [-60.9788, 13.9094],
+          ],
+        ],
+      },
+      id: 'LCA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Guam' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [144.7937, 13.4443],     
+            [144.7937, 13.4444],     
+            [144.7938, 13.4443],
+          ],
+        ],
+      },
+      id: 'GUM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Palau' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [134.5825, 7.5150],      
+            [134.5825, 7.5151],      
+            [134.5826, 7.5150],
+          ],
+        ],
+      },
+      id: 'PLW',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'British Virgin Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-64.6400, 18.4207],     
+            [-64.6400, 18.4208],     
+            [-64.6399, 18.4207],
+          ],
+        ],
+      },
+      id: 'VGB',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Turks and Caicos Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-72.2833, 21.7833],     
+            [-72.2833, 21.7834],     
+            [-72.2832, 21.7833],
+          ],
+        ],
+      },
+      id: 'TCA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'San Marino' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [12.4578, 43.9424],      
+            [12.4578, 43.9425],      
+            [12.4579, 43.9424],
+          ],
+        ],
+      },
+      id: 'SMR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Åland Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [19.9420, 60.1699],      
+            [19.9420, 60.1700],      
+            [19.9421, 60.1699],
+          ],
+        ],
+      },
+      id: 'ALA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Liechtenstein' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [9.5554, 47.166],        
+            [9.5554, 47.1661],       
+            [9.5555, 47.166],
+          ],
+        ],
+      },
+      id: 'LIE',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Cayman Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-81.2546, 19.3133],     
+            [-81.2546, 19.3134],     
+            [-81.2545, 19.3133], 
+          ],
+        ],
+      },
+      id: 'CYM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Faroe Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-6.9118, 61.8926],      
+            [-6.9118, 61.8927],      
+            [-6.9117, 61.8926]  
+          ],
+        ],
+      },
+      id: 'FRO',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Kitts and Nevis' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-62.7829, 17.3578],     
+            [-62.7829, 17.3579],     
+            [-62.7828, 17.3578],
+          ],
+        ],
+      },
+      id: 'KNA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Guernsey' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-2.5853, 49.4657],      
+            [-2.5853, 49.4658],      
+            [-2.5852, 49.4657],
+          ],
+        ],
+      },
+      id: 'GGY',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Bermuda' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-64.7505, 32.3078],     
+            [-64.7505, 32.3079],     
+            [-64.7504, 32.3078],
+          ],
+        ],
+      },
+      id: 'BMU',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Dominica' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.371, 15.415],       
+            [-61.371, 15.4151],      
+            [-61.3709, 15.415],
+          ],
+        ],
+      },
+      id: 'DMA',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Andorra' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [1.6016, 42.5462],       
+            [1.6016, 42.5463],       
+            [1.6017, 42.5462],
+          ],
+        ],
+      },
+      id: 'AND',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Isle of Man' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-4.5481, 54.2361],      
+            [-4.5481, 54.2362],      
+            [-4.5480, 54.2361], 
+          ],
+        ],
+      },
+      id: 'IMN',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Singapore' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [103.8198, 1.3521],      
+            [103.8198, 1.3522],      
+            [103.8199, 1.3521],
+          ],
+        ],
+      },
+      id: 'SGP',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Northern Mariana Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [145.753510487, 15.18882477], 
+            [145.753510487, 15.18882478], 
+            [145.753510488, 15.18882477],   
+          ],
+        ],
+      },
+      id: 'MNP',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Antigua and Barbuda' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.8465, 17.0608],      
+            [-61.8465, 17.0609],      
+            [-61.8464, 17.0608],
+          ],
+        ],
+      },
+      id: 'ATG',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Seychelles' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [55.4915, -4.6796],       
+            [55.4915, -4.6795],       
+            [55.4916, -4.6796],       
+          ],
+        ],
+      },
+      id: 'SYC',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Kiribati' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [173.0167, 1.8700],       
+            [173.0167, 1.8701],       
+            [173.0168, 1.8700], 
+          ],
+        ],
+      },
+      id: 'KIR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Tonga' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-175.1982, -21.1790],    
+            [-175.1982, -21.1789],    
+            [-175.1981, -21.1790],
+          ],
+        ],
+      },
+      id: 'TON',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Aruba' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-70.0059, 12.5211],      
+            [-70.0059, 12.5212],      
+            [-70.0058, 12.5211],  
+          ],
+        ],
+      },
+      id: 'ABW',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Jersey' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-2.1313, 49.2144],       
+            [-2.1313, 49.2145],       
+            [-2.1312, 49.2144], 
+          ],
+        ],
+      },
+      id: 'JEY',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Grenada' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.7488, 12.1165],      
+            [-61.7488, 12.1166],      
+            [-61.7487, 12.1165],  
+          ],
+        ],
+      },
+      id: 'GRD',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'United States Virgin Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-64.8963, 18.3358],      
+            [-64.8963, 18.3359],      
+            [-64.8962, 18.3358],  
+          ],
+        ],
+      },
+      id: 'VIR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Federated States of Micronesia' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [158.2283, 6.9175],       
+            [158.2283, 6.9176],       
+            [158.2284, 6.9175],  
+          ],
+        ],
+      },
+      id: 'FSM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Saint Vincent and the Grenadines' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.2225, 13.1600],      
+            [-61.2225, 13.1601],      
+            [-61.2224, 13.1600],
+          ],
+        ],
+      },
+      id: 'VCT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Sao Tome and Principe' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [6.6131, 0.1864],         
+            [6.6131, 0.1865],         
+            [6.6132, 0.1864],
+          ],
+        ],
+      },
+      id: 'STP',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Samoa' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-172.1046, -13.7590],    
+            [-172.1046, -13.7589],    
+            [-172.1045, -13.7590], 
+          ],
+        ],
+      },
+      id: 'WSM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Curaçao' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-68.9934, 12.1696],      
+            [-68.9934, 12.1697],      
+            [-68.9933, 12.1696],
+          ],
+        ],
+      },
+      id: 'CUW',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Bonaire, Sint Eustatius and Saba' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-68.2634, 12.2017],     
+            [-68.2634, 12.2018],     
+            [-68.2633, 12.2017],   
+          ],
+        ],
+      },
+      id: 'BES',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'French Guiana' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-52.556425, 2.504705],
+            [-52.939657, 2.124858],
+            [-53.418465, 2.053389],
+            [-53.554839, 2.334897],
+            [-53.778521, 2.376703],
+            [-54.088063, 2.105557],
+            [-54.524754, 2.311849],
+            [-54.27123, 2.738748],
+            [-54.184284, 3.194172],
+            [-54.011504, 3.62257],
+            [-54.399542, 4.212611],
+            [-54.478633, 4.896756],
+            [-53.958045, 5.756548],
+            [-53.618453, 5.646529],
+            [-52.882141, 5.409851],
+            [-51.823343, 4.565768],
+            [-51.657797, 4.156232],
+            [-52.249338, 3.241094],
+            [-52.556425, 2.504705],
+          ],
+        ],
+      },
+      id: 'GUF',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'French Polynesia' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-149.4068, -17.6797],    
+            [-149.4068, -17.6796],    
+            [-149.4067, -17.6797],    
+          ],
+        ],
+      },
+      id: 'PYF',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Mayotte' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [45.1667, -12.8275],      
+            [45.1667, -12.8274],      
+            [45.1668, -12.8275],
+          ],
+        ],
+      },
+      id: 'MYT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Maldives' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [73.5082, 3.2028],        
+            [73.5082, 3.2029],        
+            [73.5083, 3.2028],
+          ],
+        ],
+      },
+      id: 'MDV',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Martinique' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.0242, 14.6415],      
+            [-61.0242, 14.6416],      
+            [-61.0241, 14.6415],  
+          ],
+        ],
+      },
+      id: 'MTQ',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Malta' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [14.3711, 35.9375],       
+            [14.3711, 35.9376],       
+            [14.3712, 35.9375],      
+          ],
+        ],
+      },
+      id: 'MLT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Guadeloupe' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-61.5510, 16.2650],      
+            [-61.5510, 16.2651],      
+            [-61.5509, 16.2650],  
+          ],
+        ],
+      },
+      id: 'GLP',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Cape Verde' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-24.0132, 16.0021],      
+            [-24.0132, 16.0022],      
+            [-24.0131, 16.0021], 
+          ],
+        ],
+      },
+      id: 'CPV',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Macau' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [113.5439, 22.1987],      
+            [113.5439, 22.1988],      
+            [113.5440, 22.1987], 
+          ],
+        ],
+      },
+      id: 'MAC',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Reunion' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [55.5364, -21.1151],      
+            [55.5364, -21.1150],      
+            [55.5365, -21.1151],  
+          ],
+        ],
+      },
+      id: 'REU',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Comoros' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [43.8722, -11.8750],      
+            [43.8722, -11.8749],      
+            [43.8723, -11.8750], 
+          ],
+        ],
+      },
+      id: 'COM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Mauritius' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [57.5522, -20.3484],      
+            [57.5522, -20.3483],      
+            [57.5523, -20.3484],  
+          ],
+        ],
+      },
+      id: 'MUS',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'American Samoa' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-170.6993, -14.2710],    
+            [-170.6993, -14.2709],    
+            [-170.6992, -14.2710],    
+          ],
+        ],
+      },
+      id: 'ASM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Hong Kong' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [114.1095, 22.3964],      
+            [114.1095, 22.3965],      
+            [114.1096, 22.3964],      
+          ],
+        ],
+      },
+      id: 'HKG',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Barbados' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-59.5432, 13.1939],      
+            [-59.5432, 13.1940],      
+            [-59.5431, 13.1939],
+          ],
+        ],
+      },
+      id: 'BRB',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Bahrain' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [50.5354, 26.0667],       
+            [50.5354, 26.0668],       
+            [50.5355, 26.0667],   
+          ],
+        ],
+      },
+      id: 'BHR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Bouvet Island' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [3.3452, -54.4232],       
+            [3.3452, -54.4231],       
+            [3.3453, -54.4232],  
+          ],
+        ],
+      },
+      id: 'BVT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Heard Island and McDonald Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [73.5104, -53.0818],      
+            [73.5104, -53.0817],      
+            [73.5105, -53.0818],  
+          ],
+        ],
+      },
+      id: 'HMD',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'British Indian Ocean Territory' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [72.4439, -6.3432],       
+            [72.4439, -6.3431],       
+            [72.4440, -6.3432],   
+          ],
+        ],
+      },
+      id: 'IOT',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'South Georgia and the South Sandwich Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-36.5000, -54.4333],     
+            [-36.5000, -54.4332],     
+            [-36.4999, -54.4333],
+          ],
+        ],
+      },
+      id: 'SGS',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Madeira' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-16.9708, 32.7475],     
+            [-16.9708, 32.7476],     
+            [-16.9707, 32.7475],
+          ],
+        ],
+      },
+      id: 'RAM',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Canary Islands' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-15.6658, 28.1571],     
+            [-15.6658, 28.1572],     
+            [-15.6657, 28.1571],
+          ],
+        ],
+      },
+      id: 'ESCN',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Azores' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-25.5039, 37.7788],     
+            [-25.5039, 37.7789],     
+            [-25.5038, 37.7788],
+          ],
+        ],
+      },
+      id: 'AZR',
+    },
+    {
+      type: 'Feature',
+      properties: { name: 'Tristan da cunha' },
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [
+            [-12.2814, -37.1095],     
+            [-12.2814, -37.1094],     
+            [-12.2813, -37.1095],
+          ],
+        ],
+      },
+      id: 'TA',
     },
   ],
 };

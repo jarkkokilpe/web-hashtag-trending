@@ -1,54 +1,11 @@
 import * as d3 from 'd3';
 import { geoData } from '../data/worldbounds'
 import { geoJsonUsStates } from '../data/us/statebounds'
-
-export interface SizeProps {
-  width:number,
-  height:number,
-}
+import { SizeProps } from '../types/interfaces'
 
 export interface PositionOnMap {
   top: number;
   left: number;
-}
-
-
-interface JsonDataItem {
-  id: string;
-  coordinates: number[][];
-  [key: string]: any;
-}
-
-interface GeoJSONFeature {
-  type: string;
-  id: string;
-  geometry: {
-    type: string;
-    coordinates: number[][][];
-  };
-  properties: { [key: string]: any };
-}
-
-interface GeoJSON {
-  type: string;
-  features: GeoJSONFeature[];
-}
-
-export function jsonToGeoJSON(jsonData: JsonDataItem[]): GeoJSON {
-  return {
-    type: "FeatureCollection",
-    features: jsonData.map(item => ({
-      type: "Feature",
-      id: item.id,
-      geometry: {
-        type: "Polygon", // Adjust based on what type your data represents
-        coordinates: [item.coordinates] // GeoJSON requires an extra nesting for polygons
-      },
-      properties: Object.fromEntries(
-        Object.entries(item).filter(([key]) => !['id', 'coordinates'].includes(key))
-      )
-    }))
-  };
 }
 
 export function createProjection(mapprops: SizeProps) {
@@ -111,12 +68,12 @@ export function getCountryArea(countryId:string, mapprops:SizeProps):number {
  * Function that returns the suitable position for country name label
  */
 export function getFixedCountryCentroid(countryId:string, mapprops:SizeProps): number[] {
-  const centroid = getCountryCentroid(countryId, mapprops);
+  const centroid = getAreaCentroid(geoData, countryId, mapprops);
   let fixedCentroid:number[] = [...centroid];
   
   // Hand adjustments for the appropriate centroid point (in map) for the funky shaped countries
   switch (countryId) {
-    case 'CAN': fixedCentroid[0] += 15;  fixedCentroid[1] += 29; break;
+    case 'CAN': fixedCentroid[0] += 15; fixedCentroid[1] += 29; break;
     case 'CHL': fixedCentroid[0] -= 1;  fixedCentroid[1] -= 4; break;
     case 'CHN': fixedCentroid[0] -= 6;  fixedCentroid[1] += 10; break;
     case 'FIN': fixedCentroid[0] -= 1;  fixedCentroid[1] += 12; break;
@@ -141,93 +98,66 @@ export function getFixedCountryCentroid(countryId:string, mapprops:SizeProps): n
   return fixedCentroid;
 }
 
+export function getFixedUsStateCentroid(countryId:string, mapprops:SizeProps): number[] {
+  const centroid = getAreaCentroid(geoJsonUsStates, countryId, mapprops);
+  let fixedCentroid:number[] = [...centroid];
+  
+  // Hand adjustments for the appropriate centroid point (in map) for the funky shaped countries
+  switch (countryId) {
+    case '02': fixedCentroid[0] -= 50; fixedCentroid[1] -= 40; break; // Alaska
+    case '06': fixedCentroid[0] -= 2; fixedCentroid[1] -= 0; break; // California
+    case '12': fixedCentroid[0] += 2; fixedCentroid[1] -= 0; break; // Florida
+    case '22': fixedCentroid[0] -= 0; fixedCentroid[1] += 2; break; // Lousiana
+    case '24': fixedCentroid[0] -= 0; fixedCentroid[1] -= 2; break; // Maryland
+    case '44': fixedCentroid[0] -= 1; fixedCentroid[1] -= 0; break; // Rhode Island
+    case '51': fixedCentroid[0] -= 6; fixedCentroid[1] += 1; break; // Virginia
+
+    default: break;
+  }
+  
+  return fixedCentroid;
+}
+
 /**
  * getFixedCountryCentroid
  * 
  * Function that returns the country's centroid
  */
-export function getCountryCentroid(countryId:string, mapprops:SizeProps): number[] {
+interface GeoArea {
+  features: GeoRegion[];
+}
+
+interface GeoRegion {
+  id: string;
+  geometry: {
+    type: string;
+    coordinates: number[][][] | number[][][][]; // MultiPolygon or Polygon
+  };
+}
+
+export function getAreaCentroid(geoArea: GeoArea, countryId: string, mapprops: SizeProps): number[] {
   // Find the corresponding geoData information
-  const regionGeoData = geoData.features.find(
-   (geoRegion) => geoRegion.id === countryId
- );
- 
- if (!regionGeoData) {
-   //console.warn('Geo region not found!', countryId);
-   return [0,0];
- }
-
- // Create a new object to avoid mutating the original data
- let newRegionGeoData = { ...regionGeoData };
-
- // If it's a MultiPolygon, reduce the coordinates to the first array
- if (newRegionGeoData.geometry.type === 'MultiPolygon') {
-   newRegionGeoData.geometry = {
-     ...newRegionGeoData.geometry,
-     coordinates: newRegionGeoData.geometry.coordinates[0] as number[][][]
-   };
-   // Optionally, change the type to 'Polygon' if you want to reflect the change in coordinates
-   newRegionGeoData.geometry.type = 'Polygon';
- }
-       
- return createProjection(mapprops).centroid(newRegionGeoData as unknown as d3.GeoPermissibleObjects);
-}
-
-export function getUsStateCentroid(stateCode:string, mapprops:SizeProps): number[] {
-  // Find the corresponding geoData information
-  const regionGeoData = geoJsonUsStates.features.find(
-   (geoRegion) => geoRegion.id === stateCode
- );
- 
- if (!regionGeoData) {
-   //console.warn('Geo region not found!', countryId);
-   return [0,0];
- }
-
- // Create a new object to avoid mutating the original data
- let newRegionGeoData = { ...regionGeoData };
-
- // If it's a MultiPolygon, reduce the coordinates to the first array
- if (newRegionGeoData.geometry.type === 'MultiPolygon') {
-   newRegionGeoData.geometry = {
-     ...newRegionGeoData.geometry,
-     coordinates: newRegionGeoData.geometry.coordinates[0] as number[][][]
-   };
-   // Optionally, change the type to 'Polygon' if you want to reflect the change in coordinates
-   newRegionGeoData.geometry.type = 'Polygon';
- }
-       
- return createProjection(mapprops).centroid(newRegionGeoData as unknown as d3.GeoPermissibleObjects);
-}
-
-export function getFontSize(area: number): number {
-  if (area > 10000) {
-    return 8;
-  } else if (area > 5000) {
-    return 6;
-  } else if (area > 1000) {
-    return 4;
-  } else if (area > 300) {
-    return 2;
-  } else if (area > 50) {
-    return 1;
-  } else {
-    return 0;
+  const regionGeoData = geoArea.features.find(
+    (geoRegion) => geoRegion.id === countryId
+  );
+  
+  if (!regionGeoData) {
+    console.log('Geo region not found! ' + countryId);
+    return [0, 0];
   }
-}
 
-export function isCountryLabelVisible(font: number, zoomScale:number): boolean {
-  if (zoomScale <= 2 && font >= 6) {
-    return true;
-  } else if (zoomScale > 2 && font >= 6) {
-    return true;
-  } else if (zoomScale > 3 && font >= 4) {
-    return true;
-  } else if (zoomScale > 4 && font >= 2) {
-    return true;
-  } else if (zoomScale > 8 && font >= 1) {
-    return true;
-  } else {
-    return false;
+  // Create a new object to avoid mutating the original data
+  let newRegionGeoData = { ...regionGeoData };
+
+  // If it's a MultiPolygon, reduce the coordinates to the first array
+  if (newRegionGeoData.geometry.type === 'MultiPolygon') {
+    newRegionGeoData.geometry = {
+      ...newRegionGeoData.geometry,
+      coordinates: newRegionGeoData.geometry.coordinates[0] as number[][][]
+    };
+    // Optionally, change the type to 'Polygon' if you want to reflect the change in coordinates
+    newRegionGeoData.geometry.type = 'Polygon';
   }
+        
+  return createProjection(mapprops).centroid(newRegionGeoData as unknown as d3.GeoPermissibleObjects);
 }

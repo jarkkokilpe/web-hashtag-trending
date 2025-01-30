@@ -13,6 +13,7 @@ export interface CountryInfo {
   code: string,
   woeid: number,
   value: number,
+  totalvolume: number,
   ppd: number,  // posts per inhabitant per day
   trends: TrendObj[],
   hashtag: HashObj,

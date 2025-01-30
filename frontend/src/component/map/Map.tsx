@@ -5,21 +5,12 @@ import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
 import { BubbleData } from '../bubbles/Bubbles';
 import { geoData, CountryFeature, CountryProps } from '../../data/worldbounds'
-//import { geoData } from '../../data/finebounds'
 import { geoJsonUsStates } from '../../data/us/statebounds';
 import { getMapname } from '../../utils/stats'
-import { 
-  SizeProps, 
-  PositionOnMap, 
-  getTooltipPosition,
-  createProjection
-} from '../../utils/maptools'
-import { 
-  getCountryArea,
-  getFixedCountryCentroid,
-  getFontSize,
-  isCountryLabelVisible 
-} from '../../utils/maptools'
+import { SizeProps } from '../../types/interfaces'
+import { PositionOnMap, getTooltipPosition, createProjection } from '../../utils/maptools'
+import { getCountryArea, getFixedCountryCentroid } from '../../utils/maptools'
+import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
 import './Map.css';
 
 const COUNTRY_TOOLTIP_WIDTH = 120;
@@ -79,8 +70,8 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
       
       // Append content
       svg
-        .attr("width", width)
-        .attr("height", height);
+        .attr("width", width-1)
+        .attr("height", height-4);
         // Set up the interval loop to fetch trends every second
     }
   }, [width, height]);
@@ -222,8 +213,6 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
             </g>
           );
         }))}
-
-       
 
         <Bubbles 
           mapprops={mapprops} 
