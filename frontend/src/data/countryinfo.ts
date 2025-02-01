@@ -21,7 +21,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ATG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -36,7 +36,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DZA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -51,7 +51,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AZE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -66,7 +66,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ALB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -81,7 +81,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ARM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -96,7 +96,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AGO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -111,7 +111,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ASM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -126,7 +126,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ARG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -141,7 +141,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AUS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -156,7 +156,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BHR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -171,7 +171,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BRB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -186,7 +186,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BMU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -201,7 +201,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BHS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -216,7 +216,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BGD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -231,7 +231,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BLZ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -246,7 +246,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BIH',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -261,7 +261,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BOL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -276,7 +276,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MMR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -291,7 +291,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BEN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -306,7 +306,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SLB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -321,7 +321,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BRA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -336,7 +336,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BGR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -351,7 +351,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BRN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -366,7 +366,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CAN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -381,7 +381,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KHM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -396,7 +396,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LKA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -411,7 +411,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#COG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -426,7 +426,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#COD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -441,7 +441,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BDI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -456,7 +456,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CHN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -471,7 +471,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AFG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -486,7 +486,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BTN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -501,7 +501,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CHL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -516,7 +516,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CYM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -531,7 +531,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CMR',
-      count:  1, 
+      count: 0, 
     },
 
   },
@@ -547,7 +547,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TCD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -562,7 +562,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#COM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -577,7 +577,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#COL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -592,7 +592,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CRI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -607,7 +607,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CAF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -622,7 +622,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CUB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -637,7 +637,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CPV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -652,7 +652,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#COK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -667,7 +667,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CYP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -682,7 +682,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DNK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -697,7 +697,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DJI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -712,7 +712,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DMA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -727,7 +727,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DOM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -742,7 +742,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ECU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -757,7 +757,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#EGY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -772,7 +772,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IRL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -787,7 +787,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GNQ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -802,7 +802,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#EST',
-      count: 1, 
+      count: 0, 
     },
   },
   {
@@ -817,7 +817,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ERI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -832,7 +832,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SLV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -847,7 +847,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ETH',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -862,7 +862,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AUT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -877,7 +877,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CZE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -892,7 +892,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GUF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -907,7 +907,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FIN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -922,7 +922,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FJI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -937,7 +937,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FLK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -952,7 +952,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FSM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -967,7 +967,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PYF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -982,7 +982,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FRA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -997,7 +997,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GMB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1012,7 +1012,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GAB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1027,7 +1027,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GEO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1042,7 +1042,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GHA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1057,7 +1057,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GRD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1072,7 +1072,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GRL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1087,7 +1087,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#DEU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1102,7 +1102,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GUM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1117,7 +1117,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GRC',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1132,7 +1132,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GTM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1147,7 +1147,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GIN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1162,7 +1162,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GUY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1177,7 +1177,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HTI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1192,7 +1192,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HND',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1207,7 +1207,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HRV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1222,7 +1222,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HUN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1237,7 +1237,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ISL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1252,7 +1252,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IND',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1267,7 +1267,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IRN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1282,7 +1282,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ISR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1297,7 +1297,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ITA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1312,7 +1312,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CIV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1327,7 +1327,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IRQ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1342,7 +1342,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#JPN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1357,7 +1357,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#JAM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1372,7 +1372,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#JOR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1387,7 +1387,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KEN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1402,7 +1402,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KGZ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1417,7 +1417,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PRK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1432,7 +1432,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KIR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1447,7 +1447,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KOR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1462,7 +1462,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KWT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1477,7 +1477,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KAZ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1492,7 +1492,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LAO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1507,7 +1507,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LBN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1522,7 +1522,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LVA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1537,7 +1537,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BLR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1552,7 +1552,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LTU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1567,7 +1567,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LBR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1582,7 +1582,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SVK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1597,7 +1597,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LIE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1612,7 +1612,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LBY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1627,7 +1627,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MDG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1642,7 +1642,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MTQ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1657,7 +1657,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MNG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1672,7 +1672,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MSR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1687,7 +1687,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MKD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1702,7 +1702,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MLI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1717,7 +1717,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MAR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1732,7 +1732,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MUS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1747,7 +1747,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MRT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1762,7 +1762,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MLT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1777,7 +1777,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#OMN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1792,7 +1792,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MDV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1807,7 +1807,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MEX',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1822,7 +1822,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MYS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1837,7 +1837,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MOZ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1852,7 +1852,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MWI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1867,7 +1867,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NCL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1882,7 +1882,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NIU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1897,7 +1897,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NER',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1912,7 +1912,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ABW',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1927,7 +1927,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AIA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1942,7 +1942,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BEL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1957,7 +1957,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HKG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1972,7 +1972,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MNP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -1987,7 +1987,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#FRO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2002,7 +2002,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AND',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2017,7 +2017,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GIB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2032,7 +2032,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IMN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2047,7 +2047,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LUX',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2062,7 +2062,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MAC',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2077,7 +2077,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MCO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2092,7 +2092,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PSE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2107,7 +2107,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MNE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2122,7 +2122,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MYT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2137,7 +2137,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ALA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2152,7 +2152,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NFK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2167,7 +2167,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CCK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2182,7 +2182,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ATA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2197,7 +2197,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BVT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2227,7 +2227,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#HMD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2242,7 +2242,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IOT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2257,7 +2257,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CXR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2272,7 +2272,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#UMI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2287,7 +2287,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VUT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2302,7 +2302,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NGA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2317,7 +2317,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NLD',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2332,7 +2332,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NOR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2347,7 +2347,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NPL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2362,7 +2362,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NRU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2377,7 +2377,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SUR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2392,7 +2392,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NIC',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2407,7 +2407,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NZL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2422,7 +2422,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PRY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2437,7 +2437,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PER',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2452,7 +2452,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PAK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2467,7 +2467,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#POL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2482,7 +2482,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PAN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2497,7 +2497,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PRT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2512,7 +2512,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PNG',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2527,7 +2527,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GNB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2542,7 +2542,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#QAT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2557,7 +2557,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#REU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2572,7 +2572,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ROU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2587,7 +2587,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MDA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2602,7 +2602,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PHL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2617,7 +2617,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PRI',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2632,7 +2632,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#RUS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2647,7 +2647,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#RWA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2662,7 +2662,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SAU',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2677,7 +2677,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#KNA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2692,7 +2692,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SYC',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2707,7 +2707,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ZAF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2722,7 +2722,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LSO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2737,7 +2737,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BWA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2752,7 +2752,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SEN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2767,7 +2767,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SVN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2782,7 +2782,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SLE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2797,7 +2797,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SGP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2812,7 +2812,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SOM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2827,7 +2827,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ESP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2842,7 +2842,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#LCA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2857,7 +2857,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SDN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2872,7 +2872,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SDS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2887,7 +2887,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SWE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2902,7 +2902,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SYR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2917,7 +2917,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CHE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2932,7 +2932,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TTO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2947,7 +2947,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#THA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2962,7 +2962,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TJK',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2977,7 +2977,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TKL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -2992,7 +2992,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TON',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3007,7 +3007,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TGO',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3022,7 +3022,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#STP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3037,7 +3037,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TUN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3052,7 +3052,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TUR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3067,7 +3067,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TUV',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3082,7 +3082,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TKM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3097,7 +3097,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TZA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3112,7 +3112,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#UGA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3127,7 +3127,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GBR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3142,7 +3142,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#UKR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3157,7 +3157,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#USA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3172,7 +3172,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BFA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3187,7 +3187,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#URY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3202,7 +3202,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#UZB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3217,7 +3217,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VCT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3232,7 +3232,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VEN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3247,7 +3247,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VGB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3262,7 +3262,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VNM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3277,7 +3277,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VIR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3292,7 +3292,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#NAM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3307,7 +3307,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#WLF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3322,7 +3322,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#WSM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3337,7 +3337,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SWZ',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3352,7 +3352,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#YEM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3367,7 +3367,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ZMB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3382,7 +3382,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ZWE',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3397,7 +3397,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#IDN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3412,7 +3412,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GLP',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3427,7 +3427,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#CUW',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3442,7 +3442,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BES',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3457,7 +3457,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TLS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3487,7 +3487,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#PLW',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3502,7 +3502,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MHL',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3517,7 +3517,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SPM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3532,7 +3532,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SHN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3547,7 +3547,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SMR',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3562,7 +3562,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TCA',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3577,7 +3577,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ESH',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3592,7 +3592,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SRB',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3607,7 +3607,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#VAT',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3622,7 +3622,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SJM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3637,7 +3637,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#MAF',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3652,7 +3652,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SXM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3667,7 +3667,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#BLM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3682,7 +3682,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#GGY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3697,7 +3697,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#JEY',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3712,7 +3712,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#SGS',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3727,7 +3727,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#TWN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3742,7 +3742,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#ESCN',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3757,7 +3757,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#RAM',
-      count:  1, 
+      count: 0, 
     },
   },
   {
@@ -3772,7 +3772,7 @@ export const numData: {
     ],
     hashtag: { 
       hashstr: '#AZR',
-      count:  1, 
+      count: 0, 
     },
   },
   {

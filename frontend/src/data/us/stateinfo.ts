@@ -21,7 +21,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#AL',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -36,7 +36,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#AK',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -51,7 +51,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#AZ',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -66,7 +66,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#AR',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -81,7 +81,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#CA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -96,7 +96,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#CO',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -111,7 +111,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#CT',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -126,7 +126,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#DE',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -141,7 +141,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#DC',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -156,7 +156,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#FL',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -171,7 +171,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#GA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -186,7 +186,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#HI',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -201,7 +201,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#ID',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -216,7 +216,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#IL',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -231,7 +231,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#IN',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -246,7 +246,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#IA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -261,7 +261,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#KS',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -276,7 +276,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#KY',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -291,7 +291,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#LA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -306,7 +306,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#ME',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -321,7 +321,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MD',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -336,7 +336,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -351,7 +351,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MI',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -366,7 +366,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MN',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -381,7 +381,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MS',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -396,7 +396,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MO',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -411,7 +411,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#MT',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -426,7 +426,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NE',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -441,7 +441,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NV',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -456,7 +456,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NH',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -471,7 +471,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NJ',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -486,7 +486,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NM',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -501,7 +501,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NY',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -516,7 +516,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#NC',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -531,7 +531,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#ND',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -546,7 +546,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#OH',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -561,7 +561,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#OK',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -576,7 +576,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#OR',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -591,7 +591,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#PA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -606,7 +606,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#RI',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -621,7 +621,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#SC',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -636,7 +636,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#SD',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -651,7 +651,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#TN',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -666,7 +666,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#TX',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -681,7 +681,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#UT',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -696,7 +696,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#VT',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -711,7 +711,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#VA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -726,7 +726,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#WA',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -741,7 +741,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#WV',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -756,7 +756,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#WI',
-        count: 1,
+        count: 0,
       },
     },
     {
@@ -771,7 +771,7 @@ export const usNumData: {
       ],
       hashtag: {
         hashstr: '#WY',
-        count: 1,
+        count: 0,
       },
     },
   ];
