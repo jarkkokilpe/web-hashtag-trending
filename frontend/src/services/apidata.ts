@@ -4,7 +4,7 @@ import axios from 'axios';
 export const fetchAllTrends = async (): Promise<any[]> => {
   try {
     const response = await axios.get('http://localhost:4000/trends/all');
-    console.log('All Trends:', response.data);
+    //console.log('All Trends:', response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching all trends:', error);

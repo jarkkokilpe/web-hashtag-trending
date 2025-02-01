@@ -23,3 +23,29 @@ export interface SizeProps {
   width: number;
   height: number;
 }
+
+export interface BubbleData {
+  name: string;
+  hash: HashObj;
+  position: PositionOnMap;
+  code: string;
+  value: number;
+  totalvolume: number;
+}
+
+export interface PositionOnMap {
+  top: number;
+  left: number;
+}
+
+export interface GeoArea {
+  features: GeoRegion[];
+}
+
+export interface GeoRegion {
+  id: string;
+  geometry: {
+    type: string;
+    coordinates: number[][][] | number[][][][]; // MultiPolygon or Polygon
+  };
+}

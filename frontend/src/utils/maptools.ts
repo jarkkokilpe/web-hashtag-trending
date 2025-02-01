@@ -1,12 +1,5 @@
 import * as d3 from 'd3';
-import { geoData } from '../data/worldbounds'
-import { geoJsonUsStates } from '../data/us/statebounds'
-import { SizeProps } from '../types/interfaces'
-
-export interface PositionOnMap {
-  top: number;
-  left: number;
-}
+import { SizeProps, GeoArea, PositionOnMap } from '../types/interfaces'
 
 export function createProjection(mapprops: SizeProps) {
   return d3.geoPath()
@@ -48,9 +41,9 @@ export function getTooltipPosition (
   };
 };
 
-export function getCountryArea(countryId:string, mapprops:SizeProps):number {
-   // Find the corresponding geoData information
-   const regionGeoData = geoData.features.find(
+export function getAreaSize(area:GeoArea, countryId:string, mapprops:SizeProps):number {
+   // Find the corresponding area information
+   const regionGeoData = area.features.find(
     (geoRegion) => geoRegion.id === countryId
   );
   
@@ -63,12 +56,17 @@ export function getCountryArea(countryId:string, mapprops:SizeProps):number {
 }
 
 /**
- * getFixedCountryCentroid
+ * getFixedAreaCentroid
  * 
  * Function that returns the suitable position for country name label
  */
-export function getFixedCountryCentroid(countryId:string, mapprops:SizeProps): number[] {
+export function getFixedAreaCentroid(
+  geoData: GeoArea,
+  countryId: string,
+  mapprops: SizeProps
+): number[] {
   const centroid = getAreaCentroid(geoData, countryId, mapprops);
+ 
   let fixedCentroid:number[] = [...centroid];
   
   // Hand adjustments for the appropriate centroid point (in map) for the funky shaped countries
@@ -91,19 +89,6 @@ export function getFixedCountryCentroid(countryId:string, mapprops:SizeProps): n
     case 'SWE': fixedCentroid[0] += 1;  fixedCentroid[1] -= 5;  break;
     case 'ARE': fixedCentroid[0] -= 1;  fixedCentroid[1] += 1;  break;
     case 'ZMB': fixedCentroid[0] -= 3;  fixedCentroid[1] += 3;  break;
-
-    default: break;
-  }
-  
-  return fixedCentroid;
-}
-
-export function getFixedUsStateCentroid(countryId:string, mapprops:SizeProps): number[] {
-  const centroid = getAreaCentroid(geoJsonUsStates, countryId, mapprops);
-  let fixedCentroid:number[] = [...centroid];
-  
-  // Hand adjustments for the appropriate centroid point (in map) for the funky shaped countries
-  switch (countryId) {
     case '02': fixedCentroid[0] -= 50; fixedCentroid[1] -= 40; break; // Alaska
     case '06': fixedCentroid[0] -= 2; fixedCentroid[1] -= 0; break; // California
     case '12': fixedCentroid[0] += 2; fixedCentroid[1] -= 0; break; // Florida
@@ -112,31 +97,15 @@ export function getFixedUsStateCentroid(countryId:string, mapprops:SizeProps): n
     case '44': fixedCentroid[0] -= 1; fixedCentroid[1] -= 0; break; // Rhode Island
     case '51': fixedCentroid[0] -= 6; fixedCentroid[1] += 1; break; // Virginia
 
+
     default: break;
   }
   
   return fixedCentroid;
 }
 
-/**
- * getFixedCountryCentroid
- * 
- * Function that returns the country's centroid
- */
-interface GeoArea {
-  features: GeoRegion[];
-}
-
-interface GeoRegion {
-  id: string;
-  geometry: {
-    type: string;
-    coordinates: number[][][] | number[][][][]; // MultiPolygon or Polygon
-  };
-}
-
 export function getAreaCentroid(geoArea: GeoArea, countryId: string, mapprops: SizeProps): number[] {
-  // Find the corresponding geoData information
+  // Find the corresponding geoCountries information
   const regionGeoData = geoArea.features.find(
     (geoRegion) => geoRegion.id === countryId
   );

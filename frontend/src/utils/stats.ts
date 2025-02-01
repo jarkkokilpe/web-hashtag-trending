@@ -1,5 +1,5 @@
 import { CountryFeature } from '../data/worldbounds';
-import { BubbleData } from '../component/bubbles/Bubbles';
+import { BubbleData } from '../types/interfaces';
 
 // Normalized Tweet Volume = (Total Tweets / (Population * Posts/Inhabitant/Day)) * Scaling Factor
 // Trend Change = (Newest Tweet Volume - Comparison Point Tweet Volume) / Comparison Point Tweet Volume * 100
@@ -16,7 +16,7 @@ export function getTrendVolume(regiData: any): number {
 }
 
 export function getIxOfInterest(bubble:BubbleData | null | undefined):number {
-  if (!bubble) {
+  if (!bubble || bubble.value === 0) {
     return 0;
   } 
 

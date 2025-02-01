@@ -3,7 +3,7 @@
  * 
  * This component renders a tooltip at a specified position with input data.
  * The label size will be wrapped with the inputData text length. 
- * It is meant to use this component with SVG component as a parent.
+ * This component is meant to use with SVG component as a parent (check foreignObject).
  * 
  * Props:
  * - position (PositionOnMap | null): The position of the tooltip on the map. If not provided, defaults to { top: 0, left: 0 }.
@@ -19,8 +19,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { PositionOnMap } from '../../types/interfaces';
 import './ToolTip.css';
-import { PositionOnMap } from '../../utils/maptools';
 
 interface ToolTipProps {
   position?: PositionOnMap | null;
@@ -50,8 +50,8 @@ const ToolTip: React.FC<ToolTipProps> = ({ position, inputData }) => {
 
   return (
     <foreignObject 
-      x={(left + 100)} 
-      y={(top + 100)} 
+      x={(left + 80)} 
+      y={(top + 80)} 
       width={dimensions.width} 
       height={dimensions.height}
     >

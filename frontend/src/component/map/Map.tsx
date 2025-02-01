@@ -3,23 +3,22 @@ import * as d3 from 'd3';
 import Bubbles from '../bubbles/Bubbles';
 import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
-import { BubbleData } from '../bubbles/Bubbles';
-import { geoData, CountryFeature, CountryProps } from '../../data/worldbounds'
-import { geoJsonUsStates } from '../../data/us/statebounds';
+import { geoCountries, CountryFeature, CountryProps } from '../../data/worldbounds'
+import { geoUsStates } from '../../data/us/statebounds';
 import { getMapname } from '../../utils/stats'
-import { SizeProps } from '../../types/interfaces'
-import { PositionOnMap, getTooltipPosition, createProjection } from '../../utils/maptools'
-import { getCountryArea, getFixedCountryCentroid } from '../../utils/maptools'
+import { SizeProps, PositionOnMap, BubbleData } from '../../types/interfaces'
+import { getTooltipPosition, createProjection } from '../../utils/maptools'
+import { getAreaSize, getFixedAreaCentroid } from '../../utils/maptools'
 import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
+import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../../config/strings';
+import { 
+  ZOOM_THRESHOLD_US_STATES, 
+  ZOOM_MIN, 
+  ZOOM_MAX,
+  AREA_TOOLTIP_WIDTH,
+  AREA_TOOLTIP_HEIGHT,
+ } from '../../config/constants';
 import './Map.css';
-
-const COUNTRY_TOOLTIP_WIDTH = 120;
-const COUNTRY_TOOLTIP_HEIGHT = 40;
-
-const MIN_ZOOM = 2.5;
-const MAX_ZOOM = 50;
-
-export const ZOOM_THRESHOLD_STATES = 4.2;
 
 interface MapComponentProps {
   mapprops: SizeProps;
@@ -36,17 +35,18 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const [infoBoxData, setInfoBoxData] = useState<BubbleData | null>(null);
   const [currentTransform, setCurrentTransform] = useState<d3.ZoomTransform>();
   
-  const countryTooltipSize:SizeProps = {
-    width: COUNTRY_TOOLTIP_WIDTH,
-    height: COUNTRY_TOOLTIP_HEIGHT,
+  const areaTooltipSize:SizeProps = {
+    width: AREA_TOOLTIP_WIDTH,
+    height: AREA_TOOLTIP_HEIGHT,
   };
+
   useEffect(() => {
     if (svgRef.current) {
       const svg = d3.select(svgRef.current);
 
       // Zoom behavior 
       const zoom = d3.zoom()
-        .scaleExtent([MIN_ZOOM, MAX_ZOOM])
+        .scaleExtent([ZOOM_MIN, ZOOM_MAX])
         .on('zoom', zoomed);
 
       svg.call(zoom as unknown as (selection: d3.Selection<SVGSVGElement, unknown, null, undefined>) => void);/**/
@@ -65,7 +65,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
       }
 
       // Define initial zoom here
-      const initialTransform = d3.zoomIdentity.translate(-width/1.5, -height).scale(MIN_ZOOM); // Example initial zoom
+      const initialTransform = d3.zoomIdentity.translate(-width/1.5, -height).scale(ZOOM_MIN); // Example initial zoom
       (zoom.transform as any)(svg, initialTransform);
       
       // Append content
@@ -86,7 +86,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const centerAndZoom = (center: { x: number; y: number }, bbox: SVGRect, svg: d3.Selection<SVGSVGElement, unknown, null, undefined>) => {
     if (!svgRef.current) return;
 
-    const zoom = d3.zoom().scaleExtent([MIN_ZOOM, MAX_ZOOM]);
+    const zoom = d3.zoom().scaleExtent([ZOOM_MIN, ZOOM_MAX]);
     const svgRect = svgRef.current.getBoundingClientRect();
     const headerHeight = 100; // Height of the header
 
@@ -143,12 +143,28 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
 
   const handleMouseMove = (event: React.MouseEvent<SVGSVGElement>) => {
     const transform = d3.zoomTransform(svgRef.current!);
-    setPosition(getTooltipPosition(svgRef.current, countryTooltipSize, event.nativeEvent, transform));
+    setPosition(getTooltipPosition(svgRef.current, areaTooltipSize, event.nativeEvent, transform));
   };
 
   const handleCloseInfoBox = () => {
     setIsInfoBoxVisible(false);
   };
+
+  const generateArea = (idprefix: string, feature: d3.GeoPermissibleObjects) => {
+      return (
+        <path 
+          key={(feature as CountryFeature).id}  
+          id={`${idprefix}-${(feature as CountryFeature).id}`} // Setting a unique id for each country
+          d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
+          onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
+          onMouseLeave={handleMouseLeave}
+          onClick={() => handleClick('country', feature as CountryFeature)}
+          strokeWidth={0.6 / zoomScale}
+          className="country"
+          transform={currentTransform ? currentTransform.toString() : ''}
+        />
+      );
+    };
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -160,56 +176,36 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
         onMouseMove={handleMouseMove}
       >
 
-        {geoData.features.map((feature, index) => {
-          if (zoomScale > ZOOM_THRESHOLD_STATES) {
+        {geoCountries.features.map((feature, index) => {
+          if (zoomScale > ZOOM_THRESHOLD_US_STATES) {
             if (feature.id === 'USA') {
               return null;
             }
           }
-          const fixedCentroid = getFixedCountryCentroid(feature.id, mapprops);
+          const fixedCentroid = getFixedAreaCentroid(geoCountries, feature.id, mapprops);
           return (
             <g key={index}>
-              <path 
-                key={index}  
-                id={`country-${feature.id}`} // Setting a unique id for each country
-                d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
-                onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick('country', feature as CountryFeature)}
-                strokeWidth={0.6 / zoomScale}
-                className="country"
-                transform={currentTransform ? currentTransform.toString() : ''}
-              />
+              {generateArea(ID_PREFIX_COUNTRY, feature as d3.GeoPermissibleObjects)}
               <text 
                 x={fixedCentroid[0]} 
                 y={fixedCentroid[1]} 
                 textAnchor="middle" 
                 dominantBaseline="central"
                 className="country-label"
-                fontSize={getFontSize(getCountryArea(feature.id, mapprops))}
+                fontSize={getFontSize(getAreaSize(geoCountries, feature.id, mapprops))}
                 fill="black"
                 transform={currentTransform ? currentTransform.toString() : ''}
               >
-                {(isCountryLabelVisible(getFontSize(getCountryArea(feature.id, mapprops)), zoomScale) ? getMapname(feature as unknown as CountryFeature) : '')}
+                {(isCountryLabelVisible(getFontSize(getAreaSize(geoCountries, feature.id, mapprops)), zoomScale) ? getMapname(feature as unknown as CountryFeature) : '')}
               </text>
             </g>
           );
         })}
 
-        { (zoomScale > ZOOM_THRESHOLD_STATES) && (geoJsonUsStates.features.map((feature, index) => {
+        { (zoomScale > ZOOM_THRESHOLD_US_STATES) && (geoUsStates.features.map((feature, index) => {
           return (
             <g key={index}>
-              <path 
-                key={index}  
-                id={`usstate-${feature.id}`} // Setting a unique id for each country
-                d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
-                onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick('usstate', feature as CountryFeature)}
-                strokeWidth={0.6 / zoomScale}
-                className="country"
-                transform={currentTransform ? currentTransform.toString() : ''}
-              />
+              {generateArea(ID_PREFIX_USSTATE, feature as d3.GeoPermissibleObjects)}
             </g>
           );
         }))}

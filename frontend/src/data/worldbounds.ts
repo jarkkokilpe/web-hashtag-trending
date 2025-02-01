@@ -21,7 +21,7 @@ export interface CountryFeatureCollection {
   features: CountryFeature[],
 }
 
-export const geoData = {
+export const geoCountries = {
   type: 'FeatureCollection',
   features: [
     {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BubbleData } from '../bubbles/Bubbles';
+import { BubbleData } from '../../types/interfaces';
 import { getIxOfInterest } from '../../utils/stats';
 import './InfoBox.css';
 
