@@ -171,4 +171,76 @@ export const mockDataCountry = [
       { name: 'AngelFalls', tweet_volume: 15000 },
     ],
   },
+  {
+    woeid: 2347559, // Alabama
+    trends: [
+      { name: 'SweetHome', tweet_volume: 1000 },
+      { name: 'Mobile', tweet_volume: 600 },
+      { name: 'DeepSouth', tweet_volume: 700 },
+    ],
+  },
+  {
+    woeid: 2347563, // California
+    trends: [
+      { name: 'SiliconValley', tweet_volume: 10000 },
+      { name: 'LA', tweet_volume: 6000 },
+      { name: 'BayArea', tweet_volume: 7000 },
+    ],
+  },
+  {
+    woeid: 2347568, // Florida
+    trends: [
+      { name: 'Sun', tweet_volume: 8000 },
+      { name: 'Miami', tweet_volume: 6000 },
+      { name: 'Tallahassee', tweet_volume: 3000 },
+    ],
+  },
+  {
+    woeid: 2347572, // Illinois
+    trends: [
+      { name: 'Winter', tweet_volume: 3000 },
+      { name: 'Chicago', tweet_volume: 5000 },
+      { name: 'Cold', tweet_volume: 2000 },
+    ],
+  },
+  {
+    woeid: 2347580, // Massachusetts
+    trends: [
+      { name: 'MIT', tweet_volume: 3000 },
+      { name: 'Boston', tweet_volume: 2000 },
+      { name: 'Harward', tweet_volume: 1000 },
+    ],
+  },
+  {
+    woeid: 2347591, // New York
+    trends: [
+      { name: 'UpstateAlbany', tweet_volume: 14000 },
+      { name: 'Skinner', tweet_volume: 13000 },
+      { name: 'BigApple', tweet_volume: 12000 },
+    ],
+  },
+  {
+    woeid: 2347591, // New York
+    trends: [
+      { name: 'UpstateAlbany', tweet_volume: 13000 },
+      { name: 'SteamedHams', tweet_volume: 14000 },
+      { name: 'BigApple', tweet_volume: 12000 },
+    ],
+  },
+  {
+    woeid: 2347598, // Rhode Island
+    trends: [
+      { name: 'Small', tweet_volume: 400 },
+      { name: 'Tiny', tweet_volume: 300 },
+      { name: 'RhodeIsland', tweet_volume: 200 },
+    ],
+  },
+  {
+    woeid: 2347602, // Texas
+    trends: [
+      { name: 'Bastrop', tweet_volume: 30000 },
+      { name: 'Chili', tweet_volume: 6000 },
+      { name: 'Stargate', tweet_volume: 30000 },
+    ],
+  },
 ];
