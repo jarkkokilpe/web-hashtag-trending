@@ -7,6 +7,7 @@ export const numData: {
   woeid: number; 
   ppd: number; 
   totalvolume: number; 
+  trenddirection: number; 
   trends: TrendObj[]; 
   hashtag: HashObj }[] = [
   {
@@ -16,6 +17,7 @@ export const numData: {
     value: 83039,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -31,6 +33,7 @@ export const numData: {
     value: 32854159,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -46,6 +49,7 @@ export const numData: {
     value: 8352021,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -61,6 +65,7 @@ export const numData: {
     value: 3153731,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -76,6 +81,7 @@ export const numData: {
     value: 3017661,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -91,6 +97,7 @@ export const numData: {
     value: 16095214,
     ppd: 0.14,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -106,6 +113,7 @@ export const numData: {
     value: 64051,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -121,6 +129,7 @@ export const numData: {
     value: 38747148,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -136,6 +145,7 @@ export const numData: {
     value: 20310208,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -151,6 +161,7 @@ export const numData: {
     value: 724788,
     ppd: 0.35,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -166,6 +177,7 @@ export const numData: {
     value: 291933,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -181,6 +193,7 @@ export const numData: {
     value: 64174,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -196,6 +209,7 @@ export const numData: {
     value: 323295,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -211,6 +225,7 @@ export const numData: {
     value: 15328112,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -226,6 +241,7 @@ export const numData: {
     value: 275546,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -241,6 +257,7 @@ export const numData: {
     value: 3915238,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -256,6 +273,7 @@ export const numData: {
     value: 9182015,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -271,6 +289,7 @@ export const numData: {
     value: 47967266,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -286,6 +305,7 @@ export const numData: {
     value: 8490301,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -301,6 +321,7 @@ export const numData: {
     value: 472419,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -316,6 +337,7 @@ export const numData: {
     value: 186830759,
     ppd: 0.35,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -331,6 +353,7 @@ export const numData: {
     value: 7744591,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -346,6 +369,7 @@ export const numData: {
     value: 373831,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -361,6 +385,7 @@ export const numData: {
     value: 32270507,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -376,6 +401,7 @@ export const numData: {
     value: 13955507,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -391,6 +417,7 @@ export const numData: {
     value: 19120763,
     ppd: 0.24,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -406,6 +433,7 @@ export const numData: {
     value: 3609851,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -421,6 +449,7 @@ export const numData: {
     value: 58740547,
     ppd: 0.14,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -436,6 +465,7 @@ export const numData: {
     value: 7858791,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -451,6 +481,7 @@ export const numData: {
     value: 1312978855,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -466,6 +497,7 @@ export const numData: {
     value: 25067407,
     ppd: 0.12,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -481,6 +513,7 @@ export const numData: {
     value: 637013,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -496,6 +529,7 @@ export const numData: {
     value: 16295102,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -511,6 +545,7 @@ export const numData: {
     value: 45591,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -526,6 +561,7 @@ export const numData: {
     value: 17795149,
     ppd: 0.17,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -542,6 +578,7 @@ export const numData: {
     value: 10145609,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -557,6 +594,7 @@ export const numData: {
     value: 797902,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -572,6 +610,7 @@ export const numData: {
     value: 4494579,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -587,6 +626,7 @@ export const numData: {
     value: 4327228,
     ppd: 0.31,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -602,6 +642,7 @@ export const numData: {
     value: 4191429,
     ppd: 0.14,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -617,6 +658,7 @@ export const numData: {
     value: 11259905,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -632,6 +674,7 @@ export const numData: {
     value: 506807,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -647,6 +690,7 @@ export const numData: {
     value: 13984,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -662,6 +706,7 @@ export const numData: {
     value: 836321,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -677,6 +722,7 @@ export const numData: {
     value: 5416945,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -692,6 +738,7 @@ export const numData: {
     value: 804206,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -707,6 +754,7 @@ export const numData: {
     value: 67827,
     ppd: 0.33,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -722,6 +770,7 @@ export const numData: {
     value: 9469601,
     ppd: 0.33,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -737,6 +786,7 @@ export const numData: {
     value: 13060993,
     ppd: 0.24,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -752,6 +802,7 @@ export const numData: {
     value: 72849793,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -767,6 +818,7 @@ export const numData: {
     value: 4143294,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -782,6 +834,7 @@ export const numData: {
     value: 484098,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -797,6 +850,7 @@ export const numData: {
     value: 1344312,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -812,6 +866,7 @@ export const numData: {
     value: 4526722,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -827,6 +882,7 @@ export const numData: {
     value: 6668356,
     ppd: 0.24,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -842,6 +898,7 @@ export const numData: {
     value: 78985857,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -857,6 +914,7 @@ export const numData: {
     value: 8291979,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -872,6 +930,7 @@ export const numData: {
     value: 10191762,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -887,6 +946,7 @@ export const numData: {
     value: 192099,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -902,6 +962,7 @@ export const numData: {
     value: 5246004,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -917,6 +978,7 @@ export const numData: {
     value: 828046,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -932,6 +994,7 @@ export const numData: {
     value: 2975,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -947,6 +1010,7 @@ export const numData: {
     value: 115224,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -962,6 +1026,7 @@ export const numData: {
     value: 255632,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -977,6 +1042,7 @@ export const numData: {
     value: 60990544,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -992,6 +1058,7 @@ export const numData: {
     value: 1617029,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1007,6 +1074,7 @@ export const numData: {
     value: 1290693,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1022,6 +1090,7 @@ export const numData: {
     value: 4473409,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1037,6 +1106,7 @@ export const numData: {
     value: 2253501,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1052,6 +1122,7 @@ export const numData: {
     value: 105237,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1067,6 +1138,7 @@ export const numData: {
     value: 57475,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1082,6 +1154,7 @@ export const numData: {
     value: 82652369,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1097,6 +1170,7 @@ export const numData: {
     value: 16857,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1112,6 +1186,7 @@ export const numData: {
     value: 11099737,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1127,6 +1202,7 @@ export const numData: {
     value: 12709564,
     ppd: 0.23,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1142,6 +1218,7 @@ export const numData: {
     value: 9002656,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1157,6 +1234,7 @@ export const numData: {
     value: 739472,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1172,6 +1250,7 @@ export const numData: {
     value: 9296291,
     ppd: 0.10,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1184,9 +1263,10 @@ export const numData: {
     name: 'Honduras',
     code: 'HND',
     woeid: 23424841,
-    value: 683411,
+    value: 9571352,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1202,6 +1282,7 @@ export const numData: {
     value: 3861967,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1217,6 +1298,7 @@ export const numData: {
     value: 10086387,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1232,6 +1314,7 @@ export const numData: {
     value: 295732,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1247,6 +1330,7 @@ export const numData: {
     value: 1134403141,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1262,6 +1346,7 @@ export const numData: {
     value: 69420607,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1277,6 +1362,7 @@ export const numData: {
     value: 6692037,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1292,6 +1378,7 @@ export const numData: {
     value: 5864636,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1307,6 +1394,7 @@ export const numData: {
     value: 18584701,
     ppd: 0.17,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1322,6 +1410,7 @@ export const numData: {
     value: 27995984,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1337,6 +1426,7 @@ export const numData: {
     value: 127896740,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1352,6 +1442,7 @@ export const numData: {
     value: 2682469,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1367,6 +1458,7 @@ export const numData: {
     value: 5544066,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1382,6 +1474,7 @@ export const numData: {
     value: 35598952,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1397,6 +1490,7 @@ export const numData: {
     value: 5203547,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1412,6 +1506,7 @@ export const numData: {
     value: 25955138,
     ppd: 0.10,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1427,6 +1522,7 @@ export const numData: {
     value: 92003,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1442,6 +1538,7 @@ export const numData: {
     value: 51696216,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1457,6 +1554,7 @@ export const numData: {
     value: 4982981,
     ppd: 0.34,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1472,6 +1570,7 @@ export const numData: {
     value: 15210609,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1487,6 +1586,7 @@ export const numData: {
     value: 566391,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1502,6 +1602,7 @@ export const numData: {
     value: 5364482,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1517,6 +1618,7 @@ export const numData: {
     value: 2301793,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1532,6 +1634,7 @@ export const numData: {
     value: 9795287,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1547,6 +1650,7 @@ export const numData: {
     value: 3425077,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1562,6 +1666,7 @@ export const numData: {
     value: 3441796,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1577,6 +1682,7 @@ export const numData: {
     value: 5386995,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1592,6 +1698,7 @@ export const numData: {
     value: 34598,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1607,6 +1714,7 @@ export const numData: {
     value: 5918217,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1622,6 +1730,7 @@ export const numData: {
     value: 18642586,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1637,6 +1746,7 @@ export const numData: {
     value: 395896,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1652,6 +1762,7 @@ export const numData: {
     value: 2580704,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1667,6 +1778,7 @@ export const numData: {
     value: 5628,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1682,6 +1794,7 @@ export const numData: {
     value: 2033655,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1697,6 +1810,7 @@ export const numData: {
     value: 1161109,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1712,6 +1826,7 @@ export const numData: {
     value: 30494991,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1727,6 +1842,7 @@ export const numData: {
     value: 1241173,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1742,6 +1858,7 @@ export const numData: {
     value: 2963105,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1757,6 +1874,7 @@ export const numData: {
     value: 402617,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1772,6 +1890,7 @@ export const numData: {
     value: 2507042,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1787,6 +1906,7 @@ export const numData: {
     value: 295297,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1802,6 +1922,7 @@ export const numData: {
     value: 104266392,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1817,6 +1938,7 @@ export const numData: {
     value: 25652985,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1832,6 +1954,7 @@ export const numData: {
     value: 20532675,
     ppd: 0.17,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1847,6 +1970,7 @@ export const numData: {
     value: 13226091,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1862,6 +1986,7 @@ export const numData: {
     value: 234185,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1877,6 +2002,7 @@ export const numData: {
     value: 1632,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1892,6 +2018,7 @@ export const numData: {
     value: 1326419,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1907,6 +2034,7 @@ export const numData: {
     value: 102897,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1922,6 +2050,7 @@ export const numData: {
     value: 12256,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1937,6 +2066,7 @@ export const numData: {
     value: 10398049,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1952,6 +2082,7 @@ export const numData: {
     value: 7057418,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1967,6 +2098,7 @@ export const numData: {
     value: 80258,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1982,6 +2114,7 @@ export const numData: {
     value: 48205,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -1997,6 +2130,7 @@ export const numData: {
     value: 73483,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2012,6 +2146,7 @@ export const numData: {
     value: 32688,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2027,6 +2162,7 @@ export const numData: {
     value: 78357,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2042,6 +2178,7 @@ export const numData: {
     value: 456613,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2057,6 +2194,7 @@ export const numData: {
     value: 704149,
     ppd: 0.32,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2072,6 +2210,7 @@ export const numData: {
     value: 36297,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2087,6 +2226,7 @@ export const numData: {
     value: 3762005,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2102,6 +2242,7 @@ export const numData: {
     value: 607969,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2117,6 +2258,7 @@ export const numData: {
     value: 279500,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2132,6 +2274,7 @@ export const numData: {
     value: 30696,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2147,6 +2290,7 @@ export const numData: {
     value: 1748,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2162,6 +2306,7 @@ export const numData: {
     value: 544,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2177,6 +2322,7 @@ export const numData: {
     value: 3000,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2192,6 +2338,7 @@ export const numData: {
     value: 0,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2207,6 +2354,7 @@ export const numData: {
     value: 150,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2222,6 +2370,7 @@ export const numData: {
     value: 0,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2237,6 +2386,7 @@ export const numData: {
     value: 0,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2252,6 +2402,7 @@ export const numData: {
     value: 1692,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2267,6 +2418,7 @@ export const numData: {
     value: 300,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2282,6 +2434,7 @@ export const numData: {
     value: 215366,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2297,6 +2450,7 @@ export const numData: {
     value: 141356083,
     ppd: 0.17,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2312,6 +2466,7 @@ export const numData: {
     value: 1632769,
     ppd: 0.31,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2327,6 +2482,7 @@ export const numData: {
     value: 4638836,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2342,6 +2498,7 @@ export const numData: {
     value: 27093656,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2357,6 +2514,7 @@ export const numData: {
     value: 10111,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2372,6 +2530,7 @@ export const numData: {
     value: 452468,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2387,6 +2546,7 @@ export const numData: {
     value: 5462539,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2402,6 +2562,7 @@ export const numData: {
     value: 4097112,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2417,6 +2578,7 @@ export const numData: {
     value: 5904342,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2432,6 +2594,7 @@ export const numData: {
     value: 27274266,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2447,6 +2610,7 @@ export const numData: {
     value: 158080591,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2462,6 +2626,7 @@ export const numData: {
     value: 38195558,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2477,6 +2642,7 @@ export const numData: {
     value: 3231502,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2492,6 +2658,7 @@ export const numData: {
     value: 10528226,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2507,6 +2674,7 @@ export const numData: {
     value: 6069715,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2522,6 +2690,7 @@ export const numData: {
     value: 1596929,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2537,6 +2706,7 @@ export const numData: {
     value: 796186,
     ppd: 0.36,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2552,6 +2722,7 @@ export const numData: {
     value: 785159,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2567,6 +2738,7 @@ export const numData: {
     value: 21627557,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2582,6 +2754,7 @@ export const numData: {
     value: 3876661,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2597,6 +2770,7 @@ export const numData: {
     value: 84566163,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2612,6 +2786,7 @@ export const numData: {
     value: 3946779,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2627,6 +2802,7 @@ export const numData: {
     value: 143953092,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2642,6 +2818,7 @@ export const numData: {
     value: 9233793,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2657,6 +2834,7 @@ export const numData: {
     value: 2361236,
     ppd: 0.35,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2672,6 +2850,7 @@ export const numData: {
     value: 49138,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2687,6 +2866,7 @@ export const numData: {
     value: 85532,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2702,6 +2882,7 @@ export const numData: {
     value: 47938663,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2717,6 +2898,7 @@ export const numData: {
     value: 1980831,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2732,6 +2914,7 @@ export const numData: {
     value: 1835938,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2747,6 +2930,7 @@ export const numData: {
     value: 1177034,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2762,6 +2946,7 @@ export const numData: {
     value: 1999425,
     ppd: 0.31,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2777,6 +2962,7 @@ export const numData: {
     value: 5586403,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2792,6 +2978,7 @@ export const numData: {
     value: 4327468,
     ppd: 0.33,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2807,6 +2994,7 @@ export const numData: {
     value: 8196395,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2822,6 +3010,7 @@ export const numData: {
     value: 43397491,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2837,6 +3026,7 @@ export const numData: {
     value: 16124,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2852,6 +3042,7 @@ export const numData: {
     value: 36899747,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2867,6 +3058,7 @@ export const numData: {
     value: 12703714,
     ppd: 0.14,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2882,6 +3074,7 @@ export const numData: {
     value: 9038049,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2897,6 +3090,7 @@ export const numData: {
     value: 18893881,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2912,6 +3106,7 @@ export const numData: {
     value: 7424389,
     ppd: 0.31,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2927,6 +3122,7 @@ export const numData: {
     value: 1323722,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2942,6 +3138,7 @@ export const numData: {
     value: 63002911,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2957,6 +3154,7 @@ export const numData: {
     value: 6550213,
     ppd: 0.16,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2972,6 +3170,7 @@ export const numData: {
     value: 1401,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -2987,6 +3186,7 @@ export const numData: {
     value: 99361,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3002,6 +3202,7 @@ export const numData: {
     value: 6238572,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3017,6 +3218,7 @@ export const numData: {
     value: 152622,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3032,6 +3234,7 @@ export const numData: {
     value: 10104685,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3047,6 +3250,7 @@ export const numData: {
     value: 72969723,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3062,6 +3266,7 @@ export const numData: {
     value: 10441,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3077,6 +3282,7 @@ export const numData: {
     value: 4833266,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3092,6 +3298,7 @@ export const numData: {
     value: 38477873,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3107,6 +3314,7 @@ export const numData: {
     value: 28947181,
     ppd: 0.17,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3122,6 +3330,7 @@ export const numData: {
     value: 60244834,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3137,6 +3346,7 @@ export const numData: {
     value: 46917544,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3152,6 +3362,7 @@ export const numData: {
     value: 299846449,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3167,6 +3378,7 @@ export const numData: {
     value: 13933363,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3182,6 +3394,7 @@ export const numData: {
     value: 3325727,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3197,6 +3410,7 @@ export const numData: {
     value: 26593123,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3212,6 +3426,7 @@ export const numData: {
     value: 119137,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3227,6 +3442,7 @@ export const numData: {
     value: 26725573,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3242,6 +3458,7 @@ export const numData: {
     value: 22016,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3257,6 +3474,7 @@ export const numData: {
     value: 85028643,
     ppd: 0.22,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3272,6 +3490,7 @@ export const numData: {
     value: 111408,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3287,6 +3506,7 @@ export const numData: {
     value: 2019677,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3302,6 +3522,7 @@ export const numData: {
     value: 15079,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3317,6 +3538,7 @@ export const numData: {
     value: 183845,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3332,6 +3554,7 @@ export const numData: {
     value: 1124529,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3347,6 +3570,7 @@ export const numData: {
     value: 21095679,
     ppd: 0.14,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3362,6 +3586,7 @@ export const numData: {
     value: 11478317,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3377,6 +3602,7 @@ export const numData: {
     value: 13119679,
     ppd: 0.18,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3392,6 +3618,7 @@ export const numData: {
     value: 226063044,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3407,6 +3634,7 @@ export const numData: {
     value: 438403,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3422,6 +3650,7 @@ export const numData: {
     value: 156223,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3437,6 +3666,7 @@ export const numData: {
     value: 18413,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3452,6 +3682,7 @@ export const numData: {
     value: 1067285,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3467,6 +3698,7 @@ export const numData: {
     value: 35,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3482,6 +3714,7 @@ export const numData: {
     value: 20127,
     ppd: 0.27,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3497,6 +3730,7 @@ export const numData: {
     value: 5672,
     ppd: 0.26,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3512,6 +3746,7 @@ export const numData: {
     value: 6346,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3527,6 +3762,7 @@ export const numData: {
     value: 6399,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3542,6 +3778,7 @@ export const numData: {
     value: 30214,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3557,6 +3794,7 @@ export const numData: {
     value: 24459,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3572,6 +3810,7 @@ export const numData: {
     value: 440428,
     ppd: 0.15,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3587,6 +3826,7 @@ export const numData: {
     value: 9863026,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3602,6 +3842,7 @@ export const numData: {
     value: 783,
     ppd: 0.35,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3617,6 +3858,7 @@ export const numData: {
     value: 2530,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3632,6 +3874,7 @@ export const numData: {
     value: 31477,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3647,6 +3890,7 @@ export const numData: {
     value: 58477,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3662,6 +3906,7 @@ export const numData: {
     value: 10967,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3677,6 +3922,7 @@ export const numData: {
     value: 63950,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3692,6 +3938,7 @@ export const numData: {
     value: 103267,
     ppd: 0.30,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3707,6 +3954,7 @@ export const numData: {
     value: 0,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3722,6 +3970,7 @@ export const numData: {
     woeid: 23424971,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3737,6 +3986,7 @@ export const numData: {
     woeid: 769639,
     ppd: 0.25,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3752,6 +4002,7 @@ export const numData: {
     woeid: 715334,
     ppd: 0.28,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3767,6 +4018,7 @@ export const numData: {
     woeid: 772989,
     ppd: 0.29,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
@@ -3782,6 +4034,7 @@ export const numData: {
     woeid: 23424985,
     ppd: 0.20,
     totalvolume: 0,
+    trenddirection: 0,
     trends: [
       { name: '#foo', tweet_volume: 0 },
     ],
