@@ -6,6 +6,7 @@ import { mockDataCountry } from './data/mocktrends';
 export class MockService {
   private woeids = mockDataCountry.map((country) => country.woeid);
   private woeidCounter = 0;
+  private mockCycleDone = false;
 
   constructor() {}
 
@@ -17,10 +18,23 @@ export class MockService {
         (trend: MockTrendObj) => trend.woeid === woeid,
       );
       this.woeidCounter = (this.woeidCounter + 1) % this.woeids.length;
+
+      if (this.woeidCounter === 0) {
+        this.mockCycleDone = true;
+      }
+
       return Promise.resolve(trend);
     } catch (error) {
       console.error('MOCK: Error fetching data from API:', error);
       return Promise.resolve(undefined);
     }
+  }
+
+  isCycleDone(): boolean {
+    return this.mockCycleDone;
+  }
+
+  resetCycleDone(): void {
+    this.mockCycleDone = false;
   }
 }

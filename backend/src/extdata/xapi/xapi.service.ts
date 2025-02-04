@@ -8,6 +8,7 @@ import { rollingXapiWoeid } from './data/request';
 export class XapiService {
   private woeids = rollingXapiWoeid.map((country) => country.woeid);
   private woeidCounter = 0;
+  private xApiCycleDone = false;
 
   constructor(private readonly httpService: HttpService) {}
 
@@ -23,11 +24,24 @@ export class XapiService {
       );
       const data: XApiTrendObj = response.data as XApiTrendObj;
       this.woeidCounter = (this.woeidCounter + 1) % this.woeids.length;
+
+      if (this.woeidCounter) {
+        this.xApiCycleDone = true;
+      }
+
       console.log('XAPI: fetchTrendsByWoeid ', data);
       return data;
     } catch (error) {
       console.error('XAPI: Error fetching data from API:', error);
       return undefined;
     }
+  }
+
+  isCycleDone(): boolean {
+    return this.xApiCycleDone;
+  }
+
+  resetCycleDone(): void {
+    this.xApiCycleDone = false;
   }
 }

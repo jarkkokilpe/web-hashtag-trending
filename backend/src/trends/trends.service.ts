@@ -1,24 +1,41 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { TrendObj } from './interfaces/trend.interface';
 import { RefinerService } from '../refiner/refiner.service';
+import { RedisCacheService } from 'src/redis/redis.service';
 import { FETCH_INTERVAL_MS } from '../constants';
 
 @Injectable()
 export class TrendsService {
   private intervalId: NodeJS.Timeout;
+  private isUpdating: boolean = false;
   private readonly trends: TrendObj[] = [];
 
-  constructor(private readonly refinerService: RefinerService) {}
-
-  onModuleInit() {
+  constructor(
+    private readonly refinerService: RefinerService,
+    private readonly redisService: RedisCacheService,
+  ) {
     this.startFetchingData();
   }
 
   onModuleDestroy() {
-    clearInterval(this.intervalId);
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
+
+  private storeTrendCycle() {
+    const cycleId = 'someCycleId'; // Replace with actual cycle ID
+    const data = this.trends;
+    void this.redisService.storeCycle(cycleId, data).catch((error) => {
+      console.error('Error storing cycle: ', error);
+    });
   }
 
   private updateNewObjectToTrendsArray(trendObj: TrendObj) {
+    if (this.isUpdating) {
+      return;
+    }
+
     try {
       const existingTrendIndex = this.trends.findIndex(
         (trend) => trend.woeid === trendObj.woeid,
@@ -30,23 +47,32 @@ export class TrendsService {
         this.trends.push(trendObj);
       }
 
-      console.log('Current data:', this.trends);
+      console.log('Current data: ', this.trends);
     } catch (error) {
-      console.error('Error fetching refined trends:', error);
+      console.error('Error fetching refined trends: ', error);
+    } finally {
+      this.isUpdating = false;
+    }
+  }
+
+  private async fetchAndUpdateTrend() {
+    try {
+      console.log('fetch');
+      const nextTrend = await this.refinerService.getNextTrend();
+      this.updateNewObjectToTrendsArray(nextTrend);
+      if (this.refinerService.isCycleDone()) {
+        //
+        this.storeTrendCycle();
+        this.refinerService.resetCycleDone();
+      }
+    } catch (error) {
+      console.error('Error fetching or updating trends: ', error);
     }
   }
 
   private startFetchingData() {
     this.intervalId = setInterval(() => {
-      console.log('fetch');
-      this.refinerService
-        .getNextTrend()
-        .then((nextTrend) => {
-          this.updateNewObjectToTrendsArray(nextTrend);
-        })
-        .catch((error) => {
-          console.error('Error fetching refined trends:', error);
-        });
+      void this.fetchAndUpdateTrend();
     }, FETCH_INTERVAL_MS);
   }
 

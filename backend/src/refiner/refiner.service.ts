@@ -38,4 +38,20 @@ export class RefinerService {
 
     return trendObj;
   }
+
+  isCycleDone(): boolean {
+    if (XAPI_IN_USE) {
+      return this.xapiService.isCycleDone();
+    } else {
+      return this.mockService.isCycleDone();
+    }
+  }
+
+  resetCycleDone(): void {
+    if (XAPI_IN_USE) {
+      this.xapiService.resetCycleDone();
+    } else {
+      this.mockService.resetCycleDone();
+    }
+  }
 }

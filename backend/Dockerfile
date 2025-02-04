@@ -1,23 +1,17 @@
-# Use an official Node.js runtime as the base image
-FROM node:23
 
-# Set the working directory in the container
+# Stage 1: Build
+FROM node:23 AS build
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
+RUN npm ci
 COPY . .
-
-# Build the NestJS application (if needed)
 RUN npm run build
 
-# Expose the port of the backend application
+# Stage 2: Run
+FROM node:23
+WORKDIR /app
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
 EXPOSE 4000
-
-# Command to run your application
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main"]
