@@ -1,6 +1,6 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { TrendObj } from './interfaces/trend.interface';
-import { RefinerService } from '../refiner/refiner.service';
+import { ExtDataRouterService } from '../extdatarouter/extdatarouter.service';
 import { RedisCacheService } from 'src/redis/redis.service';
 import { FETCH_INTERVAL_MS } from '../constants';
 
@@ -8,10 +8,11 @@ import { FETCH_INTERVAL_MS } from '../constants';
 export class TrendsService {
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
-  private readonly trends: TrendObj[] = [];
+  private trendCycle: number = 0;
+  private readonly trendCache: TrendObj[] = [];
 
   constructor(
-    private readonly refinerService: RefinerService,
+    private readonly extRouterService: ExtDataRouterService,
     private readonly redisService: RedisCacheService,
   ) {
     this.startFetchingData();
@@ -24,30 +25,30 @@ export class TrendsService {
   }
 
   private storeTrendCycle() {
-    const cycleId = 'someCycleId'; // Replace with actual cycle ID
-    const data = this.trends;
+    const cycleId = `cycle:${this.trendCycle++}`; // Replace with actual cycle ID
+    const data = this.trendCache;
     void this.redisService.storeCycle(cycleId, data).catch((error) => {
-      console.error('Error storing cycle: ', error);
+      console.error('Error storing trend cycle: ', error);
     });
   }
 
-  private updateNewObjectToTrendsArray(trendObj: TrendObj) {
+  private updateTrendCache(trendObj: TrendObj) {
     if (this.isUpdating) {
       return;
     }
 
     try {
-      const existingTrendIndex = this.trends.findIndex(
+      const existingTrendIndex = this.trendCache.findIndex(
         (trend) => trend.woeid === trendObj.woeid,
       );
 
       if (existingTrendIndex !== -1) {
-        this.trends[existingTrendIndex] = trendObj;
+        this.trendCache[existingTrendIndex] = trendObj;
       } else {
-        this.trends.push(trendObj);
+        this.trendCache.push(trendObj);
       }
 
-      console.log('Current data: ', this.trends);
+      console.log('Current data: ', this.trendCache);
     } catch (error) {
       console.error('Error fetching refined trends: ', error);
     } finally {
@@ -55,15 +56,15 @@ export class TrendsService {
     }
   }
 
-  private async fetchAndUpdateTrend() {
+  private async fetchAndProcessTrend() {
     try {
       console.log('fetch');
-      const nextTrend = await this.refinerService.getNextTrend();
-      this.updateNewObjectToTrendsArray(nextTrend);
-      if (this.refinerService.isCycleDone()) {
+      const nextTrend = await this.extRouterService.getNextTrend();
+      this.updateTrendCache(nextTrend);
+      if (this.extRouterService.isCycleDone()) {
         //
         this.storeTrendCycle();
-        this.refinerService.resetCycleDone();
+        this.extRouterService.resetCycleDone();
       }
     } catch (error) {
       console.error('Error fetching or updating trends: ', error);
@@ -72,17 +73,19 @@ export class TrendsService {
 
   private startFetchingData() {
     this.intervalId = setInterval(() => {
-      void this.fetchAndUpdateTrend();
+      void this.fetchAndProcessTrend();
     }, FETCH_INTERVAL_MS);
   }
 
   findAll(): TrendObj[] {
-    return this.trends;
+    return this.trendCache;
   }
 
   findOneByWoeid(woeid: number): TrendObj {
     console.log('woeId to search: ', woeid);
-    const trend = this.trends.find((trend: TrendObj) => trend.woeid == woeid);
+    const trend = this.trendCache.find(
+      (trend: TrendObj) => trend.woeid == woeid,
+    );
     if (!trend) {
       throw new HttpException(
         `Trend with woeid ${woeid} not found`,

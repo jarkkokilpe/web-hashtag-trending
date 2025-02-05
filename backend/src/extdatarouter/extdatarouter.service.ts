@@ -10,7 +10,7 @@ import {
 } from '../constants';
 
 @Injectable()
-export class RefinerService {
+export class ExtDataRouterService {
   constructor(
     private readonly xapiService: XapiService,
     private readonly mockService: MockService,

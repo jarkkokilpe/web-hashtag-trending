@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { XapiModule } from '../extdata/xapi/xapi.module';
 import { MockModule } from '../extdata/mock/mock.module';
-import { RefinerService } from './refiner.service';
+import { ExtDataRouterService } from './extdatarouter.service';
 
 @Module({
   imports: [XapiModule, MockModule],
-  providers: [RefinerService],
-  exports: [RefinerService],
+  providers: [ExtDataRouterService],
+  exports: [ExtDataRouterService],
 })
-export class RefinerModule {}
+export class ExtDataRouterModule {}
