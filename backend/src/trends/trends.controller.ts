@@ -6,21 +6,21 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { TrendsService } from './trends.service';
-import { TrendObj } from './interfaces/trend.interface';
+import { TrendObjApi } from './interfaces/trend.interface';
 
 @Controller('trends')
 export class TrendsController {
-  constructor(private trendsSvc: TrendsService) {}
+  constructor(private trendsService: TrendsService) {}
 
   @Get('all')
-  getTrends(): TrendObj[] {
-    return this.trendsSvc.findAll();
+  getTrends(): TrendObjApi[] {
+    return this.trendsService.fetchAll();
   }
 
   @Get('single/:woeid')
-  getTrend(@Param('woeid') woeid: number): TrendObj {
+  getTrend(@Param('woeid') woeid: number): TrendObjApi {
     try {
-      return this.trendsSvc.findOneByWoeid(woeid);
+      return this.trendsService.findOneByWoeid(woeid);
     } catch (error: any) {
       throw new HttpException(
         (error as { message: string }).message,

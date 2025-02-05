@@ -1,6 +1,16 @@
-export interface TrendObj { 
+export interface TrendContent {
   name: string;
   tweet_volume: number;
+}
+
+export interface TrendApiObj {
+  woeid: number;
+  totalvolume: number;
+  diff2: number;
+  diff3: number;
+  diff5: number;
+  diff10: number;
+  trends: TrendContent[];
 }
 
 export interface HashObj {
@@ -8,15 +18,12 @@ export interface HashObj {
   count: number;
 }
 
-export interface CountryInfo {
-  name: string,
-  code: string,
-  woeid: number,
-  value: number,
-  totalvolume: number,
-  ppd: number,  // posts per inhabitant per day
-  trends: TrendObj[],
-  hashtag: HashObj,
+export interface CountryInfo extends TrendApiObj {
+  code: string;
+  value: number;
+  name: string;
+  ppd: number; // posts per inhabitant per day
+  hashtag: HashObj;
 }
 
 export interface SizeProps {

@@ -1,9 +1,9 @@
-export interface TrendObj {
-  woeid: number;
-  trends: TrendContent[];
-}
+import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
 
-export interface TrendContent {
-  name: string;
-  tweet_volume: number;
+export interface TrendObjApi extends TrendObjExtApi {
+  totalvolume: number;
+  diff2: number;
+  diff3: number;
+  diff5: number;
+  diff10: number;
 }

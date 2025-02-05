@@ -1,14 +1,6 @@
-import { TrendObj, HashObj } from '../../types/interfaces';
+import { CountryInfo } from '../../types/interfaces';
 
-export const usNumData: { 
-  code: string; 
-  value: number; 
-  woeid: number; 
-  name: string; 
-  ppd: number;
-  totalvolume: number;
-  trends: TrendObj[]; 
-  hashtag: HashObj }[] = [
+export const usNumData: CountryInfo[] = [
     {
       name: 'Alabama',
       code: '01',
@@ -16,6 +8,10 @@ export const usNumData: {
       woeid: 2347559,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -31,6 +27,10 @@ export const usNumData: {
       woeid: 2347560,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -46,6 +46,10 @@ export const usNumData: {
       woeid: 2347561,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -61,6 +65,10 @@ export const usNumData: {
       woeid: 2347562,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -76,6 +84,10 @@ export const usNumData: {
       woeid: 2347563,
       ppd: 0.32,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -91,6 +103,10 @@ export const usNumData: {
       woeid: 2347564,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -106,6 +122,10 @@ export const usNumData: {
       woeid: 2347565,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -121,6 +141,10 @@ export const usNumData: {
       woeid: 2347566,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -136,6 +160,10 @@ export const usNumData: {
       woeid: 2347567,
       ppd: 0.33,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -151,6 +179,10 @@ export const usNumData: {
       woeid: 2347568,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -166,6 +198,10 @@ export const usNumData: {
       woeid: 2347569,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -181,6 +217,10 @@ export const usNumData: {
       woeid: 2347570,
       ppd: 0.31,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -196,6 +236,10 @@ export const usNumData: {
       woeid: 2347571,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -211,6 +255,10 @@ export const usNumData: {
       woeid: 2347572,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -226,6 +274,10 @@ export const usNumData: {
       woeid: 2347573,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -241,6 +293,10 @@ export const usNumData: {
       woeid: 2347574,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -256,6 +312,10 @@ export const usNumData: {
       woeid: 2347575,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -271,6 +331,10 @@ export const usNumData: {
       woeid: 2347576,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -286,6 +350,10 @@ export const usNumData: {
       woeid: 2347577,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -301,6 +369,10 @@ export const usNumData: {
       woeid: 2347578,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -316,6 +388,10 @@ export const usNumData: {
       woeid: 2347579,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -331,6 +407,10 @@ export const usNumData: {
       woeid: 2347580,
       ppd: 0.31,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -346,6 +426,10 @@ export const usNumData: {
       woeid: 2347581,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -361,6 +445,10 @@ export const usNumData: {
       woeid: 2347582,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -376,6 +464,10 @@ export const usNumData: {
       woeid: 2347583,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -391,6 +483,10 @@ export const usNumData: {
       woeid: 2347584,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -406,6 +502,10 @@ export const usNumData: {
       woeid: 2347585,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -421,6 +521,10 @@ export const usNumData: {
       woeid: 0.27,
       ppd: 2347586,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -436,6 +540,10 @@ export const usNumData: {
       woeid: 2347587,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -451,6 +559,10 @@ export const usNumData: {
       woeid: 2347588,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -466,6 +578,10 @@ export const usNumData: {
       woeid: 2347589,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -481,6 +597,10 @@ export const usNumData: {
       woeid: 2347590,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -496,6 +616,10 @@ export const usNumData: {
       woeid: 2347591,
       ppd: 0.32,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -511,6 +635,10 @@ export const usNumData: {
       woeid: 2347592,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -526,6 +654,10 @@ export const usNumData: {
       woeid: 2347593,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -541,6 +673,10 @@ export const usNumData: {
       woeid: 2347594,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -556,6 +692,10 @@ export const usNumData: {
       woeid: 2347595,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -571,6 +711,10 @@ export const usNumData: {
       woeid: 2347596,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -586,6 +730,10 @@ export const usNumData: {
       woeid: 2347597,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -601,6 +749,10 @@ export const usNumData: {
       woeid: 2347598,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -616,6 +768,10 @@ export const usNumData: {
       woeid: 2347599,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -631,6 +787,10 @@ export const usNumData: {
       woeid: 2347600,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -646,6 +806,10 @@ export const usNumData: {
       woeid: 2347601,
       ppd: 0.29,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -661,6 +825,10 @@ export const usNumData: {
       woeid: 2347602,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -676,6 +844,10 @@ export const usNumData: {
       woeid: 2347603,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -691,6 +863,10 @@ export const usNumData: {
       woeid: 2347604,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -706,6 +882,10 @@ export const usNumData: {
       woeid: 2347605,
       ppd: 0.30,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -721,6 +901,10 @@ export const usNumData: {
       woeid: 2347606,
       ppd: 0.31,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -736,6 +920,10 @@ export const usNumData: {
       woeid: 2347607,
       ppd: 0.26,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -751,6 +939,10 @@ export const usNumData: {
       woeid: 2347608,
       ppd: 0.28,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
@@ -766,6 +958,10 @@ export const usNumData: {
       woeid: 2347609,
       ppd: 0.27,
       totalvolume: 0,
+      diff2: 0,
+      diff3: 0,
+      diff5: 0,
+      diff10: 0,
       trends: [
         { name: '#foo', tweet_volume: 0 },
       ],
