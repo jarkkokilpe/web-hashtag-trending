@@ -2,7 +2,7 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { TrendObjApi } from './interfaces/trend.interface';
 import { TrendObjExtApi } from '../extdatarouter/interfaces/ext.interface';
 import { ExtDataRouterService } from '../extdatarouter/extdatarouter.service';
-import { RedisCacheService } from 'src/database/database.service';
+import { DatabaseService } from '../database/database.service';
 import { FETCH_INTERVAL_MS } from '../_utils/constants';
 
 @Injectable()
@@ -14,7 +14,7 @@ export class TrendsService {
 
   constructor(
     private readonly extRouterService: ExtDataRouterService,
-    private readonly redisService: RedisCacheService,
+    private readonly redisService: DatabaseService,
   ) {
     this.startFetchingData();
   }
@@ -28,9 +28,11 @@ export class TrendsService {
   private storeTrendCycle() {
     const cycleId = `cycle:${this.trendCycle++}`; // Replace with actual cycle ID
     const data = this.trendCache;
-    void this.redisService.storeCycle(cycleId, data).catch((error) => {
-      console.error('Error storing trend cycle: ', error);
-    });
+    void this.redisService
+      .cacheData(cycleId, JSON.stringify(data))
+      .catch((error) => {
+        console.error('Error storing trend cycle: ', error);
+      });
   }
 
   private updateTrendCache(trendObj: TrendObjApi) {
@@ -62,7 +64,7 @@ export class TrendsService {
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
       this.updateTrendCache(convertedTrendApiObj);
       if (this.extRouterService.isCycleDone()) {
-        this.storeTrendCycle();
+        //this.storeTrendCycle();
         this.extRouterService.resetCycleDone();
       }
     } catch (error) {

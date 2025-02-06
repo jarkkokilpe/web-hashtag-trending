@@ -34,6 +34,11 @@ const processTrendData = (data: CountryInfo[], trends: TrendApiObj[]): CountryIn
           name: trend.name,
           tweet_volume: trend.tweet_volume,
         })),
+        totalvolume: trendData.totalvolume,
+        diff2: trendData.diff2,
+        diff3: trendData.diff3,
+        diff5: trendData.diff5,
+        diff10: trendData.diff10,
         hashtag: {
           hashstr: topTrend.name,
           count: topTrend.tweet_volume,

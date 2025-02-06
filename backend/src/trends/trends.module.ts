@@ -3,19 +3,10 @@ import { HttpModule } from '@nestjs/axios';
 import { TrendsController } from './trends.controller';
 import { TrendsService } from './trends.service';
 import { ExtDataRouterModule } from '../extdatarouter/extdatarouter.module';
-import { RedisModule } from '@nestjs-modules/ioredis';
+import { DatabaseModule } from '../database/database.module';
 
 @Module({
-  imports: [
-    HttpModule,
-    ExtDataRouterModule,
-    RedisModule.forRootAsync({
-      useFactory: () => ({
-        type: 'single',
-        url: 'redis://localhost:6379',
-      }),
-    }),
-  ],
+  imports: [HttpModule, ExtDataRouterModule, DatabaseModule],
   controllers: [TrendsController],
   providers: [TrendsService],
 })

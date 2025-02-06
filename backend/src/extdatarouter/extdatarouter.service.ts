@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { XapiService } from '../extdata/xapi/xapi.service';
-import { MockService } from '../extdata/mock/mock.service';
+import { MockDataService } from '../extdata/mock/mock.service';
 import { TrendObjExtApi } from './interfaces/ext.interface';
 import {
   FETCH_INTERVAL_MS,
@@ -13,7 +13,7 @@ import {
 export class ExtDataRouterService {
   constructor(
     private readonly xapiService: XapiService,
-    private readonly mockService: MockService,
+    private readonly mockService: MockDataService,
   ) {}
 
   async getNextTrend() {
