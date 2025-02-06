@@ -3,14 +3,14 @@
 }
   
 .country {
-  stroke: #696f70;
-  fill: #4d4e50;
+  stroke: #5d6d6f;
+  fill: #4a4e54;
   transition: none;
 }
 
 .country:hover {
   cursor: pointer;
-  fill: #767c80;
+  fill: #6d787e;
   transition: none;
 }
 

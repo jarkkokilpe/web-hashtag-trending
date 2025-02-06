@@ -42,8 +42,17 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
 
   useEffect(() => {
     if (svgRef.current) {
-      const svg = d3.select(svgRef.current);
+      
+      function zoomed(event: ZoomEvent) {
+        const { transform } = event;
+        // Update zoomScale state with the new scale
+        console.log('zoomScale ', transform.k);
+        svg.selectAll('path, circle, text').attr('transform', transform.toString());
+        setZoomScale(transform.k);
+        setCurrentTransform(d3.zoomTransform(svgRef.current as SVGSVGElement));
+      }
 
+      const svg = d3.select(svgRef.current);
       // Zoom behavior 
       const zoom = d3.zoom()
         .scaleExtent([ZOOM_MIN, ZOOM_MAX])
@@ -55,14 +64,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
         transform: d3.ZoomTransform;
       }
 
-      function zoomed(event: ZoomEvent) {
-        const { transform } = event;
-        // Update zoomScale state with the new scale
-        console.log('zoomScale ', transform.k);
-        svg.selectAll('path, circle, text').attr('transform', transform.toString());
-        setZoomScale(transform.k);
-        setCurrentTransform(d3.zoomTransform(svgRef.current as SVGSVGElement));
-      }
+      
 
       // Define initial zoom here
       const initialTransform = d3.zoomIdentity.translate(-width/1.5, -height).scale(ZOOM_MIN); // Example initial zoom

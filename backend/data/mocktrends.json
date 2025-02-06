@@ -12,7 +12,7 @@
     "trends": [
       { "name": "#MidnightSun", "tweet_volume": 15000 },
       { "name": "IKEA", "tweet_volume": 12000 },
-      { "name": "ABBA", "tweet_volume": 10000 }
+      { "name": "ABBA", "tweet_volume": 100000 }
     ]
   },
   {
@@ -90,7 +90,7 @@
   {
     "woeid": 2347563,
     "trends": [
-      { "name": "SiliconValley", "tweet_volume": 10000 },
+      { "name": "SiliconValley", "tweet_volume": 15000 },
       { "name": "LA", "tweet_volume": 6000 },
       { "name": "BayArea", "tweet_volume": 7000 }
     ]
@@ -123,7 +123,7 @@
     "woeid": 2347591,
     "trends": [
       { "name": "UpstateAlbany", "tweet_volume": 13000 },
-      { "name": "SteamedHams", "tweet_volume": 14000 },
+      { "name": "SteamedHams", "tweet_volume": 204000 },
       { "name": "BigApple", "tweet_volume": 12000 }
     ]
   },
@@ -138,9 +138,9 @@
   {
     "woeid": 2347602,
     "trends": [
-      { "name": "Bastrop", "tweet_volume": 90000 },
-      { "name": "Chili", "tweet_volume": 6000 },
-      { "name": "Stargate", "tweet_volume": 30000 }
+      { "name": "Bastrop", "tweet_volume": 30000 },
+      { "name": "Chili", "tweet_volume": 26000 },
+      { "name": "Stargate", "tweet_volume": 29000 }
     ]
   }
 ]

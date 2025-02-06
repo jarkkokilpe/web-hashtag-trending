@@ -16,10 +16,10 @@ const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
       <ul className="infoText">
         <li>{`Name: ${inputData?.name}`}</li>
         <li>{`Code: ${inputData?.code}`}</li>
+        <li>{`IxOI: ${getIxOfInterest(inputData)}`}</li>
         <li>{`Pop.: ${inputData?.value}`}</li>
         <li>{`Volume: ${inputData?.totalvolume}`}</li>
         <li>{`Top mention: ${inputData?.hash.hashstr} (${inputData?.hash.count})`}</li>
-        <li>{`IxOI: ${getIxOfInterest(inputData)}`}</li>
       </ul>
     </div>
   );

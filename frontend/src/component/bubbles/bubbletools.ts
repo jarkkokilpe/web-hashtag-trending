@@ -74,6 +74,7 @@ export function getVisibleBubbles(
     position: { top: 0, left: 0 },
     code: region.code,
     value: region.value,
+    diff2: region.diff2,
     totalvolume: region.totalvolume,
   }));
 };

@@ -37,6 +37,7 @@ export interface BubbleData {
   position: PositionOnMap;
   code: string;
   value: number;
+  diff2: number;
   totalvolume: number;
 }
 

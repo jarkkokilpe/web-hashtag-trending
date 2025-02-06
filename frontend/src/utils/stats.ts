@@ -3,16 +3,29 @@ import { BubbleData } from '../types/interfaces';
 
 // Normalized Tweet Volume = (Total Tweets / (Population * Posts/Inhabitant/Day)) * Scaling Factor
 // Trend Change = (Newest Tweet Volume - Comparison Point Tweet Volume) / Comparison Point Tweet Volume * 100
+
+export function isDiffAtNormalLevel(
+  diff: number, 
+  total: number, 
+  thresholdPerc: number): boolean {
+    if (total === 0) {  
+      return true;
+    }
+    const diffPerc = (Math.abs(diff) / total) * 100;
+    console.log("diff total thresholdPerc diffPercent: ", diff, total, thresholdPerc, diffPerc);
+  return diffPerc < thresholdPerc;
+}
+
 export function getTrendVolume(regiData: any): number {
   if (regiData.value === 0) {
     return 0;
   }
 
   if (regiData.ppd !== 0) {
-    return (10**12 * (regiData.hashtag.count / (regiData.value * regiData.ppd)));
+    return (10**12 * (regiData.totalvolume / (regiData.value * regiData.ppd)));
   }
 
-  return (10**12 * regiData.hashtag.count / regiData.value)
+  return (10**12 * regiData.totalvolume / regiData.value)
 }
 
 export function getIxOfInterest(bubble:BubbleData | null | undefined):number {

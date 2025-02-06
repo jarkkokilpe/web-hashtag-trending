@@ -1,0 +1,42 @@
+/* Extend base styles */
+.bubble-normal {
+  composes: base-bubble from './base.module.css';
+  stroke: #5fa0e4;
+  fill: #669EDA;
+}
+
+.bubble-normal:hover {
+  cursor: pointer;
+  opacity: 1.0;
+  fill-opacity: 0.65;
+  transition: none;
+  fill: #669EDA;
+}
+
+.bubble-rising {
+  composes: base-bubble from './base.module.css';
+  stroke: #5fe47c;
+  fill: #66da7b;
+}
+
+.bubble-rising:hover {
+  cursor: pointer;
+  opacity: 1.0;
+  fill-opacity: 0.65;
+  transition: none;
+  fill: #66da7d;
+}
+
+.bubble-falling {
+  composes: base-bubble from './base.module.css';
+  stroke: #e45f5f;
+  fill: #da6666;
+}
+
+.bubble-falling:hover {
+  cursor: pointer;
+  opacity: 1.0;
+  fill-opacity: 0.65;
+  transition: none;
+  fill: #da6666;
+}

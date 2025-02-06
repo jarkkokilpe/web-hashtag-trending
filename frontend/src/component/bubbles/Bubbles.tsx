@@ -26,8 +26,10 @@ import {
   CountryInfo,
   GeoArea, 
 } from '../../types/interfaces';
+import { isDiffAtNormalLevel } from '../../utils/stats';
 import { ZOOM_THRESHOLD_US_STATES, DEBOUNCE_DELAY } from '../../config/constants';
-import './Bubbles.css';
+import classNames from 'classnames';
+import styles from './bubbles.module.css';
 
 interface BubblesProps {
   mapprops: SizeProps;
@@ -129,9 +131,15 @@ const Bubbles: React.FC<BubblesProps> = ({
           position: { top: 0, left: 0 },
           code: region.code,
           value: region.value,
+          diff2: region.diff2,
           totalvolume: region.totalvolume,
         };
-
+        const bubbleClass = classNames(styles.bubble, {
+          [styles['bubble-normal']]: isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10),
+          [styles['bubble-rising']]: !isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10) && bubble.diff2 > 0,
+          [styles['bubble-falling']]: !isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10) && bubble.diff2 < 0,
+        });
+        
         return (
           <g key={i} onClick={() => handleClick(bubble)} className={className}>
             <circle
@@ -139,7 +147,7 @@ const Bubbles: React.FC<BubblesProps> = ({
               cy={fixedCentroid[1]}
               r={sizeScale(getBubbleSize(region))}
               strokeWidth={strokeWidth}
-              className="bubble"
+              className={bubbleClass}
               onMouseEnter={(event) => debouncedMouseEnter(event as React.MouseEvent<SVGCircleElement, MouseEvent>, bubble)}
               onMouseLeave={debouncedMouseLeave}
               onMouseMove={handleMouseMove}
