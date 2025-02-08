@@ -75,7 +75,7 @@ const SideBar: React.FC = () => {
   const [isHidden, setIsHidden] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('tabVolume');
   const { visibleBubbles } = useVisibleBubblesStore();
-  const { setMode } = useDataModeStore();
+  const { setDataMode: setMode } = useDataModeStore();
 
   const volumeSortedBubbles = [...visibleBubbles].sort((a, b) => b.totalvolume - a.totalvolume);
   const densitySortedBubbles = [...visibleBubbles].sort((a, b) => getPostDensity(b) - getPostDensity(a));

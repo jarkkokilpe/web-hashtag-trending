@@ -4,11 +4,11 @@ import React, {
   useContext, 
   useEffect 
 } from 'react';
-import { fetchAllTrends } from '../../services/apidata';
-import { numData as initialNumData  } from '../../data/countryinfo';
-import { usNumData as initialUsNumData  } from '../../data/us/stateinfo';
-import { AreaData, TrendContent, TrendApiObj  } from '../../types/interfaces';
-import { DATA_FETCH_INTERVAL_MS  } from '../../config/constants';
+import { fetchAllTrends } from '../services/apidata';
+import { numData as initialNumData  } from '../data/countryinfo';
+import { usNumData as initialUsNumData  } from '../data/us/stateinfo';
+import { AreaData, TrendContent, TrendApiObj  } from '../types/interfaces';
+import { DATA_FETCH_INTERVAL_MS  } from '../config/constants';
 
 interface TrendsContextProps {
   numData: AreaData[];

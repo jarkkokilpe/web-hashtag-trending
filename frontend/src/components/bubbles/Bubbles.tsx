@@ -13,7 +13,7 @@ import {
   getBubbleSize, 
   getVisibleBubbles 
 } from './bubbletools';
-import { useTrends } from '../context/TrendsContext';
+import { useTrends } from '../../contexts/TrendsContext';
 import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
 import useDataModeStore, { DataMode } from '../../stores/useDataModeStore';
 import ToolTip from '../tooltip/ToolTip'
@@ -30,6 +30,7 @@ import {
 import { isDiffAtNormalLevel } from '../../utils/stats';
 import { ZOOM_THRESHOLD_US_STATES, DEBOUNCE_DELAY } from '../../config/constants';
 import classNames from 'classnames';
+import { useZoomContext } from '../../contexts/ZoomContext';
 import styles from './bubbles.module.css';
 
 interface BubblesProps {
@@ -42,20 +43,19 @@ interface BubblesProps {
 
 const Bubbles: React.FC<BubblesProps> = ({ 
   mapprops, 
-  zoomScale, 
   zoomTransformStr,
-  svgRef,
   updateSelectedBubbleData }) => {
     
   const { numData } = useTrends();
   const { usNumData } = useTrends();
   const { setVisibleBubbles } = useVisibleBubblesStore();
-  const { mode } = useDataModeStore();
+  const { dataMode } = useDataModeStore();
   const [selectedBubble, setSelectedBubble] = useState<AreaData | null>(null);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [hoveredBubbleData, setHoveredBubbleData] = useState<AreaData | null>(null);
   const [isMouseOverBubble, setIsMouseOverBubble] = useState<boolean>(false);
- 
+  const { svgRef, zoomScale, currentTransform } = useZoomContext();
+   
   const strokeWidth = 1 / zoomScale;
   const sizeScale = getSizeScale([...numData, ...usNumData]);
 
@@ -155,8 +155,8 @@ const Bubbles: React.FC<BubblesProps> = ({
       });
   };
  
-  const countryBubbles = generateBubbles(numData, geoCountries, 'bubble-group', getBubbleSize, mode);
-  const stateBubbles = generateBubbles(usNumData, geoUsStates, 'state-bubble-group', getBubbleSize, mode);
+  const countryBubbles = generateBubbles(numData, geoCountries, 'bubble-group', getBubbleSize, dataMode);
+  const stateBubbles = generateBubbles(usNumData, geoUsStates, 'state-bubble-group', getBubbleSize, dataMode);
 
   return (
     <>
