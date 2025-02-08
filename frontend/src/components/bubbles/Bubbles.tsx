@@ -1,10 +1,18 @@
-import React, { 
-  useState, 
-  useCallback, 
-  useEffect, 
-  useRef 
-} from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import classNames from 'classnames';
+import { ZOOM_THRESHOLD_US_STATES, DEBOUNCE_DELAY_MS } from '../../config/constants';
+import { SizeProps, PositionOnMap, AreaData, GeoArea } from '../../types/interfaces';
+import ToolTip from '../tooltip/ToolTip'
+import { useTrends } from '../../contexts/TrendsApiContext';
+import { useZoomContext } from '../../contexts/ZoomContext';
+import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
+import useDataModeStore, { DataMode } from '../../stores/useDataModeStore';
+import { getFixedAreaCentroid } from '../../utils/maptools'
+import { getTooltipPosition } from '../../utils/maptools'
+import { geoUsStates } from '../../data/us/statebounds';
+import { geoCountries } from '../../data/worldbounds';
+import { isDiffAtNormalLevel } from '../../utils/stats';
 import { 
   bubbleTooltipSize, 
   getToolTipData, 
@@ -13,24 +21,6 @@ import {
   getBubbleSize, 
   getVisibleBubbles 
 } from './bubbletools';
-import { useTrends } from '../../contexts/TrendsContext';
-import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
-import useDataModeStore, { DataMode } from '../../stores/useDataModeStore';
-import ToolTip from '../tooltip/ToolTip'
-import { getFixedAreaCentroid } from '../../utils/maptools'
-import { getTooltipPosition } from '../../utils/maptools'
-import { geoUsStates } from '../../data/us/statebounds';
-import { geoCountries } from '../../data/worldbounds';
-import { 
-  SizeProps, 
-  PositionOnMap, 
-  AreaData,
-  GeoArea, 
-} from '../../types/interfaces';
-import { isDiffAtNormalLevel } from '../../utils/stats';
-import { ZOOM_THRESHOLD_US_STATES, DEBOUNCE_DELAY } from '../../config/constants';
-import classNames from 'classnames';
-import { useZoomContext } from '../../contexts/ZoomContext';
 import styles from './bubbles.module.css';
 
 interface BubblesProps {
@@ -45,7 +35,6 @@ const Bubbles: React.FC<BubblesProps> = ({
   mapprops, 
   zoomTransformStr,
   updateSelectedBubbleData }) => {
-    
   const { numData } = useTrends();
   const { usNumData } = useTrends();
   const { setVisibleBubbles } = useVisibleBubblesStore();
@@ -54,10 +43,30 @@ const Bubbles: React.FC<BubblesProps> = ({
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [hoveredBubbleData, setHoveredBubbleData] = useState<AreaData | null>(null);
   const [isMouseOverBubble, setIsMouseOverBubble] = useState<boolean>(false);
-  const { svgRef, zoomScale, currentTransform } = useZoomContext();
-   
-  const strokeWidth = 1 / zoomScale;
+  const { svgRef, zoomScale } = useZoomContext();
   const sizeScale = getSizeScale([...numData, ...usNumData]);
+
+  useEffect(() => {
+    setIsMouseOverBubble(hoveredBubbleData !== null);
+  }, [hoveredBubbleData]);
+
+  useEffect(() => {
+      if (isMouseOverBubble) {
+        setSelectedBubble(hoveredBubbleData);
+      } else {
+        setSelectedBubble(null);
+      }
+  }, [isMouseOverBubble, hoveredBubbleData]);
+
+  useEffect(() => {
+    if (svgRef) {
+      const usStateBubbles = getVisibleBubbles(svgRef, geoUsStates, usNumData, mapprops, sizeScale, getBubbleSizeByDensity);
+      const countryBubbles = getVisibleBubbles(svgRef, geoCountries, numData, mapprops, sizeScale, getBubbleSizeByDensity);
+      const mergedBubbles = [...usStateBubbles, ...countryBubbles];
+      setVisibleBubbles(mergedBubbles);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [usNumData, numData, mapprops, zoomTransformStr]);
 
   function useDebounce(callback: (...args: any[]) => void, delay: number = 200) {
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -81,11 +90,11 @@ const Bubbles: React.FC<BubblesProps> = ({
     const transform = d3.zoomTransform(svgRef.current!);
     
     setPosition(getTooltipPosition(svgRef.current, bubbleTooltipSize, event.nativeEvent, transform));
-  }, DEBOUNCE_DELAY);
+  }, DEBOUNCE_DELAY_MS);
   
   const debouncedMouseLeave = useDebounce(() => {
     setHoveredBubbleData(null);
-  }, DEBOUNCE_DELAY);
+  }, DEBOUNCE_DELAY_MS);
   
   const handleClick = (area: AreaData): void => {
     console.log('Bubble clicked:', area); 
@@ -95,28 +104,6 @@ const Bubbles: React.FC<BubblesProps> = ({
   const handleMouseMove = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevents the event from bubbling up to the bubble
   };
-
-  useEffect(() => {
-    setIsMouseOverBubble(hoveredBubbleData !== null);
-  }, [hoveredBubbleData]);
-
-  useEffect(() => {
-      if (isMouseOverBubble) {
-        setSelectedBubble(hoveredBubbleData);
-      } else {
-        setSelectedBubble(null);
-      }
-  }, [isMouseOverBubble, hoveredBubbleData]);
-
-  useEffect(() => {
-    if (svgRef) {
-      const usStateBubbles = getVisibleBubbles(svgRef, geoUsStates, usNumData, mapprops, sizeScale, getBubbleSizeByDensity);
-      const countryBubbles = getVisibleBubbles(svgRef, geoCountries, numData, mapprops, sizeScale, getBubbleSizeByDensity);
-      const mergedBubbles = [...usStateBubbles, ...countryBubbles];
-      setVisibleBubbles(mergedBubbles);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [usNumData, numData, mapprops, zoomTransformStr]);
 
   const generateBubbles = (
     data: AreaData[], 
@@ -143,7 +130,7 @@ const Bubbles: React.FC<BubblesProps> = ({
               cx={fixedCentroid[0]}
               cy={fixedCentroid[1]}
               r={sizeScale(bubbleSizeFunc(region, mode))}
-              strokeWidth={strokeWidth}
+              strokeWidth={1 / zoomScale}
               className={bubbleClass}
               onMouseEnter={(event) => debouncedMouseEnter(event as React.MouseEvent<SVGCircleElement, MouseEvent>, region)}
               onMouseLeave={debouncedMouseLeave}

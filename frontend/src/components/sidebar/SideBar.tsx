@@ -55,7 +55,6 @@ const columnsChange: GridColDef[] = [
 const dataGridStyles = {
   '& .MuiDataGrid-root': {
     backgroundColor: '#444444', // Background color of the DataGrid
-    borderRadius: 0, // Sharp corners
   },
   '& .MuiDataGrid-cell': {
     color: '#c5d3ee', // Text color of the cells
@@ -63,7 +62,6 @@ const dataGridStyles = {
   '& .MuiDataGrid-columnHeaders': {
     backgroundColor: '#444444', // Background color of the header
     color: '#333333', // Text color of the header
-    borderRadius: 0, // Sharp corners
   },
   '& .MuiDataGrid-columnSeparator': {
     display: 'none', // Remove column separators if desired

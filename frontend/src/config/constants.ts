@@ -1,9 +1,10 @@
-// Debounce delay for mouse events
+
 
 export const VIEWPORT_DEFAULT_WIDTH = 1200;
 export const VIEWPORT_DEFAULT_HEIGHT = 800;
 
-export const DEBOUNCE_DELAY = 200;
+// Debounce delay for mouse events
+export const DEBOUNCE_DELAY_MS = 200;
 
 // Bubble size range
 export const BUBBLE_MIN_SIZE = 1.5;

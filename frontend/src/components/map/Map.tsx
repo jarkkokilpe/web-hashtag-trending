@@ -3,15 +3,15 @@ import * as d3 from 'd3';
 import Bubbles from '../bubbles/Bubbles';
 import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
+import { useZoomContext } from '../../contexts/ZoomContext';
+import { SizeProps, PositionOnMap, AreaData } from '../../types/interfaces'
 import { geoCountries, CountryFeature, CountryProps } from '../../data/worldbounds'
 import { geoUsStates } from '../../data/us/statebounds';
 import { getMapname } from '../../utils/stats'
-import { SizeProps, PositionOnMap, AreaData } from '../../types/interfaces'
 import { getTooltipPosition, createProjection } from '../../utils/maptools'
 import { getAreaSize, getFixedAreaCentroid } from '../../utils/maptools'
 import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
 import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../../config/strings';
-import { useZoomContext } from '../../contexts/ZoomContext';
 import { 
   ZOOM_THRESHOLD_US_STATES, 
   AREA_TOOLTIP_WIDTH,
@@ -84,7 +84,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
       return (
         <path 
           key={(feature as CountryFeature).id}  
-          id={`${idprefix}-${(feature as CountryFeature).id}`} // Setting a unique id for each country
+          id={`${idprefix}-${(feature as CountryFeature).id}`}
           d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
           onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
           onMouseLeave={handleMouseLeave}

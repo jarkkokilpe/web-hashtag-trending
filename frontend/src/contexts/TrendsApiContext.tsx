@@ -1,9 +1,4 @@
-import React, { 
-  createContext, 
-  useState, 
-  useContext, 
-  useEffect 
-} from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { fetchAllTrends } from '../services/apidata';
 import { numData as initialNumData  } from '../data/countryinfo';
 import { usNumData as initialUsNumData  } from '../data/us/stateinfo';
@@ -21,7 +16,7 @@ interface TrendsProviderProps {
   children: React.ReactNode;
 }
 
-const TrendsContext = createContext<TrendsContextProps | undefined>(undefined);
+const TrendsApiContext = createContext<TrendsContextProps | undefined>(undefined);
 
 const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] => {
   return data.map((info: AreaData) => {
@@ -50,7 +45,7 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
   });
 };
 
-export const TrendsProvider: React.FC<TrendsProviderProps> = ({ children }) => {
+export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) => {
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
 
@@ -71,16 +66,16 @@ export const TrendsProvider: React.FC<TrendsProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <TrendsContext.Provider value={{ numData, setNumData, usNumData, setUsNumData }}>
+    <TrendsApiContext.Provider value={{ numData, setNumData, usNumData, setUsNumData }}>
       {children}
-    </TrendsContext.Provider>
+    </TrendsApiContext.Provider>
   );
 };
 
 export const useTrends = (): TrendsContextProps => {
-  const context = useContext(TrendsContext);
+  const context = useContext(TrendsApiContext);
   if (!context) {
-    throw new Error('useTrends must be used within a TrendsProvider');
+    throw new Error('useTrends must be used within a TrendsApiProvider');
   }
   return context;
 };
