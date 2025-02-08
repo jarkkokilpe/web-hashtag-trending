@@ -9,11 +9,13 @@ import {
   bubbleTooltipSize, 
   getToolTipData, 
   getSizeScale, 
+  getBubbleSizeByDensity, 
   getBubbleSize, 
   getVisibleBubbles 
 } from './bubbletools';
 import { useTrends } from '../context/TrendsContext';
 import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
+import useDataModeStore, { DataMode } from '../../stores/useDataModeStore';
 import ToolTip from '../tooltip/ToolTip'
 import { getFixedAreaCentroid } from '../../utils/maptools'
 import { getTooltipPosition } from '../../utils/maptools'
@@ -21,9 +23,8 @@ import { geoUsStates } from '../../data/us/statebounds';
 import { geoCountries } from '../../data/worldbounds';
 import { 
   SizeProps, 
-  BubbleData, 
   PositionOnMap, 
-  CountryInfo,
+  AreaData,
   GeoArea, 
 } from '../../types/interfaces';
 import { isDiffAtNormalLevel } from '../../utils/stats';
@@ -36,7 +37,7 @@ interface BubblesProps {
   zoomScale: number;
   zoomTransformStr: string,
   svgRef: React.RefObject<SVGSVGElement | null> | null;
-  updateSelectedBubbleData: (data: BubbleData | null) => void;
+  updateSelectedBubbleData: (data: AreaData | null) => void;
 }
 
 const Bubbles: React.FC<BubblesProps> = ({ 
@@ -49,9 +50,10 @@ const Bubbles: React.FC<BubblesProps> = ({
   const { numData } = useTrends();
   const { usNumData } = useTrends();
   const { setVisibleBubbles } = useVisibleBubblesStore();
-  const [selectedBubble, setSelectedBubble] = useState<BubbleData | null>(null);
+  const { mode } = useDataModeStore();
+  const [selectedBubble, setSelectedBubble] = useState<AreaData | null>(null);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
-  const [hoveredBubbleData, setHoveredBubbleData] = useState<BubbleData | null>(null);
+  const [hoveredBubbleData, setHoveredBubbleData] = useState<AreaData | null>(null);
   const [isMouseOverBubble, setIsMouseOverBubble] = useState<boolean>(false);
  
   const strokeWidth = 1 / zoomScale;
@@ -70,12 +72,12 @@ const Bubbles: React.FC<BubblesProps> = ({
     }, [callback, delay]);
   }
 
-  const debouncedMouseEnter = useDebounce((event: React.MouseEvent<SVGCircleElement, MouseEvent>, bubbleData: BubbleData) => {
+  const debouncedMouseEnter = useDebounce((event: React.MouseEvent<SVGCircleElement, MouseEvent>, areaData: AreaData) => {
     if (!svgRef) { 
       return;
     }
 
-    setHoveredBubbleData(bubbleData);
+    setHoveredBubbleData(areaData);
     const transform = d3.zoomTransform(svgRef.current!);
     
     setPosition(getTooltipPosition(svgRef.current, bubbleTooltipSize, event.nativeEvent, transform));
@@ -85,9 +87,9 @@ const Bubbles: React.FC<BubblesProps> = ({
     setHoveredBubbleData(null);
   }, DEBOUNCE_DELAY);
   
-  const handleClick = (bubbleData: BubbleData): void => {
-    console.log('Bubble clicked:', bubbleData); 
-    updateSelectedBubbleData(bubbleData);
+  const handleClick = (area: AreaData): void => {
+    console.log('Bubble clicked:', area); 
+    updateSelectedBubbleData(area);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -108,47 +110,42 @@ const Bubbles: React.FC<BubblesProps> = ({
 
   useEffect(() => {
     if (svgRef) {
-      const usStateBubbles = getVisibleBubbles(svgRef, geoUsStates, usNumData, mapprops, sizeScale, getBubbleSize);
-      const countryBubbles = getVisibleBubbles(svgRef, geoCountries, numData, mapprops, sizeScale, getBubbleSize);
+      const usStateBubbles = getVisibleBubbles(svgRef, geoUsStates, usNumData, mapprops, sizeScale, getBubbleSizeByDensity);
+      const countryBubbles = getVisibleBubbles(svgRef, geoCountries, numData, mapprops, sizeScale, getBubbleSizeByDensity);
       const mergedBubbles = [...usStateBubbles, ...countryBubbles];
       setVisibleBubbles(mergedBubbles);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usNumData, numData, mapprops, zoomTransformStr]);
 
-  const generateBubbles = (data: CountryInfo[], area: GeoArea, className: string) => {
+  const generateBubbles = (
+    data: AreaData[], 
+    area: GeoArea, 
+    className: string, 
+    bubbleSizeFunc: (region: AreaData, mode: DataMode) => number,
+    mode: DataMode) => {
     return data
-      .sort((a, b) => getBubbleSize(b) - getBubbleSize(a))
+      .sort((a, b) => bubbleSizeFunc(b, mode) - bubbleSizeFunc(a, mode))
       .map((region, i) => {
         if (zoomScale > ZOOM_THRESHOLD_US_STATES && region.code === 'USA') {
           return null;
         }
-
         const fixedCentroid = getFixedAreaCentroid(area, region.code, mapprops);
-        const bubble: BubbleData = {
-          name: region.name,
-          hash: region.hashtag,
-          position: { top: 0, left: 0 },
-          code: region.code,
-          value: region.value,
-          diff2: region.diff2,
-          totalvolume: region.totalvolume,
-        };
         const bubbleClass = classNames(styles.bubble, {
-          [styles['bubble-normal']]: isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10),
-          [styles['bubble-rising']]: !isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10) && bubble.diff2 > 0,
-          [styles['bubble-falling']]: !isDiffAtNormalLevel(bubble.diff2, bubble.totalvolume, 10) && bubble.diff2 < 0,
+          [styles['bubble-normal']]: isDiffAtNormalLevel(region.diff2, region.totalvolume, 10),
+          [styles['bubble-rising']]: !isDiffAtNormalLevel(region.diff2, region.totalvolume, 10) && region.diff2 > 0,
+          [styles['bubble-falling']]: !isDiffAtNormalLevel(region.diff2, region.totalvolume, 10) && region.diff2 < 0,
         });
         
         return (
-          <g key={i} onClick={() => handleClick(bubble)} className={className}>
+          <g key={i} onClick={() => handleClick(region)} className={className}>
             <circle
               cx={fixedCentroid[0]}
               cy={fixedCentroid[1]}
-              r={sizeScale(getBubbleSize(region))}
+              r={sizeScale(bubbleSizeFunc(region, mode))}
               strokeWidth={strokeWidth}
               className={bubbleClass}
-              onMouseEnter={(event) => debouncedMouseEnter(event as React.MouseEvent<SVGCircleElement, MouseEvent>, bubble)}
+              onMouseEnter={(event) => debouncedMouseEnter(event as React.MouseEvent<SVGCircleElement, MouseEvent>, region)}
               onMouseLeave={debouncedMouseLeave}
               onMouseMove={handleMouseMove}
               transform={zoomTransformStr}
@@ -157,9 +154,9 @@ const Bubbles: React.FC<BubblesProps> = ({
         );
       });
   };
-
-  const countryBubbles = generateBubbles(numData, geoCountries, 'bubble-group');
-  const stateBubbles = generateBubbles(usNumData, geoUsStates, 'state-bubble-group');
+ 
+  const countryBubbles = generateBubbles(numData, geoCountries, 'bubble-group', getBubbleSize, mode);
+  const stateBubbles = generateBubbles(usNumData, geoUsStates, 'state-bubble-group', getBubbleSize, mode);
 
   return (
     <>

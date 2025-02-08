@@ -1,14 +1,14 @@
 import { create } from 'zustand';
-import { BubbleData } from '../types/interfaces';
+import { AreaData } from '../types/interfaces';
 
 interface VisibleBubblesState {
-  visibleBubbles: BubbleData[];
-  setVisibleBubbles: (bubbles: BubbleData[]) => void;
+  visibleBubbles: AreaData[];
+  setVisibleBubbles: (area: AreaData[]) => void;
 }
 
 const useVisibleBubblesStore = create<VisibleBubblesState>((set) => ({
   visibleBubbles: [],
-  setVisibleBubbles: (bubbles:any) => set({ visibleBubbles: bubbles }),
+  setVisibleBubbles: (area: AreaData[]) => set({ visibleBubbles: area }),
 }));
 
 export default useVisibleBubblesStore;

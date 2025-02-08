@@ -6,7 +6,7 @@ import ToolTip from '../tooltip/ToolTip'
 import { geoCountries, CountryFeature, CountryProps } from '../../data/worldbounds'
 import { geoUsStates } from '../../data/us/statebounds';
 import { getMapname } from '../../utils/stats'
-import { SizeProps, PositionOnMap, BubbleData } from '../../types/interfaces'
+import { SizeProps, PositionOnMap, AreaData } from '../../types/interfaces'
 import { getTooltipPosition, createProjection } from '../../utils/maptools'
 import { getAreaSize, getFixedAreaCentroid } from '../../utils/maptools'
 import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
@@ -17,6 +17,8 @@ import {
   ZOOM_MAX,
   AREA_TOOLTIP_WIDTH,
   AREA_TOOLTIP_HEIGHT,
+  VIEWPORT_DEFAULT_WIDTH,
+  VIEWPORT_DEFAULT_HEIGHT,
  } from '../../config/constants';
 import './Map.css';
 
@@ -25,14 +27,14 @@ interface MapComponentProps {
 }
 
 const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
-  const { width = 1200, height = 800 } = mapprops; 
+  const { width = VIEWPORT_DEFAULT_WIDTH, height = VIEWPORT_DEFAULT_HEIGHT } = mapprops; 
   const svgRef = useRef<SVGSVGElement>(null!);
   const [infoBoxCountry, setInfoBoxCountry] = useState<string>('');
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
-  const [zoomScale, setZoomScale] = useState<number>(1);
-  const [infoBoxData, setInfoBoxData] = useState<BubbleData | null>(null);
+  const [zoomScale, setZoomScale] = useState<number>(ZOOM_MIN);
+  const [infoBoxData, setInfoBoxData] = useState<AreaData | null>(null);
   const [currentTransform, setCurrentTransform] = useState<d3.ZoomTransform>();
   
   const areaTooltipSize:SizeProps = {
@@ -78,8 +80,8 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
     }
   }, [width, height]);
 
-  const updateSelectedBubbleData = (bubbleData: BubbleData | null) => {
-    setInfoBoxData(bubbleData);
+  const updateSelectedBubbleData = (areaData: AreaData | null) => {
+    setInfoBoxData(areaData);
     setIsInfoBoxVisible(true);
   };
 

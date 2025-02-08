@@ -6,6 +6,7 @@ export interface TrendContent {
 export interface TrendApiObj {
   woeid: number;
   totalvolume: number;
+  totalvolumePrev: number;
   diff2: number;
   diff3: number;
   diff5: number;
@@ -18,27 +19,18 @@ export interface HashObj {
   count: number;
 }
 
-export interface CountryInfo extends TrendApiObj {
+export interface AreaData extends TrendApiObj {
   code: string;
   value: number;
   name: string;
   ppd: number; // posts per inhabitant per day
   hashtag: HashObj;
+  position: PositionOnMap;
 }
 
 export interface SizeProps {
   width: number;
   height: number;
-}
-
-export interface BubbleData {
-  name: string;
-  hash: HashObj;
-  position: PositionOnMap;
-  code: string;
-  value: number;
-  diff2: number;
-  totalvolume: number;
 }
 
 export interface PositionOnMap {

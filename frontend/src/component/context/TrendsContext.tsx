@@ -7,14 +7,14 @@ import React, {
 import { fetchAllTrends } from '../../services/apidata';
 import { numData as initialNumData  } from '../../data/countryinfo';
 import { usNumData as initialUsNumData  } from '../../data/us/stateinfo';
-import { CountryInfo, TrendContent, TrendApiObj  } from '../../types/interfaces';
+import { AreaData, TrendContent, TrendApiObj  } from '../../types/interfaces';
 import { DATA_FETCH_INTERVAL_MS  } from '../../config/constants';
 
 interface TrendsContextProps {
-  numData: CountryInfo[];
-  setNumData: React.Dispatch<React.SetStateAction<CountryInfo[]>>;
-  usNumData: CountryInfo[];
-  setUsNumData: React.Dispatch<React.SetStateAction<CountryInfo[]>>;
+  numData: AreaData[];
+  setNumData: React.Dispatch<React.SetStateAction<AreaData[]>>;
+  usNumData: AreaData[];
+  setUsNumData: React.Dispatch<React.SetStateAction<AreaData[]>>;
 }
 
 interface TrendsProviderProps {
@@ -23,8 +23,8 @@ interface TrendsProviderProps {
 
 const TrendsContext = createContext<TrendsContextProps | undefined>(undefined);
 
-const processTrendData = (data: CountryInfo[], trends: TrendApiObj[]): CountryInfo[] => {
-  return data.map((info: CountryInfo) => {
+const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] => {
+  return data.map((info: AreaData) => {
     const trendData = trends.find((trend: { woeid: number }) => trend.woeid === info.woeid);
     if (trendData) {
       const topTrend = trendData.trends.reduce((prev: TrendContent, current: TrendContent) => (current.tweet_volume > prev.tweet_volume ? current : prev), trendData.trends[0]);
@@ -35,6 +35,7 @@ const processTrendData = (data: CountryInfo[], trends: TrendApiObj[]): CountryIn
           tweet_volume: trend.tweet_volume,
         })),
         totalvolume: trendData.totalvolume,
+        totalvolumePrev: trendData.totalvolumePrev,
         diff2: trendData.diff2,
         diff3: trendData.diff3,
         diff5: trendData.diff5,
@@ -50,8 +51,8 @@ const processTrendData = (data: CountryInfo[], trends: TrendApiObj[]): CountryIn
 };
 
 export const TrendsProvider: React.FC<TrendsProviderProps> = ({ children }) => {
-  const [numData, setNumData] = useState<CountryInfo[]>(initialNumData);
-  const [usNumData, setUsNumData] = useState<CountryInfo[]>(initialUsNumData); // Initialize US states data
+  const [numData, setNumData] = useState<AreaData[]>(initialNumData);
+  const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
 
   useEffect(() => {
     const intervalId = setInterval(async () => {

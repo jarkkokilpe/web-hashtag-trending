@@ -44,6 +44,7 @@ export class TrendsService {
         (trend) => trend.woeid === trendObj.woeid,
       );
       if (ix !== -1) {
+        trendObj.totalvolumePrev = this.trendCache[ix].totalvolume;
         trendObj.diff2 = trendObj.totalvolume - this.trendCache[ix].totalvolume;
         this.trendCache[ix] = trendObj;
       } else {
@@ -75,6 +76,7 @@ export class TrendsService {
   private fitExtApiObjToApi(extApiObj: TrendObjExtApi): TrendObjApi {
     const apiobj: TrendObjApi = {
       ...extApiObj,
+      totalvolumePrev: 0,
       totalvolume: extApiObj.trends.reduce(
         (sum, trend) => sum + trend.tweet_volume,
         0,

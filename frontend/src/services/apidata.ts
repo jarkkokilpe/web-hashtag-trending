@@ -23,6 +23,7 @@ export const fetchSingleTrend = async (woeid: number): Promise<TrendApiObj> => {
     return {
       woeid: 0,
       totalvolume: 0,
+      totalvolumePrev: 0,
       diff2: 0,
       diff3: 0,
       diff5: 0,

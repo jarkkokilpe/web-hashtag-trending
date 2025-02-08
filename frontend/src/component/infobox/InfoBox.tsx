@@ -1,12 +1,12 @@
 import React from 'react';
-import { BubbleData } from '../../types/interfaces';
+import { AreaData } from '../../types/interfaces';
 import { getIxOfInterest } from '../../utils/stats';
 import './InfoBox.css';
 
 interface InfoBoxProps {
   onClose: () => void;
   isVisible: boolean;
-  inputData?: BubbleData | null;
+  inputData?: AreaData | null;
 }
 
 const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
@@ -19,7 +19,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
         <li>{`IxOI: ${getIxOfInterest(inputData)}`}</li>
         <li>{`Pop.: ${inputData?.value}`}</li>
         <li>{`Volume: ${inputData?.totalvolume}`}</li>
-        <li>{`Top mention: ${inputData?.hash.hashstr} (${inputData?.hash.count})`}</li>
+        <li>{`Top mention: ${inputData?.hashtag.hashstr} (${inputData?.hashtag.count})`}</li>
       </ul>
     </div>
   );

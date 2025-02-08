@@ -1,4 +1,8 @@
 // Debounce delay for mouse events
+
+export const VIEWPORT_DEFAULT_WIDTH = 1200;
+export const VIEWPORT_DEFAULT_HEIGHT = 800;
+
 export const DEBOUNCE_DELAY = 200;
 
 // Bubble size range
@@ -24,3 +28,6 @@ export const ZOOM_MAX = 50;
 
 // Zoom threshold to get the US states visible
 export const ZOOM_THRESHOLD_US_STATES = 2.8;
+
+export const BUBBLE_AREA_MULTIPLIER_DIFF = 10**8;
+export const BUBBLE_AREA_MULTIPLIER_RATE = 10**12;

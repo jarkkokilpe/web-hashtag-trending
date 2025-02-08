@@ -1,5 +1,9 @@
 import { CountryFeature } from '../data/worldbounds';
-import { BubbleData } from '../types/interfaces';
+import { AreaData } from '../types/interfaces';
+import { 
+  BUBBLE_AREA_MULTIPLIER_DIFF,
+  BUBBLE_AREA_MULTIPLIER_RATE,
+ } from '../config/constants';
 
 // Normalized Tweet Volume = (Total Tweets / (Population * Posts/Inhabitant/Day)) * Scaling Factor
 // Trend Change = (Newest Tweet Volume - Comparison Point Tweet Volume) / Comparison Point Tweet Volume * 100
@@ -8,32 +12,80 @@ export function isDiffAtNormalLevel(
   diff: number, 
   total: number, 
   thresholdPerc: number): boolean {
-    if (total === 0) {  
-      return true;
-    }
-    const diffPerc = (Math.abs(diff) / total) * 100;
-    console.log("diff total thresholdPerc diffPercent: ", diff, total, thresholdPerc, diffPerc);
+  if (total === 0) {  
+    return true;
+  }
+  const diffPerc = (Math.abs(diff) / total) * 100;
   return diffPerc < thresholdPerc;
 }
 
-export function getTrendVolume(regiData: any): number {
-  if (regiData.value === 0) {
+export function getTrendDensity(areaData: AreaData): number {
+  if (areaData.value === 0) {
     return 0;
   }
 
-  if (regiData.ppd !== 0) {
-    return (10**12 * (regiData.totalvolume / (regiData.value * regiData.ppd)));
+  if (areaData.ppd !== 0) {
+    return (BUBBLE_AREA_MULTIPLIER_RATE * (areaData.totalvolume / (areaData.value * areaData.ppd)));
   }
 
-  return (10**12 * regiData.totalvolume / regiData.value)
+  return (BUBBLE_AREA_MULTIPLIER_RATE * areaData.totalvolume / areaData.value)
 }
 
-export function getIxOfInterest(bubble:BubbleData | null | undefined):number {
-  if (!bubble || bubble.value === 0) {
+export function getTrendVolume(areaData: AreaData): number {
+  return (areaData.totalvolume * 100000)
+}
+
+export function getTrendDiffPerc(data: AreaData, diffNum: number): number {
+  if (data.totalvolume === 0 || data.totalvolumePrev === 0) {
+    return 0;
+  }
+
+  switch (diffNum) {
+    case 2:
+      return (data.diff2 / data.totalvolumePrev) * 100;
+    /*
+    case 3:
+      return (data.diff3 / data.totalvolumePrev) * 100;
+    case 5:
+      return (data.diff5 / data.totalvolumePrev) * 100;
+    case 10:
+      return (data.diff10 / data.totalvolumePrev) * 100;
+    */
+    default:
+      return 0;
+  }
+}
+
+export function getTrendDiff(data: AreaData, diffNum: number): number {
+  if (data.totalvolume === 0 || data.totalvolumePrev === 0) {
+    return 0;
+  }
+  console.log("getTrendDiff: ", data.name, data.diff2, data.totalvolumePrev, (Math.abs(data.diff2) / data.totalvolumePrev) * 100);
+ 
+  return (BUBBLE_AREA_MULTIPLIER_DIFF * Math.abs(getTrendDiffPerc(data, diffNum)));
+}
+
+
+export function getTrendDiff2(area: AreaData | null | undefined):number {
+  if (area) {
+    return getTrendDiff(area, 2);
+  }
+  return 0;
+};
+
+export function getTrendDiff2Perc(area: AreaData | null | undefined):number {
+  if (area) {
+    return getTrendDiffPerc(area, 2);
+  }
+  return 0;
+};
+
+export function getIxOfInterest(area: AreaData | null | undefined):number {
+  if (!area || area.value === 0 || area.hashtag === undefined) {
     return 0;
   } 
 
-  return (Math.round((bubble.hash.count ?? 0) * 10 ** 3 / (bubble.value ?? 1) * 100 * 100) / 100);
+  return (Math.round((area.hashtag.count ?? 0) * 10 ** 3 / (area.value ?? 1) * 100 * 100) / 100);
 };
 
 export function getMapname(feature:CountryFeature):string {
@@ -46,18 +98,3 @@ export function getMapname(feature:CountryFeature):string {
       return '';
   }
 };
-
-export function getTopTenTrendingListByCountry(numTable:any):any[] {
-  const topList = numTable
-    .sort((a:number, b:number) => getTrendVolume(b) - getTrendVolume(a))
-    .map((region:any, i:any) => {
-      return region;
-  });
-
-  console.log('topList', topList)
-  const retList = topList.slice(0, 59);
-  console.log('retList', retList)
-
-  return retList;
-}
-

@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { getFixedAreaCentroid } from '../../utils/maptools'
-import { getTrendVolume } from '../../utils/stats'
+import { getTrendDensity, getTrendVolume, getTrendDiff } from '../../utils/stats'
 import { 
   BUBBLE_TOOLTIP_WIDTH, 
   BUBBLE_TOOLTIP_HEIGHT,
@@ -8,26 +8,52 @@ import {
   BUBBLE_MAX_SIZE,
  } from '../../config/constants'
 import { 
-  SizeProps, 
-  BubbleData,
-  CountryInfo,
+  SizeProps,
+  AreaData,
   GeoArea, 
 } from '../../types/interfaces';
+import { 
+  DATAMODE_VOLUME, 
+  DATAMODE_DENSITY, 
+  DATAMODE_CHANGE, 
+  DataMode 
+} from '../../stores/useDataModeStore';
 
 export const bubbleTooltipSize: SizeProps = {
   width: BUBBLE_TOOLTIP_WIDTH,
   height: BUBBLE_TOOLTIP_HEIGHT,
 };
 
-export const getToolTipData = (selectedBubble: BubbleData | null): string => {
-  return selectedBubble ? `${selectedBubble.name} trends ${selectedBubble.hash.hashstr}` : '';
+export const getToolTipData = (selectedBubble: AreaData | null): string => {
+  return selectedBubble ? `${selectedBubble.name} trends ${selectedBubble.hashtag.hashstr}` : '';
 };
 
-export function getBubbleSize (regiData: any): number {
-  return getTrendVolume(regiData);
+export function getBubbleSizeByDensity (area: AreaData): number {
+  return getTrendDensity(area);
 }
 
-export const getSizeScale = (data: CountryInfo[]): d3.ScaleLinear<number, number> => {
+export function getBubbleSizeByVolume (area: AreaData): number {
+  return getTrendVolume(area);
+}
+
+export function getBubbleSizeByDiff2 (area: AreaData): number {
+  return getTrendDiff(area, 2);
+}
+
+export function getBubbleSize (area: AreaData, mode: DataMode): number {
+
+  if (mode === DATAMODE_VOLUME) {
+    return getBubbleSizeByVolume(area);
+  } else if (mode === DATAMODE_DENSITY) {
+    return getBubbleSizeByDensity(area);
+  } else if (mode === DATAMODE_CHANGE) {
+    return getBubbleSizeByDiff2(area);
+  }
+
+  return 0;
+}
+
+export const getSizeScale = (data: AreaData[]): d3.ScaleLinear<number, number> => {
   const [min, max] = d3.extent(data.map((d) => d.value)) as [number, number];
   return d3
     .scaleSqrt()
@@ -38,19 +64,19 @@ export const getSizeScale = (data: CountryInfo[]): d3.ScaleLinear<number, number
 export function getVisibleBubbles(
   svgRef: React.RefObject<SVGSVGElement | null>,
   area: GeoArea,
-  areaNumData: CountryInfo[],
+  areaNumData: AreaData[],
   mapprops: SizeProps,
   sizeScale: d3.ScaleLinear<number, number>,
-  getBubbleSize: (region: CountryInfo) => number
-): BubbleData[] {
+  bubbleSizeFunc: (region: AreaData) => number
+): AreaData[] {
   if (!svgRef || !svgRef.current) return [];
   const svgElement = svgRef.current;
   const svgRect = svgElement.getBoundingClientRect();
   const transform = d3.zoomTransform(svgElement);
-  const visibleBubbles = areaNumData.filter((region) => {
+  const visibleBubbles = areaNumData.filter((region: any) => {
     const fixedCentroid = getFixedAreaCentroid(area, region.code, mapprops);
     const transformedCentroid = transform.apply([fixedCentroid[0], fixedCentroid[1]]);
-    const radius = sizeScale(getBubbleSize(region)) * transform.k;
+    const radius = sizeScale(bubbleSizeFunc(region)) * transform.k;
     const circleBBox = {
       x: transformedCentroid[0] - radius,
       y: transformedCentroid[1] - radius,
@@ -69,12 +95,7 @@ export function getVisibleBubbles(
   });
 
   return visibleBubbles.map((region) => ({
-    name: region.name,
-    hash: region.hashtag,
+    ...region,
     position: { top: 0, left: 0 },
-    code: region.code,
-    value: region.value,
-    diff2: region.diff2,
-    totalvolume: region.totalvolume,
   }));
 };
