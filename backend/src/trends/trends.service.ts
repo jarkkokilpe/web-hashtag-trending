@@ -2,19 +2,21 @@ import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { TrendObjApi } from './interfaces/trend.interface';
 import { TrendObjExtApi } from '../extdatarouter/interfaces/ext.interface';
 import { ExtDataRouterService } from '../extdatarouter/extdatarouter.service';
-import { DatabaseService } from '../database/database.service';
+import { RandService } from '../randomizer/randomizer.service';
+// import { DatabaseService } from '../database/database.service';
 import { FETCH_INTERVAL_MS } from '../_utils/constants';
 
 @Injectable()
 export class TrendsService {
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
-  private trendCycle: number = 0;
+  // private trendCycle: number = 0;
   private readonly trendCache: TrendObjApi[] = [];
 
   constructor(
     private readonly extRouterService: ExtDataRouterService,
-    private readonly redisService: DatabaseService,
+    private readonly randService: RandService,
+    // private readonly redisService: DatabaseService,
   ) {
     this.startFetchingData();
   }
@@ -25,7 +27,7 @@ export class TrendsService {
     }
   }
 
-  private storeTrendCycle() {
+  /* private storeTrendCycle() {
     const cycleId = `cycle:${this.trendCycle++}`; // Replace with actual cycle ID
     const data = this.trendCache;
     void this.redisService
@@ -33,7 +35,7 @@ export class TrendsService {
       .catch((error) => {
         console.error('Error storing trend cycle: ', error);
       });
-  }
+  } */
 
   private updateTrendCache(trendObj: TrendObjApi) {
     if (this.isUpdating) {
@@ -65,6 +67,7 @@ export class TrendsService {
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
       this.updateTrendCache(convertedTrendApiObj);
       if (this.extRouterService.isCycleDone()) {
+        await this.randService.randomizePostVolumes();
         //this.storeTrendCycle();
         this.extRouterService.resetCycleDone();
       }

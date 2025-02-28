@@ -18,7 +18,7 @@ export class XapiService {
       const response = await firstValueFrom(
         this.httpService.get(`https://api.x.com/2/trends/by/woeid/${woeid}`, {
           headers: {
-            Authorization: 'Bearer XXXXX',
+            Authorization: `Bearer ${process.env.XAPI_KEY}`,
           },
         }),
       );

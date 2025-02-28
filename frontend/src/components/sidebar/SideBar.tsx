@@ -19,7 +19,17 @@ import './SideBar.css';
 
 const columnsVolume: GridColDef[] = [
   { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
-  { field: 'totalvolume', headerName: SIDEBAR_DATAGRID_DESCR_VOLUME, width: 150 },
+  { 
+    field: 'totalvolume', 
+    headerName: SIDEBAR_DATAGRID_DESCR_VOLUME, 
+    width: 150,
+    valueFormatter: (value?: number) => {
+      if (value == null) {
+        return '';
+      }
+      return `${value.toFixed(0)}`;
+    },
+  },
 ];
 
 const columnsDensity: GridColDef[] = [
@@ -67,7 +77,6 @@ const dataGridStyles = {
     display: 'none', // Remove column separators if desired
   },
 };
-
 
 const SideBar: React.FC = () => {
   const [isHidden, setIsHidden] = useState<boolean>(false);
