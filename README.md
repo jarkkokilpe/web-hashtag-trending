@@ -8,7 +8,7 @@ I think it is fascinating to know what are the peak events at the moment and whe
 
 # Usage
 
-First of all, the data showing in the map is by no means real - it is fake mock data. The randomizer module in the backend keeps the data "alive" for the demo purposes.
+First of all, the data showing in the map is by no means real - it is fake mock data. The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on Map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data.
 
 You can pan and scroll the map. If you scroll a little bit closer from the initial state, the US states appear on the map too. Further development idea could be to bring up the US counties too - when zoomed close enough, but that would depend on the specific base map, because e.g. the OSM map could be used also.
 
