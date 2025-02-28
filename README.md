@@ -1,6 +1,6 @@
-# web-hashtag-trending
+# #TRENDING APP!
 
-It's the #TRENDING app to visualize social media trends on the map!
+Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
