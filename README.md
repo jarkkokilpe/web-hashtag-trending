@@ -30,12 +30,27 @@ Only those areas that are visible within the viewport are listed in the data gri
 As said above - the bubble sizes follows these "mode" changes. The bubble's color will change to green if the trend is growing and red if trend is dropping. The change has to be at least somewhat significant that bubble changes its color (there is a little threshold filtering that). Otherwise the bubble stays neutral colored - blue in this case.
 
 # Frontend
+
 A basic React/TypeScript implementation with help of d3.js to create a minimalistic and responsive custom map. Map is rather heavy especially for low-end machines, and as was said in the further back, optionally a lot lighter OSM based map with suitable themed (e.g. MapBox & dark-v10) tilelayer could be used.
 
 # Backend
+
 NestJS based implementation was chosen because of the TypeScript's safe approach continuum from the frontend.For data caching; Redis integration is coming up - to get broader averagings from wider datasets in use.
 
 # Other notes
+
 This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either. The main focus was to deliver the idea to a somewhat concrete form.
 
-Docker support and CI/CD shipping are about to come. The demo is tested mainly with Firefox. No mobile device support yet.
+The demo is tested mainly with Firefox. No mobile device support yet.
+
+# Ideas/updates
+
+* Mobile device support
+* Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.)
+* To list more detailed trend list per area
+* Include maybe some links considering the event
+* Include AI analysis of some particular event/some area/whole situation of the world
+* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is reality
+* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark/red glowing heatmap
+* HTTPS
+* Docker support and CI/CD shipping
