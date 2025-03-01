@@ -151,15 +151,21 @@ const SideBar: React.FC = () => {
         </div>
         <div className={`tab-content ${activeTab === 'tabVolume' ? 'active' : ''}`}>
           <h3>{SIDEBAR_HEADER_VOLUME}</h3>
-          <DataGrid rows={volumeRows} columns={columnsVolume} sx={dataGridStyles} />
+          <div className="data-grid-container">
+            <DataGrid rows={volumeRows} columns={columnsVolume} sx={dataGridStyles} />
+          </div>
         </div>
         <div className={`tab-content ${activeTab === 'tabDensity' ? 'active' : ''}`}>
           <h3>{SIDEBAR_HEADER_DENSITY}</h3>
-          <DataGrid rows={densityRows} columns={columnsDensity} sx={dataGridStyles} />
+          <div className="data-grid-container">
+            <DataGrid rows={densityRows} columns={columnsDensity} sx={dataGridStyles} />
+          </div>
         </div>
         <div className={`tab-content ${activeTab === 'tabChange' ? 'active' : ''}`}>
           <h3>{SIDEBAR_HEADER_CHANGE}</h3>
-          <DataGrid rows={changeRows} columns={columnsChange} sx={dataGridStyles} />
+          <div className="data-grid-container">
+            <DataGrid rows={changeRows} columns={columnsChange} sx={dataGridStyles} />
+          </div>
         </div>
         
       </div>

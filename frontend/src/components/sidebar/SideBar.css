@@ -1,18 +1,18 @@
 .sidebar {
   position: fixed;
   left: 0px;
-  top: 100px; /* Assuming your header height is 60px */
+  top: 100px;
   bottom: 0;
-  width: 300px; /* Adjust to your desired width */
+  width: 300px;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(197, 211, 238);
   padding: 20px;
-  overflow-y: auto; /* For scroll if content overflows */
-  z-index: 999; /* Below header but above other content */
-  transition: left 0.3s ease; /* Transition for sliding */
+  overflow-y: auto; 
+  z-index: 999; 
+  transition: left 0.3s ease; 
 }
 .sidebar.hidden {
-  left: -300px; /* Slide off-screen */
+  left: -300px;
 }
 
 
@@ -45,26 +45,29 @@
 
 .sidebar-toggle {
   position: fixed;
-  left: 300px; /* Button position when sidebar is visible */
-  top: 100px; /* Below header */
+  left: 300px;
+  top: 100px; 
   background: rgba(0, 0, 0, 0.3);
   color: rgb(197, 211, 238);
   border: none;
   cursor: pointer;
   padding: 10px 15px;
-  z-index: 1000; /* Above sidebar */
-  transition: left 0.3s ease; /* Transition for button movement */
+  z-index: 1000;
+  transition: left 0.3s ease; 
 }
 
 .sidebar-toggle.hidden {
-  left: 0; /* Button position when sidebar is hidden */
+  left: 0; 
 }
 
 .sidebar-toggle span {
-  font-size: 24px; /* Adjust size for visibility */
+  font-size: 24px;
 }
 
 .grid {
   background: rgba(0, 0, 0, 0.3);
 }
 
+.data-grid-container {
+  height: 500px;
+}

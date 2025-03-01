@@ -19,50 +19,11 @@ export class RandService {
 
   private randomizeValue(originalValue: number): number {
     const delta = 0.2; // 20% delta
-    const min = originalValue * (1 - delta); // either way, low 20 or high 20
-    const max = originalValue * (1 + delta);
+    const growthBias = 1.05; // add 5% growth bias to prevent long term shrinking
+    const min = originalValue * (1 - delta);
+    const max = originalValue * (1 + delta) * growthBias; // And slightly increase the upper bound here
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  /*
-  export interface TrendObjExtApi {
-    woeid: number;
-    trends: TrendContent[];
-  }
-  
-  export interface TrendContent {
-    name: string;
-    tweet_volume: number;
-  }
-*/
-
-  /*public async randomizePostVolumes(): Promise<void> {
-    try {
-      // Read the JSON file
-      const fileContent = await fs.promises.readFile(this.filePath, 'utf-8');
-      const data = JSON.parse(fileContent) as Array<{
-        name: string;
-        tweet_volume: number;
-      }>;
-
-      // Randomize tweet_volume values in the trends array
-      const updatedTrends = data.trends.map((trend) => ({
-        ...trend,
-        tweet_volume: this.randomizeValue(trend.tweet_volume),
-      }));
-
-      //Write the updated data back to the file
-      await fs.promises.writeFile(
-        this.filePath,
-        JSON.stringify(updatedData, null, 2),
-        'utf-8',
-      );
-
-      console.log('Tweet volumes randomized and file updated successfully.');
-    } catch (error) {
-      console.error('Error randomizing tweet volumes:', error);
-      throw new Error('Failed to randomize tweet volumes');
-    }
-  }*/
 
   public async randomizePostVolumes(): Promise<void> {
     try {
@@ -74,7 +35,7 @@ export class RandService {
 
       console.log('randomizePostVolumes: data', data);
 
-      // Randomize tweet_volume values in the trends array
+      // Randomize tweet_volume valuse in the trends array
       const updatedData = data.map((item) => ({
         ...item,
         trends: item.trends.map((trend) => ({

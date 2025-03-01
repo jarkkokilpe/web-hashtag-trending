@@ -1,11 +1,13 @@
 import axios from 'axios';
-import { TrendApiObj } from '../types/interfaces'; // Adjust the import path as necessary
+import { TrendApiObj } from '../types/interfaces';
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 // Fetch all trends
 export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
   try {
-    const response = await axios.get<TrendApiObj[]>('http://localhost:4000/trends/all');
-    console.log('All Trends:', response.data);
+    const response = await axios.get<TrendApiObj[]>(`${API_BASE_URL}/trends/all`);
+    //console.log('All Trends:', response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching all trends:', error);
@@ -13,10 +15,10 @@ export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
   }
 }
 
-// Fetch a single trend by woeid
+// Fetch a single trend by woeid - not used in the current implementation
 export const fetchSingleTrend = async (woeid: number): Promise<TrendApiObj> => {
   try {
-    const response = await axios.get<TrendApiObj>(`http://localhost:4000/trends/single/${woeid}`);
+    const response = await axios.get<TrendApiObj>(`${API_BASE_URL}/trends/single/${woeid}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching trend with woeid ${woeid}:`, error);
