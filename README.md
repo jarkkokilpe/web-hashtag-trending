@@ -4,9 +4,9 @@ Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
-I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. 
+I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info both ways, but visual graphs and presentations are easier to digest and you actually _learn_ and process the new information quicker. Machines and AI can use those data tables. 
 
-That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
+That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other than just plain "it's fascinating".
 
 # Data
 
