@@ -4,13 +4,13 @@ Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
-I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info both ways, but visual graphs and presentations are easier to digest and you actually _learn_ and process the new information quicker. Machines and AI can use those data tables. 
+It is fascinating to discover what the peak events are at the moment and where they are taking place. While this information could be presented in a plain data table, there is a catch: humans are inherently visual beings. The way we understand and process information changes significantly when presented with a visual graph compared to a table of data. Both formats provide the same information, but visual graphs and presentations are far easier to digest, allowing us to learn and process new information more quickly. Machines and AI can use those data tables. 
 
-That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other than just plain "it's fascinating".
+That's why I wanted to do a little proto demo to bring the idea up and alive in some form. This kind of visual information could have some practical usage too - other than just plain "it's fascinating".
 
 # Data
 
-First of all, the data showing in the map is by no means real - it is fake mock data. That said; the data is in same format with XAPI trends, so the app's backend is technically capable to do fetches from the real data source. 
+First of all, the data showing in the map is by no means real - it is fake mock data. That said; the data is in the same format with XAPI trends, and therefore the app's backend is technically capable to fetch the data from the real data source. 
 
 The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on the map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data. The changes in the real data would happen in much slower tempo.
 
@@ -43,7 +43,10 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 * Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.) - further data caching with e.g. Redis
 * More detailed trend list per area visible to the infobox
 * Include some website/X post links regarding the event
-* Include AI analysis of some particular event/some area/whole situation of the world
+* Add OSM support for performance
+* Add the US counties to map to increase the accuracy (depends on woeid accuracy)
+* Add some bigger cities to the map
+* Include AI analysis (events/region/situation of the whole world etc.)
 * Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is the reality
 * With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
 * HTTPS not implemented yet
