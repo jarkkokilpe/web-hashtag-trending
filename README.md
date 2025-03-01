@@ -48,7 +48,8 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 * Add some bigger cities to the map
 * Include AI analysis (events/region/situation of the whole world etc.)
 * Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where all this is happening - it is kinda fun but at the same time it is the reality
-* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* With #FEARING mode, the basic mode could be more lighter and when FEAR mode activates, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* There could be some other "modes" also (e.g. sports related filtering etc)
 * HTTPS not implemented yet
 * Docker support and CI/CD shipping not implemented yet
 * Tech integration/convertion if merged to a some other, broader system (e.g. REST -> GraphQL)
