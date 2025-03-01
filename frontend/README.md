@@ -1,24 +1,3 @@
-# web-xmap-hashtag
-
-- This app tries to visualize the volume and locations of the X hashtags on the map
-- Eventually you would switch or combine the message post locations between different SoMe s 
-- Try to find locations (There can be several in one post) from posts by combining one or several of follow methods:
-  * X (or other SoMe) API tools
-     * straight location coordinate info
-     * place hashtag
-       -> find coordinates
-     * country info
-       -> find coordinates
-     * language info
-       -> find country -> coordinates (Ex: English?)
-   
-  * With AI analyze
-     * "Analyze location of this post"
-     * some other method?
-  * with basic string filtering
-     * hashtags 
-     * list of general places; countries, cities
-
 # Manual installation procedure was
 
 (i or install)
