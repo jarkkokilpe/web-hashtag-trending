@@ -4,11 +4,13 @@ Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
-I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
+I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. 
+
+That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
 
 # Usage
 
-First of all, the data showing in the map is by no means real - it is fake mock data. The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on Map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data.
+First of all, the data showing in the map is by no means real - it is fake mock data. The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on the map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data. The changes in the real data would happen in much slower tempo.
 
 You can pan and scroll the map. If you scroll a little bit closer from the initial state, the US states appear on the map too. Further development idea could be to bring up the US counties too - when zoomed close enough, but that would depend on the specific base map, because e.g. the OSM map could be used also.
 
