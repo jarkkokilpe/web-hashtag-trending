@@ -64,33 +64,3 @@ export class MockDataService implements OnApplicationBootstrap {
     this.mockCycleDone = false;
   }
 }
-
-/*import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { readFile, watch } from 'fs';
-import { join } from 'path';
-
-@Injectable()
-export class MockDataService implements OnApplicationBootstrap {
-  private mockData: any[] = [];
-
-  onApplicationBootstrap() {
-    const mockDataPath = join(__dirname, '../../data/mockData.json');
-    this.loadData(mockDataPath);
-    watch(mockDataPath, () => this.loadData(mockDataPath));
-  }
-
-  private loadData(path: string) {
-    readFile(path, (err, data) => {
-      if (err) {
-        console.error('Error reading mock data:', err);
-        return;
-      }
-      this.mockData = JSON.parse(data.toString());
-      console.log('Mock data updated');
-    });
-  }
-
-  getMockData() {
-    return this.mockData;
-  }
-}*/

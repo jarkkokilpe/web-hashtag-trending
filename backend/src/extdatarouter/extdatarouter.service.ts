@@ -20,6 +20,7 @@ export class ExtDataRouterService {
     let trendObj: TrendObjExtApi | undefined;
 
     if (XAPI_IN_USE) {
+      // rate limiting guard - ADJUST FOR YOUR USE CASE
       if (FETCH_INTERVAL_MS < XAPI_RATE_LIMIT_WINDOW_MS / XAPI_RATE_LIMIT) {
         throw new Error(
           'Fetch interval is too low - may exceed XAPI rate limits.',
