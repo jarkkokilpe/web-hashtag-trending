@@ -54,6 +54,7 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 * Tech integration/convertion if merged to a some other, broader system (e.g. REST -> GraphQL)
 * The US area's (the whole country - visible when zoomed out) data is not consisted of the US states data ATM, it is just a separate individual data for the demo - just a note if one wonder why it behaviors like that
 * Panning has no limits ATM
+* Area populations (used in calculations) are obsolete information - beyond more than a decade. Need to update.
   
 # Other notes
 
