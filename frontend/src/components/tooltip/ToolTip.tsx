@@ -1,23 +1,3 @@
-/**
- * ToolTip Component (with SVG)
- * 
- * This component renders a tooltip at a specified position with input data.
- * The label size will be wrapped with the inputData text length. 
- * This component is meant to use with SVG component as a parent (check foreignObject).
- * 
- * Props:
- * - position (PositionOnMap | null): The position of the tooltip on the map. If not provided, defaults to { top: 0, left: 0 }.
- * - inputData (string): The content to be displayed inside the tooltip.
- * 
- * Example Usage:
- * ```
- * <ToolTip 
- *   position={{ top: 100, left: 200 }} 
- *   inputData="This is a tooltip" 
- * />
- * ```
- */
-
 import React, { useState, useEffect } from 'react';
 import { PositionOnMap } from '../../types/interfaces';
 import './ToolTip.css';

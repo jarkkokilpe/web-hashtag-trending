@@ -64,17 +64,17 @@ const columnsChange: GridColDef[] = [
 
 const dataGridStyles = {
   '& .MuiDataGrid-root': {
-    backgroundColor: '#444444', // Background color of the DataGrid
+    backgroundColor: '#444444',
   },
   '& .MuiDataGrid-cell': {
-    color: '#c5d3ee', // Text color of the cells
+    color: '#c5d3ee',
   },
   '& .MuiDataGrid-columnHeaders': {
-    backgroundColor: '#444444', // Background color of the header
-    color: '#333333', // Text color of the header
+    backgroundColor: '#444444',
+    color: '#333333',
   },
   '& .MuiDataGrid-columnSeparator': {
-    display: 'none', // Remove column separators if desired
+    display: 'none',
   },
 };
 

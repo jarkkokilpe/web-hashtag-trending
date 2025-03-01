@@ -53,11 +53,6 @@ export function getAreaSize(area:GeoArea, countryId:string, mapprops:SizeProps):
   return createProjection(mapprops).area(regionGeoData as d3.GeoPermissibleObjects); 
 }
 
-/**
- * getFixedAreaCentroid
- * 
- * Function that returns the suitable position for country name label
- */
 export function getFixedAreaCentroid(
   geoData: GeoArea,
   countryId: string,
