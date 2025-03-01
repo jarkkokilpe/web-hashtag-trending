@@ -15,7 +15,7 @@ export const TOOLTIP_WIDTH = 120;
 export const TOOLTIP_HEIGHT = 40;
 
 // Data fetch interval (in milliseconds)
-export const DATA_FETCH_INTERVAL_MS = 1000;
+export const DATA_FETCH_INTERVAL_MS = 3000;
 
 // Zoom minimum limit
 export const ZOOM_MIN = 2.5;
