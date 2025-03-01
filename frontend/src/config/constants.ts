@@ -1,5 +1,3 @@
-
-
 export const VIEWPORT_DEFAULT_WIDTH = 1200;
 export const VIEWPORT_DEFAULT_HEIGHT = 800;
 
