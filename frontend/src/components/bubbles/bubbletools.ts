@@ -84,8 +84,6 @@ export function getVisibleBubbles(
       height: radius * 2,
     };
 
-    //console.log('Circle BBox:', circleBBox); // Debug: Log the bounding box of each circle
-
     return (
       circleBBox.x + circleBBox.width > 0 &&
       circleBBox.x < svgRect.width &&

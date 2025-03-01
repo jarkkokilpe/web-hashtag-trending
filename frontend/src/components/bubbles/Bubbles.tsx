@@ -97,12 +97,11 @@ const Bubbles: React.FC<BubblesProps> = ({
   }, DEBOUNCE_DELAY_MS);
   
   const handleClick = (area: AreaData): void => {
-    console.log('Bubble clicked:', area); 
     updateSelectedBubbleData(area);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevents the event from bubbling up to the bubble
+    e.stopPropagation(); // Prevents some flickering issues with mouse leave event
   };
 
   const generateBubbles = (

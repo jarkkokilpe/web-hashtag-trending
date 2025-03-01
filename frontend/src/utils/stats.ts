@@ -57,8 +57,7 @@ export function getTrendDiff(data: AreaData, diffNum: number): number {
   if (data.totalvolume === 0 || data.totalvolumePrev === 0) {
     return 0;
   }
-  console.log("getTrendDiff: ", data.name, data.diff2, data.totalvolumePrev, (Math.abs(data.diff2) / data.totalvolumePrev) * 100);
- 
+  
   return (BUBBLE_AREA_MULTIPLIER_DIFF * Math.abs(getTrendDiffPerc(data, diffNum)));
 }
 
