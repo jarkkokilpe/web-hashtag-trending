@@ -37,7 +37,7 @@ A basic React/TypeScript implementation with help of d3.js to create a minimalis
 
 NestJS based implementation was chosen because of the TypeScript's safe approach continuum from the frontend.For data caching; Redis integration is coming up - to get broader averagings from wider datasets in use.
 
-# Ideas/updates
+# Ideas/updates/bugs
 
 * Mobile device support
 * Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.) - further data caching with e.g. Redis
@@ -48,15 +48,12 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 * With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
 * HTTPS
 * Docker support and CI/CD shipping
-* Tech integration/convertion if merged to a broader system
-
-# Bugs
-
+* Tech integration/convertion if merged to a some other, broader system
 * The US area's (the whole  country, visible when zoomed out) data is not consisted of the US states data ATM, it is just a separate individual data for the demo - just a note if one wonder why it behaviors like that
 * Panning has no limits ATM
   
 # Other notes
 
-This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either. The main focus was to deliver the idea to a somewhat concrete form.
+This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either so expect minor bugs here and there. The main focus was to deliver the idea to a somewhat concrete form.
 
 The demo is tested mainly with Firefox. No mobile device support yet.
