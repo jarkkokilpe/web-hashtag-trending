@@ -17,49 +17,55 @@ import {
 } from '../../config/strings';
 import './SideBar.css';
 
-const columnsVolume: GridColDef[] = [
-  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
-  { 
-    field: 'totalvolume', 
-    headerName: SIDEBAR_DATAGRID_DESCR_VOLUME, 
-    width: 150,
+interface ColumnConfig {
+  field: string;
+  headerName: string;
+  width: number;
+  decimalPlaces?: number;
+}
+
+const createColumnDef = (config: ColumnConfig): GridColDef => {
+  return {
+    field: config.field,
+    headerName: config.headerName,
+    width: config.width,
     valueFormatter: (value?: number) => {
       if (value == null) {
         return '';
       }
-      return `${value.toFixed(0)}`;
+      return `${value.toFixed(config.decimalPlaces ?? 0)}`;
     },
-  },
+  };
+};
+
+const columnsVolume: GridColDef[] = [
+  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
+  createColumnDef({
+    field: 'totalvolume',
+    headerName: SIDEBAR_DATAGRID_DESCR_VOLUME,
+    width: 150,
+    decimalPlaces: 0,
+  }),
 ];
 
 const columnsDensity: GridColDef[] = [
   { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
-  { 
-    field: 'ixoi', 
-    headerName: SIDEBAR_DATAGRID_DESCR_DENSITY, 
+  createColumnDef({
+    field: 'ixoi',
+    headerName: SIDEBAR_DATAGRID_DESCR_DENSITY,
     width: 150,
-    valueFormatter: (value?: number) => {
-      if (value == null) {
-        return '';
-      }
-      return `${value.toFixed(1)}`;
-    },
-  },
+    decimalPlaces: 1,
+  }),
 ];
 
 const columnsChange: GridColDef[] = [
   { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
-  { 
-    field: 'change', 
-    headerName: SIDEBAR_DATAGRID_DESCR_CHANGE, 
+  createColumnDef({
+    field: 'change',
+    headerName: SIDEBAR_DATAGRID_DESCR_CHANGE,
     width: 150,
-    valueFormatter: (value?: number) => {
-      if (value == null) {
-        return '';
-      }
-      return `${value.toFixed(2)}`;
-    },
-  },
+    decimalPlaces: 2,
+  }),
 ];
 
 const dataGridStyles = {

@@ -12,10 +12,47 @@ import { TrendObjExtApi } from 'src/extdatarouter/interfaces/ext.interface';
 
 @Injectable()
 export class RandService {
+  private originalData: Array<TrendObjExtApi> | null = null;
+  private callCount: number = 0; // Counter to track the number of calls
   private readonly filePath: string = path.resolve(
     __dirname,
     '../../../data/mocktrends.json',
   );
+
+  constructor() {
+    this.loadOriginalData(); // load and store the original data when the service is initialized
+  }
+
+  private loadOriginalData(): void {
+    try {
+      const fileContent = fs.readFileSync(this.filePath, 'utf-8');
+      this.originalData = JSON.parse(fileContent) as Array<TrendObjExtApi>;
+    } catch (error) {
+      console.error('Error loading original data:', error);
+      throw new Error('Failed to load original data');
+    }
+  }
+
+  private resetDataToOriginalState(): void {
+    try {
+      if (!this.originalData) {
+        throw new Error('Original data not loaded');
+      }
+
+      fs.writeFileSync(
+        this.filePath,
+        JSON.stringify(this.originalData, null, 2),
+        'utf-8',
+      );
+
+      this.callCount = 0;
+
+      console.log('Data reset to original state successfully.');
+    } catch (error) {
+      console.error('Error resetting data to original state:', error);
+      throw new Error('Failed to reset data to original state');
+    }
+  }
 
   private randomizeValue(originalValue: number): number {
     const delta = 0.2; // 20% delta
@@ -27,7 +64,17 @@ export class RandService {
 
   public async randomizePostVolumes(): Promise<void> {
     try {
-      // Read the JSON file
+      if (!this.originalData) {
+        throw new Error('Original data not loaded');
+      }
+
+      // reset to original data after 10 calls to prevent long term shrinking/growing
+      if (++this.callCount % 10 === 0) {
+        this.resetDataToOriginalState();
+        console.log('Data reset to original state after 10 calls.');
+        return;
+      }
+
       const fileContent = fs.readFileSync(this.filePath, 'utf-8');
       const data: Array<TrendObjExtApi> = JSON.parse(
         fileContent,
@@ -35,7 +82,7 @@ export class RandService {
 
       console.log('randomizePostVolumes: data', data);
 
-      // Randomize tweet_volume valuse in the trends array
+      // randomize tweet_volume valuse in the trends array
       const updatedData = data.map((item) => ({
         ...item,
         trends: item.trends.map((trend) => ({

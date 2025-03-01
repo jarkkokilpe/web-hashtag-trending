@@ -71,3 +71,8 @@
 .data-grid-container {
   height: 500px;
 }
+
+.custom-pagination {
+  background-color: #333333;
+  color: #ffffff;
+}
