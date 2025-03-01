@@ -55,7 +55,7 @@ export class RandService {
   }
 
   private randomizeValue(originalValue: number): number {
-    const delta = 0.2; // 20% delta
+    const delta = 0.5; // 50% delta
     const growthBias = 1.01; // add 1% growth bias to prevent long term shrinking
     const min = originalValue * (1 - delta);
     const max = originalValue * (1 + delta) * growthBias; // And slightly increase the upper bound, previously mentioned, here
