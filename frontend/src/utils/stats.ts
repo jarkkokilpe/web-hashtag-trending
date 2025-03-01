@@ -5,9 +5,6 @@ import {
   BUBBLE_AREA_MULTIPLIER_RATE,
  } from '../config/constants';
 
-// Normalized Tweet Volume = (Total Tweets / (Population * Posts/Inhabitant/Day)) * Scaling Factor
-// Trend Change = (Newest Tweet Volume - Comparison Point Tweet Volume) / Comparison Point Tweet Volume * 100
-
 export function isDiffAtNormalLevel(
   diff: number, 
   total: number, 

@@ -5,7 +5,7 @@ export function createProjection(mapprops: SizeProps) {
   return d3.geoPath()
     .projection(d3.geoMercator()
     .translate([mapprops.width / 2, mapprops.height / 1.4]) // translate to center of screen
-    .scale(150)); // depending on the screen's size
+    .scale(150));
 }
 
 export function getTooltipPosition (
@@ -24,12 +24,11 @@ export function getTooltipPosition (
   // Convert mouse position to original SVG coordinates before applying zoom
   const [originalX, originalY] = transform.invert([mouseX, mouseY]);
 
-  // Now, calculate tooltip position based on where the mouse is in the SVG's coordinate system
-  const tooltipWidth = boxSize.width; // Adjust based on your tooltip's actual width
-  const tooltipHeight = boxSize.height; // Adjust based on your tooltip's actual height
+  const tooltipWidth = boxSize.width;
+  const tooltipHeight = boxSize.height;
 
   let left = svgRect.left + originalX * transform.k + transform.x - (tooltipWidth / 2);
-  let top = svgRect.top + originalY * transform.k + transform.y - tooltipHeight - 10; // 10 for some margin
+  let top = svgRect.top + originalY * transform.k + transform.y - tooltipHeight - 10; // 10 for some little margin
 
   // Ensure tooltip stays within window bounds
   left = Math.max(0, Math.min(left, window.innerWidth - tooltipWidth));
@@ -42,7 +41,6 @@ export function getTooltipPosition (
 };
 
 export function getAreaSize(area:GeoArea, countryId:string, mapprops:SizeProps):number {
-   // Find the corresponding area information
    const regionGeoData = area.features.find(
     (geoRegion) => geoRegion.id === countryId
   );
@@ -69,7 +67,7 @@ export function getFixedAreaCentroid(
  
   let fixedCentroid:number[] = [...centroid];
   
-  // Hand adjustments for the appropriate centroid point (in map) for the funky shaped countries
+  // Hand adjustments for the appropriate centroid point (in map) for the funky shaped areas
   switch (countryId) {
     case 'CAN': fixedCentroid[0] += 15; fixedCentroid[1] += 29; break;
     case 'CHL': fixedCentroid[0] -= 1;  fixedCentroid[1] -= 4; break;
@@ -115,16 +113,14 @@ export function getAreaCentroid(geoArea: GeoArea, countryId: string, mapprops: S
     return [0, 0];
   }
 
-  // Create a new object to avoid mutating the original data
   let newRegionGeoData = { ...regionGeoData };
 
-  // If it's a MultiPolygon, reduce the coordinates to the first array
+  // If it's a MultiPolygon (islands, enclaves, exclaves), reduce the coordinates to the first array which is the main polygon
   if (newRegionGeoData.geometry.type === 'MultiPolygon') {
     newRegionGeoData.geometry = {
       ...newRegionGeoData.geometry,
       coordinates: newRegionGeoData.geometry.coordinates[0] as number[][][]
     };
-    // Optionally, change the type to 'Polygon' if you want to reflect the change in coordinates
     newRegionGeoData.geometry.type = 'Polygon';
   }
         
