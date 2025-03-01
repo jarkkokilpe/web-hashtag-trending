@@ -19,9 +19,9 @@ export class RandService {
 
   private randomizeValue(originalValue: number): number {
     const delta = 0.2; // 20% delta
-    const growthBias = 1.05; // add 5% growth bias to prevent long term shrinking
+    const growthBias = 1.01; // add 1% growth bias to prevent long term shrinking
     const min = originalValue * (1 - delta);
-    const max = originalValue * (1 + delta) * growthBias; // And slightly increase the upper bound here
+    const max = originalValue * (1 + delta) * growthBias; // And slightly increase the upper bound, previously mentioned, here
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
