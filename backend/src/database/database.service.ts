@@ -12,6 +12,4 @@ export class DatabaseService {
   async getCachedData(key: string): Promise<string | null> {
     return this.redisService.get(key);
   }
-
-  // Other methods and logic...
 }
