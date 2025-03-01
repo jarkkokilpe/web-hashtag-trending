@@ -4,11 +4,17 @@ Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
-I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
+I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. 
+
+That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
+
+# Data
+
+First of all, the data showing in the map is by no means real - it is fake mock data. That said; the data is in same format with XAPI trends, so the app's backend is technically capable to do fetches from the real data source. 
+
+The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on the map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data. The changes in the real data would happen in much slower tempo.
 
 # Usage
-
-First of all, the data showing in the map is by no means real - it is fake mock data. The randomizer module in the backend keeps the data "alive" for the demo purposes. The mock data covers only handful (couple of dozens) locations on Map, but it is purely for demonstration purposes only. The data fetch cycle is also much shorter than in reality it would be with real API data.
 
 You can pan and scroll the map. If you scroll a little bit closer from the initial state, the US states appear on the map too. Further development idea could be to bring up the US counties too - when zoomed close enough, but that would depend on the specific base map, because e.g. the OSM map could be used also.
 
@@ -19,7 +25,7 @@ On the left side, there is a sidebar component that shows and sorts the data. Th
 * "Density" is kind of "index" calculated with posts/day/country (different for every country) and the population of the country. With that mode, the smaller countries don't get lost among the data volumes of big countries.
 * "Change" is the delta i.e. the difference between two previous values. If we are growing, the bubble is green and if falling, it is red. I.e. if there is a big red circle, the "happening" is drying up and with a big green bubble there is something about to happen (or just started to happen).
 
-Only those that are visible within the viewport are listed in the data grid/table.
+Only those areas that are visible within the viewport are listed in the data grid/table.
 
 As said above - the bubble sizes follows these "mode" changes. The bubble's color will change to green if the trend is growing and red if trend is dropping. The change has to be at least somewhat significant that bubble changes its color (there is a little threshold filtering that). Otherwise the bubble stays neutral colored - blue in this case.
 
