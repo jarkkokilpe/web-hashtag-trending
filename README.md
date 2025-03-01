@@ -61,3 +61,5 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either so expect minor bugs here and there. The main focus was to deliver the idea to a somewhat concrete form.
 
 The demo is developed/tested mainly with a PC and Firefox setup. No mobile device support yet.
+
+General sequence diagram can be found from root: trending-app-drawio.png
