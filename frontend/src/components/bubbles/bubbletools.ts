@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 import { getFixedAreaCentroid } from '../../utils/maptools'
 import { getTrendDensity, getTrendVolume, getTrendDiff } from '../../utils/stats'
 import { 
-  BUBBLE_TOOLTIP_WIDTH, 
-  BUBBLE_TOOLTIP_HEIGHT,
+  TOOLTIP_WIDTH, 
+  TOOLTIP_HEIGHT,
   BUBBLE_MIN_SIZE,
   BUBBLE_MAX_SIZE,
  } from '../../config/constants'
@@ -20,8 +20,8 @@ import {
 } from '../../stores/useDataModeStore';
 
 export const bubbleTooltipSize: SizeProps = {
-  width: BUBBLE_TOOLTIP_WIDTH,
-  height: BUBBLE_TOOLTIP_HEIGHT,
+  width: TOOLTIP_WIDTH,
+  height: TOOLTIP_HEIGHT,
 };
 
 export const getToolTipData = (selectedBubble: AreaData | null): string => {

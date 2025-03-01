@@ -14,8 +14,8 @@ import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
 import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../../config/strings';
 import { 
   ZOOM_THRESHOLD_US_STATES, 
-  AREA_TOOLTIP_WIDTH,
-  AREA_TOOLTIP_HEIGHT,
+  TOOLTIP_WIDTH,
+  TOOLTIP_HEIGHT,
   VIEWPORT_DEFAULT_WIDTH,
   VIEWPORT_DEFAULT_HEIGHT,
  } from '../../config/constants';
@@ -35,8 +35,8 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const { svgRef, zoomScale, currentTransform, centerAndZoom } = useZoomContext();
   
   const areaTooltipSize:SizeProps = {
-    width: AREA_TOOLTIP_WIDTH,
-    height: AREA_TOOLTIP_HEIGHT,
+    width: TOOLTIP_WIDTH,
+    height: TOOLTIP_HEIGHT,
   };
 
   const updateSelectedBubbleData = (areaData: AreaData | null) => {

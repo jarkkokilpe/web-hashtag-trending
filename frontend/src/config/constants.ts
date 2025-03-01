@@ -10,13 +10,9 @@ export const DEBOUNCE_DELAY_MS = 200;
 export const BUBBLE_MIN_SIZE = 1.5;
 export const BUBBLE_MAX_SIZE = 5;
 
-// Tooltip (over an area) dimensions
-export const AREA_TOOLTIP_WIDTH = 120;
-export const AREA_TOOLTIP_HEIGHT = 40;
-
-// Tooltip (over a bubble) dimensions
-export const BUBBLE_TOOLTIP_WIDTH = 120;
-export const BUBBLE_TOOLTIP_HEIGHT = 40;
+// Tooltip dimensions
+export const TOOLTIP_WIDTH = 120;
+export const TOOLTIP_HEIGHT = 40;
 
 // Data fetch interval (in milliseconds)
 export const DATA_FETCH_INTERVAL_MS = 1000;
