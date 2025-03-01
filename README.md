@@ -4,9 +4,9 @@ Yes, it's the #TRENDING app to visualize social media trends on the map!
 
 # Why?
 
-I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info by both ways, but you _learn_ and really understand it completely different and quicker way by visual graphs and presentations. Machines and AI can use those data tables. 
+I think it is fascinating to know what are the peak events at the moment and where are they located. This could be done by some plain data table but there is a catch with that. Since we tend to be visual beings it is crucially different to look at a visual graph to understand certain events than just look at table of numbers and location names. You get the info both ways, but visual graphs and presentations are easier to digest and you actually _learn_ and process the new information quicker. Machines and AI can use those data tables. 
 
-That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other kind than just plain "it's fascinating".
+That's why I wanted to do a little proto demo to bring the idea up and alive in some form. I think this kind of visual information could have some practical usage too - other than just plain "it's fascinating".
 
 # Data
 
@@ -30,12 +30,30 @@ Only those areas that are visible within the viewport are listed in the data gri
 As said above - the bubble sizes follows these "mode" changes. The bubble's color will change to green if the trend is growing and red if trend is dropping. The change has to be at least somewhat significant that bubble changes its color (there is a little threshold filtering that). Otherwise the bubble stays neutral colored - blue in this case.
 
 # Frontend
+
 A basic React/TypeScript implementation with help of d3.js to create a minimalistic and responsive custom map. Map is rather heavy especially for low-end machines, and as was said in the further back, optionally a lot lighter OSM based map with suitable themed (e.g. MapBox & dark-v10) tilelayer could be used.
 
 # Backend
+
 NestJS based implementation was chosen because of the TypeScript's safe approach continuum from the frontend.For data caching; Redis integration is coming up - to get broader averagings from wider datasets in use.
 
-# Other notes
-This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either. The main focus was to deliver the idea to a somewhat concrete form.
+# Ideas/updates/bugs
 
-Docker support and CI/CD shipping are about to come. The demo is tested mainly with Firefox. No mobile device support yet.
+* Add mobile device support
+* Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.) - further data caching with e.g. Redis
+* More detailed trend list per area visible to the infobox
+* Include some website/X post links regarding the event
+* Include AI analysis of some particular event/some area/whole situation of the world
+* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is the reality
+* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* HTTPS not implemented yet
+* Docker support and CI/CD shipping not implemented yet
+* Tech integration/convertion if merged to a some other, broader system (e.g. REST -> GraphQL)
+* The US area's (the whole country - visible when zoomed out) data is not consisted of the US states data ATM, it is just a separate individual data for the demo - just a note if one wonder why it behaviors like that
+* Panning has no limits ATM
+  
+# Other notes
+
+This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either so expect minor bugs here and there. The main focus was to deliver the idea to a somewhat concrete form.
+
+The demo is developed/tested mainly with a PC and Firefox setup. No mobile device support yet.
