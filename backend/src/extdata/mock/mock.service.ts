@@ -16,7 +16,7 @@ export class MockDataService implements OnApplicationBootstrap {
     console.log('+MOCK onApplicationBootstrap');
     const mockDataPath = join(process.cwd(), 'data/mocktrends.json');
     this.loadData(mockDataPath);
-    watch(mockDataPath, () => this.loadData(mockDataPath));
+    watch(mockDataPath, () => this.loadData(mockDataPath)); // watching for changes in the mock data file...
   }
 
   private loadData(path: string) {
@@ -36,7 +36,7 @@ export class MockDataService implements OnApplicationBootstrap {
     });
   }
 
-  fetchNextData(): Promise<MockTrendObj | undefined> {
+  async fetchNextData(): Promise<MockTrendObj | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
       console.log('MOCK: fetchDataByWoeId woeid: ', woeid);
