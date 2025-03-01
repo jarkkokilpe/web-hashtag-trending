@@ -37,20 +37,26 @@ A basic React/TypeScript implementation with help of d3.js to create a minimalis
 
 NestJS based implementation was chosen because of the TypeScript's safe approach continuum from the frontend.For data caching; Redis integration is coming up - to get broader averagings from wider datasets in use.
 
+# Ideas/updates
+
+* Mobile device support
+* Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.) - further data caching with e.g. Redis
+* More detailed trend list per area visible to the infobox
+* Include some website/X post links regarding the event
+* Include AI analysis of some particular event/some area/whole situation of the world
+* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is the reality
+* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* HTTPS
+* Docker support and CI/CD shipping
+* Tech integration/convertion if merged to a broader system
+
+# Bugs
+
+* The US area's (the whole  country, visible when zoomed out) data is not consisted of the US states data ATM, it is just a separate individual data for the demo - just a note if one wonder why it behaviors like that
+* Panning has no limits ATM
+  
 # Other notes
 
 This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either. The main focus was to deliver the idea to a somewhat concrete form.
 
 The demo is tested mainly with Firefox. No mobile device support yet.
-
-# Ideas/updates
-
-* Mobile device support
-* Possibility to change mode to broader averaging (e.g. average of 3, 5, 10 last values etc.)
-* To list more detailed trend list per area
-* Include maybe some links considering the event
-* Include AI analysis of some particular event/some area/whole situation of the world
-* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is reality
-* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark/red glowing heatmap
-* HTTPS
-* Docker support and CI/CD shipping
