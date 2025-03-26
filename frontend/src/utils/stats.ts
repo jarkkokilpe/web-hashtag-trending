@@ -3,6 +3,9 @@ import { AreaData } from '../types/interfaces';
 import { 
   BUBBLE_AREA_MULTIPLIER_DIFF,
   BUBBLE_AREA_MULTIPLIER_RATE,
+  BUBBLE_AREA_MULTIPLIER_SUBS_RATE,
+  BUBBLE_AREA_MULTIPLIER_VOLUME,
+  BUBBLE_AREA_MULTIPLIER_VOLUME_SUBS,
  } from '../config/constants';
 
 export function isDiffAtNormalLevel(
@@ -21,6 +24,10 @@ export function getTrendDensity(areaData: AreaData): number {
     return 0;
   }
 
+  if (areaData.subscriptions > 0) {
+    return (BUBBLE_AREA_MULTIPLIER_SUBS_RATE * (areaData.totalvolume / (areaData.subscriptions)));
+  }
+
   if (areaData.ppd !== 0) {
     return (BUBBLE_AREA_MULTIPLIER_RATE * (areaData.totalvolume / (areaData.value * areaData.ppd)));
   }
@@ -29,7 +36,10 @@ export function getTrendDensity(areaData: AreaData): number {
 }
 
 export function getTrendVolume(areaData: AreaData): number {
-  return (areaData.totalvolume * 100000)
+  if (areaData.subscriptions > 0) {
+    return (areaData.totalvolume * BUBBLE_AREA_MULTIPLIER_VOLUME_SUBS);
+  }
+  return (areaData.totalvolume * BUBBLE_AREA_MULTIPLIER_VOLUME)
 }
 
 export function getTrendDiffPerc(data: AreaData, diffNum: number): number {
@@ -39,6 +49,9 @@ export function getTrendDiffPerc(data: AreaData, diffNum: number): number {
 
   switch (diffNum) {
     case 2:
+      if (data.subscriptions > 0) { 
+       // return (data.diff2 / data.totalvolumePrev) * 100;
+      } 
       return (data.diff2 / data.totalvolumePrev) * 100;
     /*
     case 3:
@@ -81,6 +94,10 @@ export function getIxOfInterest(area: AreaData | null | undefined):number {
     return 0;
   } 
 
+  if (area.subscriptions > 0) {
+    return (Math.round((area.hashtag.count ?? 0) * 10 ** 3 / (area.subscriptions ?? 1) * 100 * 100) /
+      100);
+  }
   return (Math.round((area.hashtag.count ?? 0) * 10 ** 3 / (area.value ?? 1) * 100 * 100) / 100);
 };
 

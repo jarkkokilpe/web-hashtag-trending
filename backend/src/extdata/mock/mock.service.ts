@@ -1,5 +1,5 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { MockTrendObj } from './interfaces/mock.interface';
+import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
 import { readFile, watch } from 'fs';
 import { join } from 'path';
 
@@ -8,7 +8,7 @@ export class MockDataService implements OnApplicationBootstrap {
   private woeids: number[] = [];
   private woeidCounter = 0;
   private mockCycleDone = false;
-  private mockData: MockTrendObj[] = [];
+  private mockData: TrendObjExtApi[] = [];
 
   constructor() {}
 
@@ -27,7 +27,7 @@ export class MockDataService implements OnApplicationBootstrap {
         return;
       }
       try {
-        this.mockData = JSON.parse(data.toString()) as MockTrendObj[];
+        this.mockData = JSON.parse(data.toString()) as TrendObjExtApi[];
         this.woeids = this.mockData.map((country) => country.woeid);
         console.log('Mock data updated');
       } catch {
@@ -36,12 +36,12 @@ export class MockDataService implements OnApplicationBootstrap {
     });
   }
 
-  async fetchNextData(): Promise<MockTrendObj | undefined> {
+  async fetchNextData(): Promise<TrendObjExtApi | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
       console.log('MOCK: fetchDataByWoeId woeid: ', woeid);
       const trend = this.mockData.find(
-        (trend: MockTrendObj) => trend.woeid === woeid,
+        (trend: TrendObjExtApi) => trend.woeid === woeid,
       );
       this.woeidCounter = (this.woeidCounter + 1) % this.woeids.length;
 

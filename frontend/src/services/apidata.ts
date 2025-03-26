@@ -30,7 +30,8 @@ export const fetchSingleTrend = async (woeid: number): Promise<TrendApiObj> => {
       diff3: 0,
       diff5: 0,
       diff10: 0,
-      trends: []
+      trends: [],
+      subscriptions: 0
     };
   }
 }

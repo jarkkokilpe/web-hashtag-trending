@@ -1,5 +1,6 @@
 export interface XApiTrendObj {
   woeid: number;
+  subscriptions: number;
   trends: XApiTrendContent[];
 }
 

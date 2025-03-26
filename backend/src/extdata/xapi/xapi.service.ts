@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { XApiTrendObj } from './interfaces/xapi.interface';
+import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
 import { rollingXapiWoeid } from './data/request';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class XapiService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  async fetchNextData(): Promise<XApiTrendObj | undefined> {
+  async fetchNextData(): Promise<TrendObjExtApi | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
       const response = await firstValueFrom(
@@ -22,7 +22,7 @@ export class XapiService {
           },
         }),
       );
-      const data: XApiTrendObj = response.data as XApiTrendObj;
+      const data: TrendObjExtApi = response.data as TrendObjExtApi;
       this.woeidCounter = (this.woeidCounter + 1) % this.woeids.length;
 
       if (this.woeidCounter) {

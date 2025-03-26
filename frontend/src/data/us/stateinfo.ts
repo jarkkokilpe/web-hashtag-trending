@@ -11,6 +11,7 @@ export const usNumData: AreaData[] = [
       value: 5039877,
       woeid: 2347559,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -18,7 +19,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#AL',
@@ -35,6 +36,7 @@ export const usNumData: AreaData[] = [
       value: 733583,
       woeid: 2347560,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -42,7 +44,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#AK',
@@ -59,6 +61,7 @@ export const usNumData: AreaData[] = [
       value: 7359197,
       woeid: 2347561,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -66,7 +69,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#AZ',
@@ -83,6 +86,7 @@ export const usNumData: AreaData[] = [
       value: 3025891,
       woeid: 2347562,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -90,7 +94,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#AR',
@@ -107,6 +111,7 @@ export const usNumData: AreaData[] = [
       value: 39538223,
       woeid: 2347563,
       ppd: 0.32,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -114,7 +119,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#CA',
@@ -131,6 +136,7 @@ export const usNumData: AreaData[] = [
       value: 5839926,
       woeid: 2347564,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -138,7 +144,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#CO',
@@ -155,6 +161,7 @@ export const usNumData: AreaData[] = [
       value: 3626205,
       woeid: 2347565,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -162,7 +169,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#CT',
@@ -179,6 +186,7 @@ export const usNumData: AreaData[] = [
       value: 1003384,
       woeid: 2347566,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -186,7 +194,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#DE',
@@ -203,6 +211,7 @@ export const usNumData: AreaData[] = [
       value: 689545,
       woeid: 2347567,
       ppd: 0.33,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -210,7 +219,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#DC',
@@ -227,6 +236,7 @@ export const usNumData: AreaData[] = [
       value: 21781128,
       woeid: 2347568,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -234,7 +244,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#FL',
@@ -251,6 +261,7 @@ export const usNumData: AreaData[] = [
       value: 10711908,
       woeid: 2347569,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -258,7 +269,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#GA',
@@ -275,6 +286,7 @@ export const usNumData: AreaData[] = [
       value: 1440194,
       woeid: 2347570,
       ppd: 0.31,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -282,7 +294,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#HI',
@@ -299,6 +311,7 @@ export const usNumData: AreaData[] = [
       value: 1900923,
       woeid: 2347571,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -306,7 +319,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#ID',
@@ -323,6 +336,7 @@ export const usNumData: AreaData[] = [
       value: 12582032,
       woeid: 2347572,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -330,7 +344,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#IL',
@@ -347,6 +361,7 @@ export const usNumData: AreaData[] = [
       value: 6805985,
       woeid: 2347573,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -354,7 +369,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#IN',
@@ -371,6 +386,7 @@ export const usNumData: AreaData[] = [
       value: 3190369,
       woeid: 2347574,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -378,7 +394,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#IA',
@@ -395,6 +411,7 @@ export const usNumData: AreaData[] = [
       value: 2937880,
       woeid: 2347575,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -402,7 +419,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#KS',
@@ -419,6 +436,7 @@ export const usNumData: AreaData[] = [
       value: 4505836,
       woeid: 2347576,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -426,7 +444,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#KY',
@@ -443,6 +461,7 @@ export const usNumData: AreaData[] = [
       value: 4624047,
       woeid: 2347577,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -450,7 +469,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#LA',
@@ -467,6 +486,7 @@ export const usNumData: AreaData[] = [
       value: 1362359,
       woeid: 2347578,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -474,7 +494,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#ME',
@@ -491,6 +511,7 @@ export const usNumData: AreaData[] = [
       value: 6177224,
       woeid: 2347579,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -498,7 +519,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MD',
@@ -515,6 +536,7 @@ export const usNumData: AreaData[] = [
       value: 6984723,
       woeid: 2347580,
       ppd: 0.31,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -522,7 +544,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MA',
@@ -539,6 +561,7 @@ export const usNumData: AreaData[] = [
       value: 10077331,
       woeid: 2347581,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -546,7 +569,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MI',
@@ -563,6 +586,7 @@ export const usNumData: AreaData[] = [
       value: 5706494,
       woeid: 2347582,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -570,7 +594,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MN',
@@ -587,6 +611,7 @@ export const usNumData: AreaData[] = [
       value: 2949965,
       woeid: 2347583,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -594,7 +619,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MS',
@@ -611,6 +636,7 @@ export const usNumData: AreaData[] = [
       value: 6154913,
       woeid: 2347584,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -618,7 +644,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MO',
@@ -635,6 +661,7 @@ export const usNumData: AreaData[] = [
       value: 1104271,
       woeid: 2347585,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -642,7 +669,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#MT',
@@ -659,6 +686,7 @@ export const usNumData: AreaData[] = [
       value: 1961504,
       woeid: 0.27,
       ppd: 2347586,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -666,7 +694,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NE',
@@ -683,6 +711,7 @@ export const usNumData: AreaData[] = [
       value: 3143991,
       woeid: 2347587,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -690,7 +719,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NV',
@@ -707,6 +736,7 @@ export const usNumData: AreaData[] = [
       value: 1377529,
       woeid: 2347588,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -714,7 +744,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NH',
@@ -731,6 +761,7 @@ export const usNumData: AreaData[] = [
       value: 9288994,
       woeid: 2347589,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -738,7 +769,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NJ',
@@ -755,6 +786,7 @@ export const usNumData: AreaData[] = [
       value: 2117522,
       woeid: 2347590,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -762,7 +794,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NM',
@@ -779,6 +811,7 @@ export const usNumData: AreaData[] = [
       value: 19453561,
       woeid: 2347591,
       ppd: 0.32,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -786,7 +819,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NY',
@@ -803,6 +836,7 @@ export const usNumData: AreaData[] = [
       value: 10551162,
       woeid: 2347592,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -810,7 +844,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#NC',
@@ -827,6 +861,7 @@ export const usNumData: AreaData[] = [
       value: 779094,
       woeid: 2347593,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -834,7 +869,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#ND',
@@ -851,6 +886,7 @@ export const usNumData: AreaData[] = [
       value: 11799448,
       woeid: 2347594,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -858,7 +894,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#OH',
@@ -875,6 +911,7 @@ export const usNumData: AreaData[] = [
       value: 3959353,
       woeid: 2347595,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -882,7 +919,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#OK',
@@ -899,6 +936,7 @@ export const usNumData: AreaData[] = [
       value: 4246155,
       woeid: 2347596,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -906,7 +944,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#OR',
@@ -923,6 +961,7 @@ export const usNumData: AreaData[] = [
       value: 13002700,
       woeid: 2347597,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -930,7 +969,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#PA',
@@ -947,6 +986,7 @@ export const usNumData: AreaData[] = [
       value: 1097379,
       woeid: 2347598,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -954,7 +994,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#RI',
@@ -971,6 +1011,7 @@ export const usNumData: AreaData[] = [
       value: 5148714,
       woeid: 2347599,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -978,7 +1019,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#SC',
@@ -995,6 +1036,7 @@ export const usNumData: AreaData[] = [
       value: 886667,
       woeid: 2347600,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1002,7 +1044,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#SD',
@@ -1019,6 +1061,7 @@ export const usNumData: AreaData[] = [
       value: 6910840,
       woeid: 2347601,
       ppd: 0.29,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1026,7 +1069,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#TN',
@@ -1043,6 +1086,7 @@ export const usNumData: AreaData[] = [
       value: 29527941,
       woeid: 2347602,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1050,7 +1094,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#TX',
@@ -1067,6 +1111,7 @@ export const usNumData: AreaData[] = [
       value: 3337975,
       woeid: 2347603,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1074,7 +1119,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#UT',
@@ -1091,6 +1136,7 @@ export const usNumData: AreaData[] = [
       value: 643077,
       woeid: 2347604,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1098,7 +1144,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#VT',
@@ -1115,6 +1161,7 @@ export const usNumData: AreaData[] = [
       value: 8654542,
       woeid: 2347605,
       ppd: 0.30,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1122,7 +1169,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#VA',
@@ -1139,6 +1186,7 @@ export const usNumData: AreaData[] = [
       value: 7705281,
       woeid: 2347606,
       ppd: 0.31,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1146,7 +1194,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#WA',
@@ -1163,6 +1211,7 @@ export const usNumData: AreaData[] = [
       value: 1792147,
       woeid: 2347607,
       ppd: 0.26,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1170,7 +1219,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#WV',
@@ -1187,6 +1236,7 @@ export const usNumData: AreaData[] = [
       value: 5893718,
       woeid: 2347608,
       ppd: 0.28,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1194,7 +1244,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#WI',
@@ -1211,6 +1261,7 @@ export const usNumData: AreaData[] = [
       value: 577737,
       woeid: 2347609,
       ppd: 0.27,
+      subscriptions: 0,
       totalvolume: 0,
       totalvolumePrev: 0,
       diff2: 0,
@@ -1218,7 +1269,7 @@ export const usNumData: AreaData[] = [
       diff5: 0,
       diff10: 0,
       trends: [
-        { name: '#foo', tweet_volume: 0 },
+        { name: '#foo', tweet_volume: 0, link: '' },
       ],
       hashtag: {
         hashstr: '#WY',

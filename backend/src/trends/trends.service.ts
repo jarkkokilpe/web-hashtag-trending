@@ -4,7 +4,11 @@ import { TrendObjExtApi } from '../extdatarouter/interfaces/ext.interface';
 import { ExtDataRouterService } from '../extdatarouter/extdatarouter.service';
 import { RandService } from '../randomizer/randomizer.service';
 // import { DatabaseService } from '../database/database.service';
-import { FETCH_INTERVAL_MS } from '../_utils/constants';
+import {
+  FETCH_INTERVAL_MS,
+  REDDIT_API_IN_USE,
+  XAPI_IN_USE,
+} from '../_utils/constants';
 
 @Injectable()
 export class TrendsService {
@@ -52,7 +56,7 @@ export class TrendsService {
       } else {
         this.trendCache.push(trendObj);
       }
-      console.log('Current data: ', this.trendCache);
+      //console.log('Current data: ', this.trendCache);
     } catch (error) {
       console.error('Error fetching refined trends: ', error);
     } finally {
@@ -65,9 +69,13 @@ export class TrendsService {
       console.log('fetch');
       const nextTrend = await this.extRouterService.getNextTrend();
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
+      console.log('fetchAndProcessTrend: ');
+      console.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.extRouterService.isCycleDone()) {
-        await this.randService.randomizePostVolumes();
+        if (!XAPI_IN_USE && !REDDIT_API_IN_USE) {
+          await this.randService.randomizePostVolumes();
+        }
         //this.storeTrendCycle();
         this.extRouterService.resetCycleDone();
       }
@@ -88,6 +96,7 @@ export class TrendsService {
       diff3: 0,
       diff5: 0,
       diff10: 0,
+      subscriptions: extApiObj.subscriptions,
     };
 
     return apiobj;

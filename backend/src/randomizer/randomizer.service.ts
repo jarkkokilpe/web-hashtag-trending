@@ -88,6 +88,7 @@ export class RandService {
         trends: item.trends.map((trend) => ({
           ...trend,
           tweet_volume: this.randomizeValue(trend.tweet_volume),
+          link: '',
         })),
       }));
 

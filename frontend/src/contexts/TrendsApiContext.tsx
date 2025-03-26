@@ -28,16 +28,18 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
         trends: trendData.trends.map((trend: TrendContent) => ({
           name: trend.name,
           tweet_volume: trend.tweet_volume,
+          link: trend.link,
         })),
         totalvolume: trendData.totalvolume,
         totalvolumePrev: trendData.totalvolumePrev,
+        subscriptions: trendData.subscriptions,
         diff2: trendData.diff2,
         diff3: trendData.diff3,
         diff5: trendData.diff5,
         diff10: trendData.diff10,
         hashtag: {
-          hashstr: topTrend.name,
-          count: topTrend.tweet_volume,
+          hashstr: topTrend?.name,
+          count: topTrend?.tweet_volume,
         },
       };
     }
@@ -49,20 +51,20 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
 
-  useEffect(() => {
-    const intervalId = setInterval(async () => {
-      try {
-        const trends = await fetchAllTrends();
-        setNumData(prevNumData => processTrendData(prevNumData, trends));
-        setUsNumData(prevUsNumData => processTrendData(prevUsNumData, trends));
-        
-        //console.log('update trendData');
-      } catch (error) {
-        console.error('Error fetching trends:', error);
-      }
-    }, DATA_FETCH_INTERVAL_MS);
+  const fetchAndProcessTrends = async () => {
+    try {
+      const trends = await fetchAllTrends();
+      setNumData((prevNumData) => processTrendData(prevNumData, trends));
+      setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
+    } catch (error) {
+      console.error('Error fetching trends:', error);
+    }
+  };
 
-    return () => clearInterval(intervalId);
+  useEffect(() => {
+    fetchAndProcessTrends();
+    const intervalId = setInterval(fetchAndProcessTrends, DATA_FETCH_INTERVAL_MS);
+    return () => clearInterval(intervalId); // Cleanup the interval on unmount
   }, []);
 
   return (

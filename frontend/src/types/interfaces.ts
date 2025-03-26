@@ -1,6 +1,7 @@
 export interface TrendContent {
   name: string;
   tweet_volume: number;
+  link: string;
 }
 
 export interface TrendApiObj {
@@ -12,6 +13,7 @@ export interface TrendApiObj {
   diff5: number;
   diff10: number;
   trends: TrendContent[];
+  subscriptions: number;
 }
 
 export interface HashObj {
