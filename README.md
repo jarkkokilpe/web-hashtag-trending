@@ -47,8 +47,9 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 * Add the US counties to map to increase the accuracy (depends on woeid accuracy)
 * Add some bigger cities to the map
 * Include AI analysis (events/region/situation of the whole world etc.)
-* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where this stuff is happening - it is kinda fun but at same time it is the reality
-* With #FEARING mode, the basic mode could be more lighter and when changing to FEAR mode, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* Add #FEARING map mode - filter chaos/unrest/demostration/war etc. related words from the trends and generate heatmap where all this is happening - it is kinda fun but at the same time it is the reality
+* With #FEARING mode, the basic mode could be more lighter and when FEAR mode activates, the theme would get more dark + glowing red heatmap shows up to cover the crisis zones
+* There could be some other "modes" also (e.g. sports related filtering etc)
 * HTTPS not implemented yet
 * Docker support and CI/CD shipping not implemented yet
 * Tech integration/convertion if merged to a some other, broader system (e.g. REST -> GraphQL)
@@ -61,3 +62,5 @@ NestJS based implementation was chosen because of the TypeScript's safe approach
 This application is a prototype version only and it is lacking many possible features. The basic features are not perfectly crafted either so expect minor bugs here and there. The main focus was to deliver the idea to a somewhat concrete form.
 
 The demo is developed/tested mainly with a PC and Firefox setup. No mobile device support yet.
+
+General sequence diagram can be found from root: trending-app-drawio.png
