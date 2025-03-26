@@ -4,15 +4,15 @@
     "trends": [
       {
         "name": "#LaLiga",
-        "tweet_volume": 35000
+        "tweet_volume": 125776.53808272244
       },
       {
         "name": "Tapas",
-        "tweet_volume": 25000
+        "tweet_volume": 1428.2227568388403
       },
       {
         "name": "Flamenco",
-        "tweet_volume": 20000
+        "tweet_volume": 405.2669466691617
       }
     ]
   },
@@ -21,15 +21,15 @@
     "trends": [
       {
         "name": "#MidnightSun",
-        "tweet_volume": 10000
+        "tweet_volume": 95572.06688308285
       },
       {
         "name": "IKEA",
-        "tweet_volume": 12000
+        "tweet_volume": 119.37840476862354
       },
       {
         "name": "ABBA",
-        "tweet_volume": 10000
+        "tweet_volume": 5382.132269897885
       }
     ]
   },
@@ -38,15 +38,15 @@
     "trends": [
       {
         "name": "#Alps",
-        "tweet_volume": 14000
+        "tweet_volume": 282.5640983386769
       },
       {
         "name": "SwissWatch",
-        "tweet_volume": 1600
+        "tweet_volume": 246.67022243137217
       },
       {
         "name": "Chocolate",
-        "tweet_volume": 1400
+        "tweet_volume": 78.10070180459908
       }
     ]
   },
@@ -55,15 +55,15 @@
     "trends": [
       {
         "name": "#Humid",
-        "tweet_volume": 12000
+        "tweet_volume": 773.7766675375833
       },
       {
         "name": "Bangkok",
-        "tweet_volume": 20000
+        "tweet_volume": 440.87942602292014
       },
       {
         "name": "PadThai",
-        "tweet_volume": 18000
+        "tweet_volume": 247.66149514091094
       }
     ]
   },
@@ -72,15 +72,15 @@
     "trends": [
       {
         "name": "#Istanbul",
-        "tweet_volume": 18000
+        "tweet_volume": 1858.4750201887566
       },
       {
         "name": "TurkishDelight",
-        "tweet_volume": 24000
+        "tweet_volume": 5188.735201848016
       },
       {
         "name": "Bosphorus",
-        "tweet_volume": 21000
+        "tweet_volume": 1159.2049096087214
       }
     ]
   },
@@ -89,15 +89,15 @@
     "trends": [
       {
         "name": "#Kyiv",
-        "tweet_volume": 5000
+        "tweet_volume": 71.89214486528769
       },
       {
         "name": "Borscht",
-        "tweet_volume": 5000
+        "tweet_volume": 197.34904433192276
       },
       {
         "name": "Chernobyl",
-        "tweet_volume": 13000
+        "tweet_volume": 24166.542141326237
       }
     ]
   },
@@ -106,15 +106,15 @@
     "trends": [
       {
         "name": "#Dubai",
-        "tweet_volume": 1500
+        "tweet_volume": 168.43398086477904
       },
       {
         "name": "BurjKhalifa",
-        "tweet_volume": 1000
+        "tweet_volume": 3805.3149889979586
       },
       {
         "name": "Desert",
-        "tweet_volume": 6700
+        "tweet_volume": 123.42881488958895
       }
     ]
   },
@@ -123,15 +123,15 @@
     "trends": [
       {
         "name": "#Teeth",
-        "tweet_volume": 11000
+        "tweet_volume": 662.654825835036
       },
       {
         "name": "PremierLeague",
-        "tweet_volume": 38000
+        "tweet_volume": 1623.0308818984288
       },
       {
         "name": "FishAndChips",
-        "tweet_volume": 35000
+        "tweet_volume": 3206.105497403738
       }
     ]
   },
@@ -140,15 +140,15 @@
     "trends": [
       {
         "name": "#SuperBowl",
-        "tweet_volume": 530000
+        "tweet_volume": 2678649.3535627876
       },
       {
         "name": "SiliconValley",
-        "tweet_volume": 45000
+        "tweet_volume": 6383.830319513481
       },
       {
         "name": "Broadway",
-        "tweet_volume": 42000
+        "tweet_volume": 3081.627211376317
       }
     ]
   },
@@ -157,15 +157,15 @@
     "trends": [
       {
         "name": "#Caracas",
-        "tweet_volume": 19000
+        "tweet_volume": 12571.52118078444
       },
       {
         "name": "Arepa",
-        "tweet_volume": 16000
+        "tweet_volume": 65784.40163200237
       },
       {
         "name": "AngelFalls",
-        "tweet_volume": 25000
+        "tweet_volume": 16818.252676357162
       }
     ]
   },
@@ -174,15 +174,15 @@
     "trends": [
       {
         "name": "SweetHome",
-        "tweet_volume": 1000
+        "tweet_volume": 1245.2907802898994
       },
       {
         "name": "Mobile",
-        "tweet_volume": 2600
+        "tweet_volume": 12208.663145440907
       },
       {
         "name": "DeepSouth",
-        "tweet_volume": 700
+        "tweet_volume": 351.2858257887906
       }
     ]
   },
@@ -191,15 +191,15 @@
     "trends": [
       {
         "name": "SiliconValley",
-        "tweet_volume": 45000
+        "tweet_volume": 6086.06394616025
       },
       {
         "name": "LA",
-        "tweet_volume": 6000
+        "tweet_volume": 12240.63789004875
       },
       {
         "name": "#BayArea",
-        "tweet_volume": 45000
+        "tweet_volume": 18275.897391600873
       }
     ]
   },
@@ -208,15 +208,15 @@
     "trends": [
       {
         "name": "Sun",
-        "tweet_volume": 38000
+        "tweet_volume": 2140.4483919524546
       },
       {
         "name": "Miami",
-        "tweet_volume": 6000
+        "tweet_volume": 11677.9339103611
       },
       {
         "name": "Gator",
-        "tweet_volume": 37000
+        "tweet_volume": 7899.5044793364395
       }
     ]
   },
@@ -225,15 +225,15 @@
     "trends": [
       {
         "name": "Winter",
-        "tweet_volume": 13000
+        "tweet_volume": 886.2239500224383
       },
       {
         "name": "Chicago",
-        "tweet_volume": 14000
+        "tweet_volume": 937.3475600186115
       },
       {
         "name": "Cold",
-        "tweet_volume": 2000
+        "tweet_volume": 75.86424828928665
       }
     ]
   },
@@ -242,15 +242,15 @@
     "trends": [
       {
         "name": "MIT",
-        "tweet_volume": 1000
+        "tweet_volume": 306.9122498415353
       },
       {
         "name": "Boston",
-        "tweet_volume": 2000
+        "tweet_volume": 251.93411648995584
       },
       {
         "name": "Harward",
-        "tweet_volume": 1000
+        "tweet_volume": 2.7257390017575034
       }
     ]
   },
@@ -259,15 +259,15 @@
     "trends": [
       {
         "name": "UpstateAlbany",
-        "tweet_volume": 13000
+        "tweet_volume": 7358.9298045459145
       },
       {
         "name": "SteamedHams",
-        "tweet_volume": 80000
+        "tweet_volume": 3179.1780204034376
       },
       {
         "name": "BigApple",
-        "tweet_volume": 22000
+        "tweet_volume": 23.541097467754987
       }
     ]
   },
@@ -276,15 +276,15 @@
     "trends": [
       {
         "name": "Small",
-        "tweet_volume": 500
+        "tweet_volume": 985.9990097812658
       },
       {
         "name": "Tiny",
-        "tweet_volume": 300
+        "tweet_volume": 45.23522805739243
       },
       {
         "name": "RhodeIsland",
-        "tweet_volume": 200
+        "tweet_volume": 13.632143838700259
       }
     ]
   },
@@ -293,15 +293,15 @@
     "trends": [
       {
         "name": "Bastrop",
-        "tweet_volume": 60000
+        "tweet_volume": 345648.5940100255
       },
       {
         "name": "Chili",
-        "tweet_volume": 21000
+        "tweet_volume": 3780.969162218421
       },
       {
         "name": "Stargate",
-        "tweet_volume": 69000
+        "tweet_volume": 12311.091978353401
       }
     ]
   }
