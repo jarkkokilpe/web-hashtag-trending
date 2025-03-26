@@ -32,7 +32,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [infoBoxData, setInfoBoxData] = useState<AreaData | null>(null);
-  const { svgRef, zoomScale, currentTransform, centerAndZoom } = useZoomContext();
+  const { svgRef, zoomScale, currentTransform, zoomToArea } = useZoomContext();
   
   const areaTooltipSize:SizeProps = {
     width: TOOLTIP_WIDTH,
@@ -44,21 +44,8 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
     setIsInfoBoxVisible(true);
   };
 
-  const handleClick = (idPrefix:string, d: CountryFeature) => {
-    console.log('countryfeature click ', d);
-    if (!svgRef.current) return;
-    const svg = d3.select(svgRef.current);
-    const element = svg.select(`#${idPrefix}-${d.id}`);
-  
-    if (!element.empty()) {
-      const bbox = (element.node() as SVGGraphicsElement)?.getBBox();
-      if (bbox) {
-        const center = { x: bbox.x + bbox.width / 2, y: bbox.y + bbox.height / 2 };
-        centerAndZoom(center, bbox);
-      }
-    } else {
-      console.error('Element not found for ID:', d.id);
-    }
+  const handleClick = (countryCode: string) => {
+    zoomToArea(countryCode);
   };
 
   const handleMouseEnter = (feature:CountryFeature) => {
@@ -88,7 +75,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
           d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
           onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
           onMouseLeave={handleMouseLeave}
-          onClick={() => handleClick('country', feature as CountryFeature)}
+          onClick={() => handleClick((feature as CountryFeature).id)}
           strokeWidth={0.6 / zoomScale}
           className="country"
           transform={currentTransform ? currentTransform.toString() : ''}

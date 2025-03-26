@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import * as d3 from 'd3';
+import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../config/strings';
 
 interface UseZoomProps {
   width: number;
@@ -14,7 +15,8 @@ interface UseZoomReturn {
   currentTransform: d3.ZoomTransform | undefined;
   setZoomScale: React.Dispatch<React.SetStateAction<number>>;
   setCurrentTransform: React.Dispatch<React.SetStateAction<d3.ZoomTransform | undefined>>;
-  centerAndZoom: (center: { x: number; y: number }, bbox: SVGRect) => void;
+  //centerAndZoom: (center: { x: number; y: number }, bbox: SVGRect) => void;
+  zoomToArea: (countryCode: string) => void;
 }
 
 const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomReturn => {
@@ -38,10 +40,10 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
 
       svg.call(zoom);
 
-      const initialTransform = d3.zoomIdentity.translate(-width / 1.5, -height).scale(minZoom);
+      const initialTransform = d3.zoomIdentity.translate(-width / 5, -height / 3).scale(minZoom);
       (zoom.transform as any)(svg, initialTransform);
 
-      svg.attr("width", width - 1).attr("height", height - 4);
+      svg.attr("width", width/* - 1*/).attr("height", height);
     }
   }, [width, height, minZoom, maxZoom]);
   
@@ -56,8 +58,10 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
     const scaleX = svgRect.width / bbox.width;
     const scaleY = adjustedHeight / bbox.height;
     const scale = Math.min(scaleX, scaleY);
-    const adjustedScale = Math.max(zoom.scaleExtent()[0], Math.min(scale, zoom.scaleExtent()[1]));
-
+    const adjustedScale = Math.max(
+      zoom.scaleExtent()[0],
+      Math.min(scale * 0.5, zoom.scaleExtent()[1]) // Multiply scale by 0.8 to zoom out slightly
+    );
     const translate = {
       x: (svgRect.width / 2) - (center.x * adjustedScale),
       y: ((adjustedHeight / 2) + headerHeight) - (center.y * adjustedScale)
@@ -74,13 +78,33 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
       });
   }, [minZoom, maxZoom]);
 
+  const zoomToArea = (areaCode: string) => {
+    if (!svgRef.current) return;
+    const svg = d3.select(svgRef.current);
+    let element = svg.select(`#${ID_PREFIX_COUNTRY}-${areaCode}`);
+
+    if (element.empty()) {
+      element = svg.select(`#${ID_PREFIX_USSTATE}-${areaCode}`);
+    }
+
+    if (!element.empty()) {
+      const bbox = (element.node() as SVGGraphicsElement)?.getBBox();
+      if (bbox) {
+        const center = { x: bbox.x + bbox.width / 2, y: bbox.y + bbox.height / 2 };
+        centerAndZoom(center, bbox);
+      }
+    } else {
+      console.error('Element not found for ID:', areaCode);
+    }
+  }
+  
   return {
     svgRef,
     zoomScale,
     currentTransform,
     setZoomScale,
     setCurrentTransform,
-    centerAndZoom,
+    zoomToArea,
   };
 };
 
