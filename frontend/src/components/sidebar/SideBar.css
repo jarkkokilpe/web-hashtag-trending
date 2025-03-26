@@ -2,23 +2,26 @@
   position: fixed;
   left: 0px;
   top: 100px;
-  bottom: 0;
-  width: 300px;
+  bottom: 4px;
+  width: 285px;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(197, 211, 238);
   padding: 20px;
-  overflow-y: auto; 
-  z-index: 999; 
-  transition: left 0.3s ease; 
-}
-.sidebar.hidden {
-  left: -300px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  overflow: hidden; /* Prevent content overflow */
+  z-index: 999;
+  transition: left 0.3s ease;
 }
 
+.sidebar.hidden {
+  left: -285px;
+}
 
 .tab-bar {
   display: flex;
   margin-bottom: 20px;
+  flex-shrink: 0; /* Prevent the tab bar from shrinking */
 }
 
 .tab {
@@ -35,29 +38,45 @@
 }
 
 .tab-content {
+  flex-grow: 1; /* Allow the tab content to grow and take up remaining space */
   display: none;
   padding: 10px;
+  overflow: hidden; /* Prevent overflow */
 }
 
 .tab-content.active {
-  display: block;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.data-grid-container {
+  flex-grow: 1; /* Allow the DataGrid to grow vertically */
+  flex-basis: auto; /* Allow it to take up the remaining vertical space */
+  width: 230px; /* Set a fixed width for the horizontal size */
+  margin-bottom: 10px; /* Add some margin to the bottom */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.data-grid-container .MuiDataGrid-root {
+  height: 100%; /* Ensure the DataGrid fills the container */
+  width: 100%; /* Ensure the DataGrid fills the container width */
 }
 
 .sidebar-toggle {
   position: fixed;
-  left: 300px;
-  top: 100px; 
+  left: 285px;
+  top: 100px;
   background: rgba(0, 0, 0, 0.3);
   color: rgb(197, 211, 238);
   border: none;
   cursor: pointer;
   padding: 10px 15px;
   z-index: 1000;
-  transition: left 0.3s ease; 
+  transition: left 0.3s ease;
 }
 
 .sidebar-toggle.hidden {
-  left: 0; 
+  left: 0;
 }
 
 .sidebar-toggle span {
@@ -66,10 +85,6 @@
 
 .grid {
   background: rgba(0, 0, 0, 0.3);
-}
-
-.data-grid-container {
-  height: 500px;
 }
 
 .custom-pagination {

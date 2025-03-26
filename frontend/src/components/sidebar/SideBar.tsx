@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
+import { useZoomContext } from '../../contexts/ZoomContext'; 
 import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
 import { getIxOfInterest as getPostDensity, getTrendDiff2Perc } from '../../utils/stats';
 import useDataModeStore, { DATAMODE_VOLUME, DATAMODE_DENSITY, DATAMODE_CHANGE } from '../../stores/useDataModeStore';
+import { useMobile } from '../../contexts/MobileContext';
+import TabDataGrid from './TabDataGrid';
+import TabButton from './TabButton';
+import SideBarToggleButton from './SideBarToggleButton';
 import { 
-  SIDEBAR_HEADER_VOLUME, 
-  SIDEBAR_HEADER_DENSITY, 
-  SIDEBAR_HEADER_CHANGE,
   SIDEBAR_TOGGLEBTN_VOLUME,
   SIDEBAR_TOGGLEBTN_DENSITY, 
   SIDEBAR_TOGGLEBTN_CHANGE,
@@ -82,38 +84,33 @@ const dataGridStyles = {
   '& .MuiDataGrid-columnSeparator': {
     display: 'none',
   },
+  '& .MuiTablePagination-root': {
+    color: '#c5d3ee', // Change the text color of pagination controls
+  },
+  '& .MuiTablePagination-actions button': {
+    color: '#c5d3ee', // Change the color of pagination buttons
+  },
 };
 
 const SideBar: React.FC = () => {
-  const [isHidden, setIsHidden] = useState<boolean>(false);
+  const { isMobile } = useMobile();
+  const { zoomToArea } = useZoomContext();
+  const [isHidden, setIsHidden] = useState<boolean>(isMobile);
   const [activeTab, setActiveTab] = useState<string>('tabVolume');
   const { visibleBubbles } = useVisibleBubblesStore();
   const { setDataMode: setMode } = useDataModeStore();
-
-  const volumeSortedBubbles = [...visibleBubbles].sort((a, b) => b.totalvolume - a.totalvolume);
-  const densitySortedBubbles = [...visibleBubbles].sort((a, b) => getPostDensity(b) - getPostDensity(a));
-  const changeSortedBubbles = [...visibleBubbles].sort((a, b) => getTrendDiff2Perc(b) - getTrendDiff2Perc(a));
 
   useEffect(() => {
     setActiveTab('tabVolume');
     setMode(DATAMODE_VOLUME);
   }, [setMode]); 
 
-  const handleTabClick = (tab: string) => {
-    switch (tab) {
-      case 'tabVolume': setMode(DATAMODE_VOLUME); break;
-      case 'tabDensity': setMode(DATAMODE_DENSITY); break;
-      case 'tabChange': setMode(DATAMODE_CHANGE); break;
-      default: setMode(DATAMODE_VOLUME); break;
-    }
-    setActiveTab(tab);
-  };
-
-  const toggleSidebar = () => {
-    setIsHidden(!isHidden);
-  };
-
-  // Map sortedBubbles to rows for DataGrid
+  const volumeSortedBubbles = [...visibleBubbles].sort((a, b) => b.totalvolume - a.totalvolume);
+  const densitySortedBubbles = [...visibleBubbles].sort((a, b) => getPostDensity(b) - getPostDensity(a));
+  const changeSortedBubbles = [...visibleBubbles].sort(
+    (a, b) => Math.abs(getTrendDiff2Perc(b)) - Math.abs(getTrendDiff2Perc(a))
+  );
+  
   const volumeRows = volumeSortedBubbles.map((region, i) => ({
     id: i,
     name: region.name,
@@ -132,55 +129,80 @@ const SideBar: React.FC = () => {
     change: getTrendDiff2Perc(region) ?? 0,
   }));
   
+  const handleTabClick = (tab: string) => {
+    switch (tab) {
+      case 'tabVolume': setMode(DATAMODE_VOLUME); break;
+      case 'tabDensity': setMode(DATAMODE_DENSITY); break;
+      case 'tabChange': setMode(DATAMODE_CHANGE); break;
+      default: setMode(DATAMODE_VOLUME); break;
+    }
+    setActiveTab(tab);
+  };
+
+  const toggleSidebar = () => {
+    setIsHidden(!isHidden);
+  };
+
+  const handleRowClick = (params: any) => {
+  const countryName = params.row.name; // Get the country name from the clicked row
+    const countryFeature = visibleBubbles.find((bubble) => bubble.name === countryName); // Find the country feature
+    console.log('Country Feature:', countryFeature);
+    if (countryFeature) {
+      console.log('countryFeature.code:', countryFeature.code);
+      zoomToArea(countryFeature.code); // Center the map on the selected country
+    }
+  };
+
   return (
     <>
       <div className={`sidebar ${isHidden ? 'hidden' : ''}`}>
         <div className="tab-bar">
-          <button 
-            className={`tab ${activeTab === 'tabVolume' ? 'active' : ''}`}
-            onClick={() => handleTabClick('tabVolume')}
-          >
-            {SIDEBAR_TOGGLEBTN_VOLUME}
-          </button>
-          <button 
-            className={`tab ${activeTab === 'tabDensity' ? 'active' : ''}`}
-            onClick={() => handleTabClick('tabDensity')}
-          >
-            {SIDEBAR_TOGGLEBTN_DENSITY}
-          </button>
-          <button 
-            className={`tab ${activeTab === 'tabChange' ? 'active' : ''}`}
-            onClick={() => handleTabClick('tabChange')}
-          >
-            {SIDEBAR_TOGGLEBTN_CHANGE}
-          </button>
+        <TabButton
+          activeTab={activeTab}
+          tabName="tabVolume"
+          label={SIDEBAR_TOGGLEBTN_VOLUME}
+          onClick={() => handleTabClick('tabVolume')}
+        />
+        <TabButton
+          activeTab={activeTab}
+          tabName="tabDensity"
+          label={SIDEBAR_TOGGLEBTN_DENSITY}
+          onClick={() => handleTabClick('tabDensity')}
+        />
+        <TabButton
+          activeTab={activeTab}
+          tabName="tabChange"
+          label={SIDEBAR_TOGGLEBTN_CHANGE}
+          onClick={() => handleTabClick('tabChange')}
+        />
         </div>
-        <div className={`tab-content ${activeTab === 'tabVolume' ? 'active' : ''}`}>
-          <h3>{SIDEBAR_HEADER_VOLUME}</h3>
-          <div className="data-grid-container">
-            <DataGrid rows={volumeRows} columns={columnsVolume} sx={dataGridStyles} />
-          </div>
-        </div>
-        <div className={`tab-content ${activeTab === 'tabDensity' ? 'active' : ''}`}>
-          <h3>{SIDEBAR_HEADER_DENSITY}</h3>
-          <div className="data-grid-container">
-            <DataGrid rows={densityRows} columns={columnsDensity} sx={dataGridStyles} />
-          </div>
-        </div>
-        <div className={`tab-content ${activeTab === 'tabChange' ? 'active' : ''}`}>
-          <h3>{SIDEBAR_HEADER_CHANGE}</h3>
-          <div className="data-grid-container">
-            <DataGrid rows={changeRows} columns={columnsChange} sx={dataGridStyles} />
-          </div>
-        </div>
+        <TabDataGrid
+          rows={volumeRows}
+          columns={columnsVolume}
+          activeTab={activeTab}
+          tabName="tabVolume"
+          dataGridStyles={dataGridStyles}
+          onRowClick={handleRowClick}
+        />
+        <TabDataGrid
+          rows={densityRows}
+          columns={columnsDensity}
+          activeTab={activeTab}
+          tabName="tabDensity"
+          dataGridStyles={dataGridStyles}
+          onRowClick={handleRowClick}
+        />
+        <TabDataGrid
+          rows={changeRows}
+          columns={columnsChange}
+          activeTab={activeTab}
+          tabName="tabChange"
+          dataGridStyles={dataGridStyles}
+          onRowClick={handleRowClick}
+        />
         
       </div>
-      <button 
-        className={`sidebar-toggle ${isHidden ? 'hidden' : ''}`}
-        onClick={toggleSidebar}
-      >
-        {isHidden ? '>' : '<'}
-      </button>
+      <SideBarToggleButton isHidden={isHidden} toggleSidebar={toggleSidebar} />
     </>
   );
 };
