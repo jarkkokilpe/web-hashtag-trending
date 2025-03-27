@@ -68,13 +68,21 @@
 
 .closeButton {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0px;
+  left: 2px;
   background: none;
   border: none;
   color: rgb(197, 211, 238); /* Match text color */
   cursor: pointer;
   font-size: 16px; /* Slightly larger for better visibility */
+}
+
+@media (min-width: 768px) {
+  /* For larger screens (e.g., desktop), moving close button to the top right */
+  .closeButton {
+    left: auto;
+    right: 2px;
+  }
 }
 
 .closeButton:hover {

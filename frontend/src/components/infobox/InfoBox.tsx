@@ -13,7 +13,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
   return (
     <div className={`infoBoxContainer ${isVisible ? 'visible' : ''}`}>
       <div className="infoBoxHeader">
-        <button className="closeButton" onClick={onClose}>X</button>
+        <button className="closeButton" onClick={onClose}>x</button>
         <ul className="infoText">
           <li>{`Name: ${inputData?.name}`}</li>
           <li>{`Code: ${inputData?.code}`}</li>
