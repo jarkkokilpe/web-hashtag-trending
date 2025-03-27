@@ -1,7 +1,7 @@
 import React from 'react';
 import { APP_NAME } from '../../config/strings'
-import './Header.css';
 import { useMobile } from '../../contexts/MobileContext'; // Import the useMobile hook
+import './Header.css';
 
 const Header: React.FC = () => {
   const { isMobile } = useMobile(); // Access the isMobile state

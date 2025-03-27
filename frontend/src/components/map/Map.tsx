@@ -27,7 +27,7 @@ interface MapComponentProps {
 
 const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const { width = VIEWPORT_DEFAULT_WIDTH, height = VIEWPORT_DEFAULT_HEIGHT } = mapprops; 
-  const [infoBoxCountry, setInfoBoxCountry] = useState<string>('');
+  const [toolTipCountry, setToolTipCountry] = useState<string>('');
   const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
@@ -50,7 +50,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
 
   const handleMouseEnter = (feature:CountryFeature) => {
     const properties = feature.properties as CountryProps;
-    setInfoBoxCountry(properties.name || '');
+    setToolTipCountry(properties.name || '');
     setIsVisible(true);
   };
 
@@ -68,20 +68,20 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   };
 
   const generateArea = (idprefix: string, feature: d3.GeoPermissibleObjects) => {
-      return (
-        <path 
-          key={(feature as CountryFeature).id}  
-          id={`${idprefix}-${(feature as CountryFeature).id}`}
-          d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
-          onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
-          onMouseLeave={handleMouseLeave}
-          onClick={() => handleClick((feature as CountryFeature).id)}
-          strokeWidth={0.6 / zoomScale}
-          className="country"
-          transform={currentTransform ? currentTransform.toString() : ''}
-        />
-      );
-    };
+    return (
+      <path 
+        key={(feature as CountryFeature).id}  
+        id={`${idprefix}-${(feature as CountryFeature).id}`}
+        d={createProjection(mapprops)(feature as d3.GeoPermissibleObjects) || ''} 
+        onMouseEnter={() => handleMouseEnter(feature as CountryFeature)}
+        onMouseLeave={handleMouseLeave}
+        onClick={() => handleClick((feature as CountryFeature).id)}
+        strokeWidth={0.6 / zoomScale}
+        className="country"
+        transform={currentTransform ? currentTransform.toString() : ''}
+      />
+    );
+  };
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -135,7 +135,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
           updateSelectedBubbleData={updateSelectedBubbleData}
         />
         { isVisible && (
-          <ToolTip position={position} inputData={infoBoxCountry} />
+          <ToolTip position={position} inputData={toolTipCountry} />
         )}
       </svg>
       <InfoBox onClose={handleCloseInfoBox} inputData={infoBoxData} isVisible={isInfoBoxVisible} />
