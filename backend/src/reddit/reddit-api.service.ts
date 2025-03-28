@@ -4,10 +4,10 @@ import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { subredditTable } from './data/subreddits';
 import { Cron } from '@nestjs/schedule';
-import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
+import { TrendObjExtApi } from '../_utils/interfaces';
 
 @Injectable()
-export class RedditService {
+export class RedditApiService {
   private woeids = subredditTable.map((country) => country.woeid);
   private woeidCounter = 0;
   private subredditCycleDone = false;
@@ -119,7 +119,7 @@ export class RedditService {
 
       const subscriptions =
         subreddits[0] === 'USA'
-          ? '5000000' // Fixed value for USA
+          ? '5000000' // Fixed value for combined USA for now
           : posts[0]?.data?.subreddit_subscribers || '0'; // Fallback to '0' if no data
 
       console.log('subreddits.map');

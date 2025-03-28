@@ -18,23 +18,39 @@
   left: -285px;
 }
 
-.tab-bar {
+.tab-sourcebar {
+  display: flex;
+  margin-bottom: 10px;
+  flex-shrink: 0; /* Prevent the tab bar from shrinking */
+}
+
+.tab-databar {
   display: flex;
   margin-bottom: 20px;
   flex-shrink: 0; /* Prevent the tab bar from shrinking */
 }
 
 .tab {
+  width: 83px; /* Set a fixed width for each tab button */
+  height: 40px; /* Set a fixed height for each tab button */
   padding: 10px 20px;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   color: white;
+  line-height: 20px; /* Center the text vertically */
   transition: background-color 0.3s ease;
 }
 
 .tab.active {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab[disabled] {
+  background-color: rgba(255, 255, 255, 0.05); /* Lighter background */
+  color: rgba(255, 255, 255, 0.5); /* Dimmed text color */
+  cursor: not-allowed; /* Show "not allowed" cursor */
+  pointer-events: none; /* Prevent any interaction */
 }
 
 .tab-content {

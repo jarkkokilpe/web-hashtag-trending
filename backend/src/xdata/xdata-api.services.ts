@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
-import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
+import { TrendObjExtApi } from '../_utils/interfaces';
 import { rollingXapiWoeid } from './data/request';
 
 @Injectable()
-export class XapiService {
+export class XdataApiService {
   private woeids = rollingXapiWoeid.map((country) => country.woeid);
   private woeidCounter = 0;
   private xApiCycleDone = false;
@@ -15,6 +15,7 @@ export class XapiService {
   async fetchNextData(): Promise<TrendObjExtApi | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
+      console.log('XAPI: fetchNextData woeid:', woeid);
       const response = await firstValueFrom(
         this.httpService.get(`https://api.x.com/2/trends/by/woeid/${woeid}`, {
           headers: {

@@ -1,10 +1,10 @@
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
-import { TrendObjExtApi } from '../../extdatarouter/interfaces/ext.interface';
+import { TrendObjExtApi } from '../_utils/interfaces';
 import { readFile, watch } from 'fs';
 import { join } from 'path';
 
 @Injectable()
-export class MockDataService implements OnApplicationBootstrap {
+export class MockDataApiService implements OnApplicationBootstrap {
   private woeids: number[] = [];
   private woeidCounter = 0;
   private mockCycleDone = false;

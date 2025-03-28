@@ -1,28 +1,28 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { TrendObjApi } from './interfaces/trend.interface';
-import { TrendObjExtApi } from '../extdatarouter/interfaces/ext.interface';
-import { ExtDataRouterService } from '../extdatarouter/extdatarouter.service';
+import { TrendObjApi, TrendObjExtApi } from '../_utils/interfaces';
+import { MockDataApiService } from './mock-api.service';
 import { RandService } from '../randomizer/randomizer.service';
 // import { DatabaseService } from '../database/database.service';
 import {
-  FETCH_INTERVAL_MS,
-  REDDIT_API_IN_USE,
-  XAPI_IN_USE,
+  MOCK_API_FETCH_INTERVAL_MS,
+  MOCK_API_IN_USE,
 } from '../_utils/constants';
 
 @Injectable()
-export class TrendsService {
+export class MockDataService {
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
   // private trendCycle: number = 0;
   private readonly trendCache: TrendObjApi[] = [];
 
   constructor(
-    private readonly extRouterService: ExtDataRouterService,
+    private readonly mockDataApiService: MockDataApiService,
     private readonly randService: RandService,
     // private readonly redisService: DatabaseService,
   ) {
-    this.startFetchingData();
+    if (MOCK_API_IN_USE) {
+      this.startFetchingData();
+    }
   }
 
   onModuleDestroy() {
@@ -67,17 +67,18 @@ export class TrendsService {
   private async fetchAndProcessTrend() {
     try {
       console.log('fetch');
-      const nextTrend = await this.extRouterService.getNextTrend();
+      const nextTrend = await this.mockDataApiService.fetchNextData();
+      if (!nextTrend) {
+        throw new Error('nextTrend is undefined');
+      }
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
-      console.log('fetchAndProcessTrend: ');
-      console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      //console.log('fetchAndProcessTrend: ');
+      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
-      if (this.extRouterService.isCycleDone()) {
-        if (!XAPI_IN_USE && !REDDIT_API_IN_USE) {
-          await this.randService.randomizePostVolumes();
-        }
+      if (this.mockDataApiService.isCycleDone()) {
+        await this.randService.randomizePostVolumes();
         //this.storeTrendCycle();
-        this.extRouterService.resetCycleDone();
+        this.mockDataApiService.resetCycleDone();
       }
     } catch (error) {
       console.error('Error fetching or updating trends: ', error);
@@ -105,7 +106,7 @@ export class TrendsService {
   private startFetchingData() {
     this.intervalId = setInterval(() => {
       void this.fetchAndProcessTrend();
-    }, FETCH_INTERVAL_MS);
+    }, MOCK_API_FETCH_INTERVAL_MS);
   }
 
   fetchAll(): TrendObjApi[] {
