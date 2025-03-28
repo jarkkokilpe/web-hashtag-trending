@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { TrendsModule } from './trends/trends.module';
+import { RedditModule } from './reddit/reddit.module';
+import { XapiModule } from './xdata/xdata.module';
+import { MockDataModule } from './mock/mock.module';
 
 @Module({
-  imports: [TrendsModule],
+  imports: [XapiModule, RedditModule, MockDataModule],
 })
 export class AppModule {}

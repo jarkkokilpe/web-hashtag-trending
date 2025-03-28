@@ -8,7 +8,7 @@
 import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
-import { TrendObjExtApi } from 'src/extdatarouter/interfaces/ext.interface';
+import { TrendObjExtApi } from '../_utils/interfaces';
 
 @Injectable()
 export class RandService {

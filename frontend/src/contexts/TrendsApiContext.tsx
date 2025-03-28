@@ -20,30 +20,36 @@ const TrendsApiContext = createContext<TrendsContextProps | undefined>(undefined
 
 const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] => {
   return data.map((info: AreaData) => {
-    const trendData = trends.find((trend: { woeid: number }) => trend.woeid === info.woeid);
-    if (trendData) {
-      const topTrend = trendData.trends.reduce((prev: TrendContent, current: TrendContent) => (current.tweet_volume > prev.tweet_volume ? current : prev), trendData.trends[0]);
-      return {
-        ...info,
-        trends: trendData.trends.map((trend: TrendContent) => ({
-          name: trend.name,
-          tweet_volume: trend.tweet_volume,
-          link: trend.link,
-        })),
-        totalvolume: trendData.totalvolume,
-        totalvolumePrev: trendData.totalvolumePrev,
-        subscriptions: trendData.subscriptions,
-        diff2: trendData.diff2,
-        diff3: trendData.diff3,
-        diff5: trendData.diff5,
-        diff10: trendData.diff10,
-        hashtag: {
-          hashstr: topTrend?.name,
-          count: topTrend?.tweet_volume,
-        },
-      };
+    try {
+      const trendData = trends.find((trend: { woeid: number }) => trend.woeid === info.woeid);
+      
+      if (trendData) {
+        const topTrend = trendData.trends.reduce((prev: TrendContent, current: TrendContent) => (current.tweet_volume > prev.tweet_volume ? current : prev), trendData.trends[0]);
+        return {
+          ...info,
+          trends: trendData.trends.map((trend: TrendContent) => ({
+            name: trend.name,
+            tweet_volume: trend.tweet_volume,
+            link: trend.link,
+          })),
+          totalvolume: trendData.totalvolume,
+          totalvolumePrev: trendData.totalvolumePrev,
+          subscriptions: trendData.subscriptions,
+          diff2: trendData.diff2,
+          diff3: trendData.diff3,
+          diff5: trendData.diff5,
+          diff10: trendData.diff10,
+          hashtag: {
+            hashstr: topTrend?.name,
+            count: topTrend?.tweet_volume,
+          },
+        };
+      }
+      return info;
+    } catch (error) {
+      console.error('Error processing trend data:', error);
+      return info;
     }
-    return info;
   });
 };
 

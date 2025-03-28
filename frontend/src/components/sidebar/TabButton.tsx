@@ -4,14 +4,16 @@ interface TabButtonProps {
   activeTab: string;
   tabName: string;
   label: string;
+  disabled: boolean;
   onClick: () => void;
 }
 
-const TabButton: React.FC<TabButtonProps> = ({ activeTab, tabName, label, onClick }) => {
+const TabButton: React.FC<TabButtonProps> = ({ activeTab, tabName, label, disabled, onClick }) => {
   return (
     <button
       className={`tab ${activeTab === tabName ? 'active' : ''}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {label}
     </button>
