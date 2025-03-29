@@ -56,7 +56,7 @@ jobs:
       #   working-directory: ./frontend
       #   run: npm test
       - name: Reset Docker CLI to default builder
-        run: docker buildx uninstall
+        run: docker buildx uninstall || true
 
       - name: Debug Docker CLI
         run: |
