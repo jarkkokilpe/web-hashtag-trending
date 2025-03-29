@@ -5,7 +5,7 @@ FROM node:18 AS build
 WORKDIR /usr/src/app
 
 # Accept build arguments
-ARG BACKEND_API_URL
+ARG REACT_APP_API_BASE_URL
 
 # Copy package.json and install dependencies
 COPY package*.json ./
@@ -15,7 +15,7 @@ RUN npm install
 COPY . .
 
 # Create the .env file dynamically
-RUN echo "REACT_APP_BACKEND_API_URL=$BACKEND_API_URL" >> .env
+RUN echo "REACT_APP_API_BASE_URL=$REACT_APP_API_BASE_URL" >> .env
 
 # Build the frontend
 RUN npm run build

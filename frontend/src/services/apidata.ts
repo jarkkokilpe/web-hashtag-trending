@@ -8,7 +8,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
   const dataSource: string = useDataSourceStore.getState().dataSource;
   try {
-    const response = await axios.get<TrendApiObj[]>(`${API_BASE_URL}/api/trends/${dataSource}/all`);
+    const response = await axios.get<TrendApiObj[]>(`${API_BASE_URL}/trends/${dataSource}/all`);
     //const response = await axios.get<TrendApiObj[]>(`${API_BASE_URL}/trends/all`);
     //console.log('All Trends:', response.data);
     return response.data;
