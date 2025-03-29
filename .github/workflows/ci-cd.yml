@@ -103,8 +103,13 @@ jobs:
 
       - name: Save Docker images as tar files
         run: |
-          docker save trends-backend -o trends-backend.tar
-          docker save trends-frontend -o trends-frontend.tar
+          docker save trends-backend -o $GITHUB_WORKSPACE/trends-backend.tar
+          docker save trends-frontend -o $GITHUB_WORKSPACE/trends-frontend.tar
+          
+      - name: Verify tar files
+        run: |
+          ls -la $GITHUB_WORKSPACE/trends-backend.tar
+          ls -la $GITHUB_WORKSPACE/trends-frontend.tar
 
       - name: Transfer Docker images to server
         uses: appleboy/scp-action@v0.1.6
@@ -113,8 +118,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: |
-            trends-backend.tar
-            trends-frontend.tar
+            $GITHUB_WORKSPACE/trends-backend.tar
+            $GITHUB_WORKSPACE/trends-frontend.tar
           target: /home/${{ secrets.SERVER_USER }}/docker-images/
 
       - name: Load Docker images on server
