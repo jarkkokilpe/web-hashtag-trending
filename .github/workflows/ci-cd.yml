@@ -72,35 +72,18 @@ jobs:
       - name: List Docker Contexts
         run: docker context ls
 
-      - name: List files in backend1
+      - name: List files in backend
         working-directory: ./backend
         run: ls -la
       
-      - name: List files in frontend1
+      - name: List files in frontend
         working-directory: ./frontend
         run: ls -la
 
-      - name: List files in backend2
-        working-directory: ../backend
-        run: ls -la
-      
-      - name: List files in frontend2
-        working-directory: ../frontend
-        run: ls -la
-
-      - name: List files in backend3
-        working-directory: ../../backend
-        run: ls -la
-      
-      - name: List files in frontend3
-        working-directory: ../../frontend
-        run: ls -la
-
       - name: Build Backend Docker images
-        working-directory: ./backend
         run: |
           docker buildx build \
-            --file Dockerfile \
+            --file ./backend/Dockerfile \
             --build-arg API_PORT=${{ secrets.API_PORT }} \
             --build-arg CORS_ORIGINS=${{ secrets.CORS_ORIGINS }} \
             --build-arg REDDIT_APPNAME=${{ secrets.REDDIT_APPNAME }} \
@@ -109,15 +92,14 @@ jobs:
             --build-arg REDDIT_PASSWORD=${{ secrets.REDDIT_PASSWORD }} \
             --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
-            -t trends-backend . --load
+            -t trends-backend ./backend --load
 
       - name: Build Frontend Docker images
-        working-directory: ./frontend
         run: |
           docker buildx build \
-            --file Dockerfile \
+            --file ./frontend/Dockerfile \
             --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
-            -t trends-frontend . --load
+            -t trends-frontend ./frontend --load
 
       - name: Save Docker images as tar files
         run: |
