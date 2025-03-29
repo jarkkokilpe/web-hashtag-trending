@@ -135,7 +135,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "trends-backend.tar,trends-frontend.tar,docker-compose.yml"
+          source: "trends-backend.tar,trends-frontend.tar,docker-compose.yml,backend,frontend"
           target: /home/${{ secrets.SERVER_USER }}/docker-images/
           port: 22
           timeout: 30s
@@ -152,6 +152,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             ls -la /home/${{ secrets.SERVER_USER }}/docker-images/
+            ls -la /home/${{ secrets.SERVER_USER }}/docker-images/backend
+            ls -la /home/${{ secrets.SERVER_USER }}/docker-images/frontend
 
       - name: Verify Docker and Docker Compose on server
         uses: appleboy/ssh-action@v0.1.6
