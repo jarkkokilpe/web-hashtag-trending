@@ -153,6 +153,16 @@ jobs:
           script: |
             ls -la /home/${{ secrets.SERVER_USER }}/docker-images/
 
+      - name: Verify Docker and Docker Compose on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker --version
+            docker-compose --version
+
       - name: Load Docker images on server
         uses: appleboy/ssh-action@v0.1.6
         with:
