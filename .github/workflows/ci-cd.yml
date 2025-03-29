@@ -111,6 +111,9 @@ jobs:
           ls -la $GITHUB_WORKSPACE/trends-backend.tar
           ls -la $GITHUB_WORKSPACE/trends-frontend.tar
 
+      - name: Debug workspace files
+        run: ls -la
+        
       - name: Transfer Docker images to server
         uses: appleboy/scp-action@v0.1.6
         with:
@@ -118,8 +121,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: |
-            $GITHUB_WORKSPACE/trends-backend.tar
-            $GITHUB_WORKSPACE/trends-frontend.tar
+            trends-backend.tar
+            trends-frontend.tar
           target: /home/${{ secrets.SERVER_USER }}/docker-images/
 
       - name: Load Docker images on server
