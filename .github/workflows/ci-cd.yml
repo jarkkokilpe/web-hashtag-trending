@@ -57,6 +57,8 @@ jobs:
       #   run: npm test
 
       - name: Build Docker images
+        env:
+          DOCKER_CLI_EXPERIMENTAL: disabled
         run: |
           docker build \
             --file ../backend/Dockerfile \
