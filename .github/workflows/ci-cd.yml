@@ -55,10 +55,8 @@ jobs:
       # - name: Run frontend tests
       #   working-directory: ./frontend
       #   run: npm test
-      - name: Set up Docker Buildx
-        run: |
-          docker buildx create --use
-          docker buildx inspect --bootstrap
+      - name: Reset Docker CLI to default builder
+        run: docker buildx uninstall
 
       - name: Debug Docker CLI
         run: |
@@ -68,7 +66,7 @@ jobs:
 
       - name: Build Docker images
         run: |
-          docker buildx build \
+          docker build \
             --file ../backend/Dockerfile \
             --build-arg API_PORT=${{ secrets.API_PORT }} \
             --build-arg CORS_ORIGINS=${{ secrets.CORS_ORIGINS }} \
@@ -78,13 +76,11 @@ jobs:
             --build-arg REDDIT_PASSWORD=${{ secrets.REDDIT_PASSWORD }} \
             --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
-            -t trends-backend \
-            ../backend --load
-          docker buildx build \
+            -t trends-backend ../backend
+          docker build \
             --file ../frontend/Dockerfile \
             --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
-            -t trends-frontend \
-            ../frontend --load
+            -t trends-frontend ../frontend
 
       - name: Save Docker images as tar files
         run: |
