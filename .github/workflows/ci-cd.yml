@@ -59,6 +59,7 @@ jobs:
       - name: Build Docker images
         run: |
           docker build \
+            --file ./backend/Dockerfile \
             --build-arg API_PORT=${{ secrets.API_PORT }} \
             --build-arg CORS_ORIGINS=${{ secrets.CORS_ORIGINS }} \
             --build-arg REDDIT_APPNAME=${{ secrets.REDDIT_APPNAME }} \
@@ -68,7 +69,9 @@ jobs:
             --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
             -t trends-backend ./backend
-          docker build -t trends-frontend ./frontend
+          docker build \
+            --file ./frontend/Dockerfile \
+            -t trends-frontend ./frontend
 
       - name: Save Docker images as tar files
         run: |
