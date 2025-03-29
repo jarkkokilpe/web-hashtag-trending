@@ -72,6 +72,30 @@ jobs:
       - name: List Docker Contexts
         run: docker context ls
 
+      - name: List files in backend1
+        working-directory: ./backend
+        run: ls -la
+      
+      - name: List files in frontend1
+        working-directory: ./frontend
+        run: ls -la
+
+      - name: List files in backend2
+        working-directory: ../backend
+        run: ls -la
+      
+      - name: List files in frontend2
+        working-directory: ../frontend
+        run: ls -la
+
+      - name: List files in backend3
+        working-directory: ../../backend
+        run: ls -la
+      
+      - name: List files in frontend3
+        working-directory: ../../frontend
+        run: ls -la
+
       - name: Build Backend Docker images
         working-directory: ./backend
         run: |
