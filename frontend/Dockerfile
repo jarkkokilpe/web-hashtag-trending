@@ -20,8 +20,20 @@ RUN echo "REACT_APP_BACKEND_API_URL=$BACKEND_API_URL" >> .env
 # Build the frontend
 RUN npm run build
 
-# Use a lightweight web server to serve the frontend
-FROM nginx:alpine
-COPY --from=0 /usr/src/app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Stage 2: Serve the frontend using a lightweight HTTP server
+FROM node:18
+
+# Set the working directory
+WORKDIR /usr/share/app
+
+# Copy the built files from the previous stage
+COPY --from=build /usr/src/app/build .
+
+# Install a lightweight HTTP server
+RUN npm install -g serve
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start the HTTP server
+CMD ["serve", "-s", ".", "-l", "3000"]
