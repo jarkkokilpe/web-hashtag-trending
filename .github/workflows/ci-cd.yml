@@ -84,21 +84,21 @@ jobs:
         run: |
           docker buildx build \
             --file ./backend/Dockerfile \
-            --build-arg API_PORT=${{ secrets.API_PORT }} \
-            --build-arg CORS_ORIGINS=${{ secrets.CORS_ORIGINS }} \
-            --build-arg REDDIT_APPNAME=${{ secrets.REDDIT_APPNAME }} \
-            --build-arg REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }} \
-            --build-arg REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }} \
-            --build-arg REDDIT_PASSWORD=${{ secrets.REDDIT_PASSWORD }} \
-            --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
-            --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
+            --build-arg API_PORT="${{ secrets.API_PORT }}" \
+            --build-arg CORS_ORIGINS="${{ secrets.CORS_ORIGINS }}" \
+            --build-arg REDDIT_APPNAME="${{ secrets.REDDIT_APPNAME }}" \
+            --build-arg REDDIT_CLIENT_ID="${{ secrets.REDDIT_CLIENT_ID }}" \
+            --build-arg REDDIT_CLIENT_SECRET="${{ secrets.REDDIT_CLIENT_SECRET }}" \
+            --build-arg REDDIT_PASSWORD="${{ secrets.REDDIT_PASSWORD }}" \
+            --build-arg REDDIT_USERNAME="${{ secrets.REDDIT_USERNAME }}" \
+            --build-arg REDDIT_USER_AGENT="${{ secrets.REDDIT_USER_AGENT }}" \
             -t trends-backend ./backend --load
-
+      
       - name: Build Frontend Docker images
         run: |
           docker buildx build \
             --file ./frontend/Dockerfile \
-            --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
+            --build-arg BACKEND_API_URL="${{ secrets.BACKEND_API_URL }}" \
             -t trends-frontend ./frontend --load
 
       - name: Save Docker images as tar files
