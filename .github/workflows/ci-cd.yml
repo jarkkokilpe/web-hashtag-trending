@@ -174,6 +174,16 @@ jobs:
           script: |
             docker system prune -a --volumes -f
 
+      - name: Stop and Remove Existing Containers
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker ps -q | xargs -r docker stop
+            docker ps -aq | xargs -r docker rm
+            
       - name: Load Docker images on server
         uses: appleboy/ssh-action@v0.1.6
         with:
