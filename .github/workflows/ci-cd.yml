@@ -165,6 +165,15 @@ jobs:
             docker --version
             docker-compose --version
 
+      - name: Clean up Docker resources
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker system prune -a --volumes -f
+            
       - name: Load Docker images on server
         uses: appleboy/ssh-action@v0.1.6
         with:
