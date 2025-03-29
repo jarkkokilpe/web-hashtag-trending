@@ -72,7 +72,7 @@ jobs:
       - name: List Docker Contexts
         run: docker context ls
 
-      - name: Build Docker images
+      - name: Build Backend Docker images
         run: |
           docker buildx build \
             --file ../../backend/Dockerfile \
@@ -85,6 +85,9 @@ jobs:
             --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
             -t trends-backend ../../backend --load
+
+      - name: Build Front Docker images
+        run: |
           docker buildx build \
             --file ../../frontend/Dockerfile \
             --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
