@@ -71,6 +71,7 @@ jobs:
             -t trends-backend ./backend
           docker build \
             --file ./frontend/Dockerfile \
+            --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
             -t trends-frontend ./frontend
 
       - name: Save Docker images as tar files
