@@ -98,7 +98,7 @@ jobs:
         run: |
           docker buildx build \
             --file ./frontend/Dockerfile \
-            --build-arg BACKEND_API_URL="${{ secrets.BACKEND_API_URL }}" \
+            --build-arg REACT_APP_API_BASE_URL="${{ secrets.BACKEND_API_URL }}" \
             -t trends-frontend ./frontend --load
 
       - name: Save Docker images as tar files
