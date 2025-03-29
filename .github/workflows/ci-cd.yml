@@ -123,6 +123,12 @@ jobs:
           script: |
             echo "SSH connection successful"
 
+      - name: Fix file permissions
+        run: |
+          chmod 644 $GITHUB_WORKSPACE/trends-backend.tar
+          chmod 644 $GITHUB_WORKSPACE/trends-frontend.tar
+          chmod 644 $GITHUB_WORKSPACE/docker-compose.yml
+          
       - name: Transfer Docker images to server
         uses: appleboy/scp-action@v0.1.7
         with:
