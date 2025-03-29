@@ -2,24 +2,16 @@ version: '3.8'
 
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: trends-backend:latest
     ports:
       - "4000:4000"
-    volumes:
-      - ./backend/src:/app/src
     environment:
       NODE_ENV: production
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: trends-frontend:latest
     ports:
       - "3001:3000"
-    volumes:
-      - ./frontend/src:/app/src
     environment:
       NODE_ENV: production
 
