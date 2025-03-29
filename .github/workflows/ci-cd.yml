@@ -73,9 +73,10 @@ jobs:
         run: docker context ls
 
       - name: Build Backend Docker images
+        working-directory: ./backend
         run: |
           docker buildx build \
-            --file ../../backend/Dockerfile \
+            --file Dockerfile \
             --build-arg API_PORT=${{ secrets.API_PORT }} \
             --build-arg CORS_ORIGINS=${{ secrets.CORS_ORIGINS }} \
             --build-arg REDDIT_APPNAME=${{ secrets.REDDIT_APPNAME }} \
@@ -84,14 +85,15 @@ jobs:
             --build-arg REDDIT_PASSWORD=${{ secrets.REDDIT_PASSWORD }} \
             --build-arg REDDIT_USERNAME=${{ secrets.REDDIT_USERNAME }} \
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
-            -t trends-backend ../../backend --load
+            -t trends-backend . --load
 
       - name: Build Frontend Docker images
+        working-directory: ./frontend
         run: |
           docker buildx build \
-            --file ../../frontend/Dockerfile \
+            --file Dockerfile \
             --build-arg BACKEND_API_URL=${{ secrets.BACKEND_API_URL }} \
-            -t trends-frontend ../../frontend --load
+            -t trends-frontend . --load
 
       - name: Save Docker images as tar files
         run: |
