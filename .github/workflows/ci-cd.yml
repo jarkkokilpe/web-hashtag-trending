@@ -86,7 +86,7 @@ jobs:
             --build-arg REDDIT_USER_AGENT=${{ secrets.REDDIT_USER_AGENT }} \
             -t trends-backend ../../backend --load
 
-      - name: Build Front Docker images
+      - name: Build Frontend Docker images
         run: |
           docker buildx build \
             --file ../../frontend/Dockerfile \
