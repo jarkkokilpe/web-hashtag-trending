@@ -60,6 +60,12 @@ jobs:
           docker buildx create --use
           docker buildx inspect --bootstrap
 
+      - name: Debug Docker CLI
+        run: |
+          docker version
+          docker info
+          docker buildx ls
+
       - name: Build Docker images
         run: |
           docker buildx build \
