@@ -34,31 +34,31 @@ const createColumnDef = (config: ColumnConfig): GridColDef => {
 };
 
 const columnsVolume: GridColDef[] = [
-  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
+  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 130 },
   createColumnDef({
     field: 'totalvolume',
     headerName: SIDEBAR_DATAGRID_DESCR_VOLUME,
-    width: 60,
+    width: 80,
     decimalPlaces: 0,
   }),
 ];
 
 const columnsDensity: GridColDef[] = [
-  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
+  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 130 },
   createColumnDef({
     field: 'ixoi',
     headerName: SIDEBAR_DATAGRID_DESCR_DENSITY,
-    width: 60,
+    width: 80,
     decimalPlaces: 1,
   }),
 ];
 
 const columnsChange: GridColDef[] = [
-  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 150 },
+  { field: 'name', headerName: SIDEBAR_DATAGRID_OBJECT_HEADER, width: 130 },
   createColumnDef({
     field: 'change',
     headerName: SIDEBAR_DATAGRID_DESCR_CHANGE,
-    width: 60,
+    width: 80,
     decimalPlaces: 2,
   }),
 ];
