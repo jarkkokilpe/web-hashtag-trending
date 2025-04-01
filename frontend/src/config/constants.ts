@@ -16,7 +16,10 @@ export const TOOLTIP_HEIGHT = 40;
 export const DATA_FETCH_INTERVAL_MS = 3000;
 
 // Zoom minimum limit
-export const ZOOM_MIN = 1.5;
+export const ZOOM_MIN_W_1600 = 1.8;
+export const ZOOM_MIN_W_1200 = 1.5;
+export const ZOOM_MIN_W_800 = 1;
+export const ZOOM_MIN_W_MOBILE = 0.8;
 
 // Zoom maximum limit
 export const ZOOM_MAX = 50;

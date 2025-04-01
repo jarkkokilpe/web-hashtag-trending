@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import * as d3 from 'd3';
 import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../config/strings';
+import { ZOOM_MIN_W_1600, ZOOM_MIN_W_1200, ZOOM_MIN_W_800, ZOOM_MIN_W_MOBILE } from '../config/constants';
 
 interface UseZoomProps {
   width: number;
@@ -40,7 +41,24 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
 
       svg.call(zoom);
 
-      const initialTransform = d3.zoomIdentity.translate(-width / 5, -height / 3).scale(minZoom);
+      let initialTransform;
+      switch (minZoom) {
+        case ZOOM_MIN_W_1600:
+          initialTransform = d3.zoomIdentity.translate(-width / 3, -height / 1.7).scale(minZoom);
+          break;
+        case ZOOM_MIN_W_1200:
+          initialTransform = d3.zoomIdentity.translate(-width / 5, -height / 3).scale(minZoom);
+          break;
+        case ZOOM_MIN_W_800:
+          initialTransform = d3.zoomIdentity.translate(width / 8, -height / 8).scale(minZoom);
+          break;
+        case ZOOM_MIN_W_MOBILE:
+          initialTransform = d3.zoomIdentity.translate(width / 3, height / 8).scale(minZoom);
+          break;
+        default:
+          initialTransform = d3.zoomIdentity.translate(-width / 5, -height / 3).scale(minZoom);
+      }
+      
       (zoom.transform as any)(svg, initialTransform);
 
       svg.attr("width", width/* - 1*/).attr("height", height);

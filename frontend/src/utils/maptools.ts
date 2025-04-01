@@ -1,11 +1,25 @@
 import * as d3 from 'd3';
 import { SizeProps, GeoArea, PositionOnMap } from '../types/interfaces'
+import { ZOOM_MIN_W_1600, ZOOM_MIN_W_1200, ZOOM_MIN_W_800, ZOOM_MIN_W_MOBILE } from '../config/constants';
 
 export function createProjection(mapprops: SizeProps) {
   return d3.geoPath()
     .projection(d3.geoMercator()
     .translate([mapprops.width / 2, mapprops.height / 1.4]) // translate to center of screen
     .scale(150));
+}
+
+export function getMinZoom(windowWidth:number):number {
+  // Set minZoom based on the window width
+  if (windowWidth > 1600) {
+    return ZOOM_MIN_W_1600;
+  } else if (windowWidth > 1200) { 
+    return ZOOM_MIN_W_1200;
+  } else if (windowWidth > 800) {
+    return ZOOM_MIN_W_800;
+  } else {
+    return ZOOM_MIN_W_MOBILE;
+  }
 }
 
 export function getTooltipPosition (

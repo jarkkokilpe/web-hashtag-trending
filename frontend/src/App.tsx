@@ -6,15 +6,15 @@ import { SizeProps } from './types/interfaces'
 import { TrendsApiProvider } from './contexts/TrendsApiContext';
 import { ZoomProvider } from './contexts/ZoomContext';
 import { MobileProvider } from './contexts/MobileContext';
-import { ZOOM_MIN, ZOOM_MAX } from './config/constants';
+import { ZOOM_MIN_W_1600, ZOOM_MAX } from './config/constants';
 import './App.css';
+import { getMinZoom } from './utils/maptools';
 
 export default function App() {
   const [mapprops, setMapProps] = useState<SizeProps>({
     width: window.innerWidth,
     height: window.innerHeight,
   });
-
   useEffect(() => {
     const handleResize = () => {
       setMapProps({
@@ -22,7 +22,7 @@ export default function App() {
         height: window.innerHeight,
       });
     };
-
+    console.log('App: handleResize', mapprops);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -32,7 +32,7 @@ export default function App() {
       <div className="base">
         <TrendsApiProvider>
           <Header />
-          <ZoomProvider mapprops={mapprops} minZoom={ZOOM_MIN} maxZoom={ZOOM_MAX}>
+          <ZoomProvider mapprops={mapprops} minZoom={getMinZoom(mapprops.width)} maxZoom={ZOOM_MAX}>
             <SideBar />
             <Map mapprops={mapprops} />
           </ZoomProvider>
