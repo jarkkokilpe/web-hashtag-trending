@@ -6,7 +6,7 @@ import { SizeProps } from './types/interfaces'
 import { TrendsApiProvider } from './contexts/TrendsApiContext';
 import { ZoomProvider } from './contexts/ZoomContext';
 import { MobileProvider } from './contexts/MobileContext';
-import { ZOOM_MIN_W_1600, ZOOM_MAX } from './config/constants';
+import { ZOOM_MAX } from './config/constants';
 import './App.css';
 import { getMinZoom } from './utils/maptools';
 
@@ -22,7 +22,6 @@ export default function App() {
         height: window.innerHeight,
       });
     };
-    console.log('App: handleResize', mapprops);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
