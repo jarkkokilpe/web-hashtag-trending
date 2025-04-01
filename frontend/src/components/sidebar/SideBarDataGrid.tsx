@@ -38,7 +38,7 @@ const columnsVolume: GridColDef[] = [
   createColumnDef({
     field: 'totalvolume',
     headerName: SIDEBAR_DATAGRID_DESCR_VOLUME,
-    width: 150,
+    width: 60,
     decimalPlaces: 0,
   }),
 ];
@@ -48,7 +48,7 @@ const columnsDensity: GridColDef[] = [
   createColumnDef({
     field: 'ixoi',
     headerName: SIDEBAR_DATAGRID_DESCR_DENSITY,
-    width: 150,
+    width: 60,
     decimalPlaces: 1,
   }),
 ];
@@ -58,7 +58,7 @@ const columnsChange: GridColDef[] = [
   createColumnDef({
     field: 'change',
     headerName: SIDEBAR_DATAGRID_DESCR_CHANGE,
-    width: 150,
+    width: 60,
     decimalPlaces: 2,
   }),
 ];

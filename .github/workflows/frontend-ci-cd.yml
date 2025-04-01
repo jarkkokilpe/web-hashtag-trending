@@ -1,0 +1,109 @@
+name: Frontend-Only CI/CD Pipeline
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Set up Docker Buildx
+        run: |
+          docker buildx create --use
+          docker buildx inspect --bootstrap
+
+      - name: Debug Docker CLI
+        run: |
+          docker version
+          docker info
+          docker buildx ls
+
+      - name: Build Frontend Docker images
+        run: |
+          docker buildx build \
+            --file ./frontend/Dockerfile \
+            --build-arg REACT_APP_API_BASE_URL="${{ secrets.BACKEND_API_URL }}" \
+            -t trends-frontend ./frontend --load
+
+      - name: Save Frontend Docker image as tar file
+        run: |
+          docker save trends-frontend -o $GITHUB_WORKSPACE/trends-frontend.tar
+
+      - name: Verify tar file
+        run: |
+          ls -la $GITHUB_WORKSPACE/trends-frontend.tar
+
+      - name: Test SSH Connection
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "SSH connection successful"
+
+      - name: Fix file permissions
+        run: |
+          chmod 644 $GITHUB_WORKSPACE/trends-frontend.tar
+          chmod 644 $GITHUB_WORKSPACE/docker-compose.yml
+
+      - name: Transfer Frontend Docker image and updated docker-compose.yml to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "trends-frontend.tar,docker-compose.yml"
+          target: /home/${{ secrets.SERVER_USER }}/docker-images/
+          port: 22
+          timeout: 30s
+          command_timeout: 10m
+          use_insecure_cipher: false
+          rm: false
+          debug: true
+
+      - name: Verify files on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            ls -la /home/${{ secrets.SERVER_USER }}/docker-images/
+
+      - name: Stop and Remove Existing Frontend Container
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker ps -q --filter "name=docker-images_frontend_1" | xargs -r docker stop
+            docker ps -aq --filter "name=docker-images_frontend_1" | xargs -r docker rm
+
+      - name: Load Frontend Docker image on server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker load -i /home/${{ secrets.SERVER_USER }}/docker-images/trends-frontend.tar
+            docker-compose -f /home/${{ secrets.SERVER_USER }}/docker-images/docker-compose.yml up -d frontend

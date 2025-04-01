@@ -39,6 +39,8 @@
   overflow-y: auto; /* Enable vertical scrolling for the content */
   padding: 10px;
   background-color: rgba(0, 0, 0, 0); /* Slightly lighter background for content */
+  scrollbar-width: slim; /* For Firefox: Hide scrollbar */
+  scrollbar-color: #888 #444; /* For Firefox: Thumb color and track color */
 }
 
 .infoText {
