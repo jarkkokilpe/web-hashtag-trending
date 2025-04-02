@@ -66,7 +66,6 @@ export class MockDataService {
 
   private async fetchAndProcessTrend() {
     try {
-      console.log('fetch');
       const nextTrend = await this.mockDataApiService.fetchNextData();
       if (!nextTrend) {
         throw new Error('nextTrend is undefined');
