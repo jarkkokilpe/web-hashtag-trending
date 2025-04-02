@@ -70,7 +70,7 @@ export class RedditApiService {
   }
 
   async getSubredditVolume(subreddits: string[], limit = 5) {
-    console.log('+getSubredditVolume', subreddits);
+    //console.log('+getSubredditVolume', subreddits);
     if (!this.token) await this.refreshToken();
     let url: string;
     if (subreddits[0] === 'USA') {
@@ -122,7 +122,6 @@ export class RedditApiService {
           ? '5000000' // Fixed value for combined USA for now
           : posts[0]?.data?.subreddit_subscribers || '0'; // Fallback to '0' if no data
 
-      console.log('subreddits.map');
       return { subscriptions, volume, trends };
     });
 
@@ -137,7 +136,7 @@ export class RedditApiService {
       throw new Error('Invalid WOEID');
     }
 
-    console.log('getSubredditVolumeByWoeid:', result);
+    //console.log('getSubredditVolumeByWoeid:', result);
     if (!result.area) {
       throw new Error('Invalid area');
     }

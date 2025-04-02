@@ -64,14 +64,18 @@ export class RedditService {
 
   private async fetchAndProcessTrend() {
     try {
-      console.log('fetch');
       const nextTrend = await this.redditApiService.fetchNextData();
       if (!nextTrend) {
         throw new Error('nextTrend is undefined');
       }
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
-      //console.log('fetchAndProcessTrend: ');
-      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      console.log(
+        'REDDIT fetchAndProcessTrend: ',
+        convertedTrendApiObj.woeid,
+        convertedTrendApiObj.trends[0].name,
+        convertedTrendApiObj.trends[0].tweet_volume,
+      );
+      console.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.redditApiService.isCycleDone()) {
         this.redditApiService.resetCycleDone();
