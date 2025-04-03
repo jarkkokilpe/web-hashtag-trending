@@ -75,7 +75,7 @@ export class RedditService {
         convertedTrendApiObj.trends[0].name,
         convertedTrendApiObj.trends[0].tweet_volume,
       );
-      console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.redditApiService.isCycleDone()) {
         this.redditApiService.resetCycleDone();
