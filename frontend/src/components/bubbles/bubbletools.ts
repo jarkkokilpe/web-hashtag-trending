@@ -17,7 +17,8 @@ import {
   DATAMODE_DENSITY, 
   DATAMODE_CHANGE, 
   DataMode 
-} from '../../stores/useDataModeStore';
+} from '../../stores/redux/slices/dataModeSlice'; // redux approach
+// } from '../../stores/zustand/useDataModeStore'; // zustand approach
 
 export const bubbleTooltipSize: SizeProps = {
   width: TOOLTIP_WIDTH,

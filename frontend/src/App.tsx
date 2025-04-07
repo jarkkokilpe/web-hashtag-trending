@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+import store from './stores/redux/store';
 import Map from './components/map/Map';
 import Header from './components/header/Header';
 import SideBar from './components/sidebar/SideBar';
@@ -27,16 +29,18 @@ export default function App() {
   }, []);
 
   return (
-    <MobileProvider>
-      <div className="base">
-        <TrendsApiProvider>
-          <Header />
-          <ZoomProvider mapprops={mapprops} minZoom={getMinZoom(mapprops.width)} maxZoom={ZOOM_MAX}>
-            <SideBar />
-            <Map mapprops={mapprops} />
-          </ZoomProvider>
-        </TrendsApiProvider>
-      </div>
-    </MobileProvider>
+    <Provider store={store}> 
+      <MobileProvider>
+        <div className="base">
+          <TrendsApiProvider>
+            <Header />
+            <ZoomProvider mapprops={mapprops} minZoom={getMinZoom(mapprops.width)} maxZoom={ZOOM_MAX}>
+              <SideBar />
+              <Map mapprops={mapprops} />
+            </ZoomProvider>
+          </TrendsApiProvider>
+        </div>
+      </MobileProvider>
+    </Provider>
   );
 };

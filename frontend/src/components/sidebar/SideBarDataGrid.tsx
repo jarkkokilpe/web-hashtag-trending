@@ -1,6 +1,8 @@
 import React from 'react';
 import TabDataGrid from './TabDataGrid';
-import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
+// import useVisibleBubblesStore from '../../stores/zustand/useVisibleBubblesStore'; // zustand approach
+import { useSelector } from 'react-redux'; // redux approach
+import { RootState } from '../../stores/redux/store'; // redux approach
 import { useZoomContext } from '../../contexts/ZoomContext'; 
 import { GridColDef } from '@mui/x-data-grid';
 import { getIxOfInterest as getPostDensity, getTrendDiff2Perc } from '../../utils/stats';
@@ -69,7 +71,8 @@ interface SideBarDataGridProps {
 
 const SideBarDataGrid: React.FC<SideBarDataGridProps> = ({ activeTab }) => {
   const { zoomToArea } = useZoomContext();
-  const { visibleBubbles } = useVisibleBubblesStore();
+  // const { visibleBubbles } = useVisibleBubblesStore(); // zustand approach
+  const visibleBubbles = useSelector((state: RootState) => state.visibleBubbles.visibleBubbles); // redux approach
   const volumeSortedBubbles = [...visibleBubbles].sort((a, b) => b.totalvolume - a.totalvolume);
   const densitySortedBubbles = [...visibleBubbles].sort((a, b) => getPostDensity(b) - getPostDensity(a));
   const changeSortedBubbles = [...visibleBubbles].sort(

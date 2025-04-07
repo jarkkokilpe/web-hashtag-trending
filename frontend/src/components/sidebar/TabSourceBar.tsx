@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import TabButton from './TabButton';
-import useDataSourceStore, { DATASOURCE_MOCK, DATASOURCE_XAPI, DATASOURCE_REDDIT } from '../../stores/useDataSourceStore';
+// import useDataSourceStore, { DATASOURCE_MOCK, DATASOURCE_XAPI, DATASOURCE_REDDIT } from '../../stores/zustand/useDataSourceStore';
+import { useDispatch } from 'react-redux';
+import { 
+  setDataSource, 
+  DATASOURCE_MOCK, 
+  DATASOURCE_XAPI, 
+  DATASOURCE_REDDIT, 
+} from '../../stores/redux/slices/dataSourceSlice';
 import { 
   SIDEBAR_SOURCEBTN_REDDIT,
   SIDEBAR_SOURCEBTN_MOCK, 
@@ -8,15 +15,16 @@ import {
 } from '../../config/strings';
 
 const TabSourceBar: React.FC = () => {
-  const { setDataSource: setSource } = useDataSourceStore();
+  // const { setDataSource: setSource } = useDataSourceStore();
+  const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState<string>(DATASOURCE_REDDIT);
   
   const handleTabDataClick = (tab: string) => {
     switch (tab) {
-      case DATASOURCE_REDDIT: setSource(DATASOURCE_REDDIT); break;
-      case DATASOURCE_MOCK: setSource(DATASOURCE_MOCK); break;
-      case DATASOURCE_XAPI: setSource(DATASOURCE_XAPI); break;
-      default: setSource(DATASOURCE_REDDIT); break;
+      case DATASOURCE_REDDIT: dispatch(setDataSource(DATASOURCE_REDDIT)); break;
+      case DATASOURCE_MOCK: dispatch(setDataSource(DATASOURCE_MOCK)); break;
+      case DATASOURCE_XAPI: dispatch(setDataSource(DATASOURCE_XAPI)); break;
+      default: dispatch(setDataSource(DATASOURCE_REDDIT)); break;
     }
     setActiveTab(tab);
   };

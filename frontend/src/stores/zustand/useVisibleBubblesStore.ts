@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { AreaData } from '../types/interfaces';
+import { AreaData } from '../../types/interfaces';
 
 interface VisibleBubblesState {
   visibleBubbles: AreaData[];

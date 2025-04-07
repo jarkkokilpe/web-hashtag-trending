@@ -6,8 +6,12 @@ import { SizeProps, PositionOnMap, AreaData, GeoArea } from '../../types/interfa
 import ToolTip from '../tooltip/ToolTip'
 import { useTrends } from '../../contexts/TrendsApiContext';
 import { useZoomContext } from '../../contexts/ZoomContext';
-import useVisibleBubblesStore from '../../stores/useVisibleBubblesStore';
-import useDataModeStore, { DataMode } from '../../stores/useDataModeStore';
+// import useVisibleBubblesStore from '../../stores/zustand/useVisibleBubblesStore';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../stores/redux/store'; // Import RootState type
+import { setVisibleBubbles } from '../../stores/redux/slices/visibleBubblesSlice';
+// import useDataModeStore, { DataMode } from '../../stores/zustand/useDataModeStore';
+import { DataMode } from '../../stores/redux/slices/dataModeSlice';
 import { getFixedAreaCentroid } from '../../utils/maptools'
 import { getTooltipPosition } from '../../utils/maptools'
 import { geoUsStates } from '../../data/us/statebounds';
@@ -37,8 +41,10 @@ const Bubbles: React.FC<BubblesProps> = ({
   updateSelectedBubbleData }) => {
   const { numData } = useTrends();
   const { usNumData } = useTrends();
-  const { setVisibleBubbles } = useVisibleBubblesStore();
-  const { dataMode } = useDataModeStore();
+  // const { setVisibleBubbles } = useVisibleBubblesStore(); // zustand approach
+  const dispatch = useDispatch(); // Use Redux approach
+  // const { dataMode } = useDataModeStore(); // zustand approach
+  const dataMode = useSelector((state: RootState) => state.dataMode.dataMode); // redux approach
   const [selectedBubble, setSelectedBubble] = useState<AreaData | null>(null);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [hoveredBubbleData, setHoveredBubbleData] = useState<AreaData | null>(null);
@@ -63,7 +69,8 @@ const Bubbles: React.FC<BubblesProps> = ({
       const usStateBubbles = getVisibleBubbles(svgRef, geoUsStates, usNumData, mapprops, sizeScale, getBubbleSizeByDensity);
       const countryBubbles = getVisibleBubbles(svgRef, geoCountries, numData, mapprops, sizeScale, getBubbleSizeByDensity);
       const mergedBubbles = [...usStateBubbles, ...countryBubbles];
-      setVisibleBubbles(mergedBubbles);
+      // setVisibleBubbles(mergedBubbles); // zustand approach
+      dispatch(setVisibleBubbles(mergedBubbles)); // redux approach
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usNumData, numData, mapprops, zoomTransformStr]);
