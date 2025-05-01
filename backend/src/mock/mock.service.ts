@@ -1,4 +1,4 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { TrendObjApi, TrendObjExtApi } from '../_utils/interfaces';
 import { MockDataApiService } from './mock-api.service';
 import { RandService } from '../randomizer/randomizer.service';
@@ -10,6 +10,7 @@ import {
 
 @Injectable()
 export class MockDataService {
+  private readonly logger = new Logger(MockDataService.name);
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
   // private trendCycle: number = 0;
@@ -56,7 +57,7 @@ export class MockDataService {
       } else {
         this.trendCache.push(trendObj);
       }
-      //console.log('Current data: ', this.trendCache);
+      //this.logger.log('Current data: ', this.trendCache);
     } catch (error) {
       console.error('Error fetching refined trends: ', error);
     } finally {
@@ -71,8 +72,8 @@ export class MockDataService {
         throw new Error('nextTrend is undefined');
       }
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
-      //console.log('fetchAndProcessTrend: ');
-      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      //this.logger.log('fetchAndProcessTrend: ');
+      //this.logger.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.mockDataApiService.isCycleDone()) {
         await this.randService.randomizePostVolumes();
@@ -113,7 +114,7 @@ export class MockDataService {
   }
 
   findOneByWoeid(woeid: number): TrendObjApi {
-    console.log('woeId to search: ', woeid);
+    this.logger.log('woeId to search: ', woeid);
     const trend = this.trendCache.find(
       (trend: TrendObjApi) => trend.woeid == woeid,
     );

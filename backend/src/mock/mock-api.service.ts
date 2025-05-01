@@ -1,10 +1,11 @@
-import { Injectable, OnApplicationBootstrap } from '@nestjs/common';
+import { Injectable, OnApplicationBootstrap, Logger } from '@nestjs/common';
 import { TrendObjExtApi } from '../_utils/interfaces';
 import { readFile, watch } from 'fs';
 import { join } from 'path';
 
 @Injectable()
 export class MockDataApiService implements OnApplicationBootstrap {
+  private readonly logger = new Logger(MockDataApiService.name);
   private woeids: number[] = [];
   private woeidCounter = 0;
   private mockCycleDone = false;
@@ -13,23 +14,23 @@ export class MockDataApiService implements OnApplicationBootstrap {
   constructor() {}
 
   onApplicationBootstrap() {
-    console.log('+MOCK onApplicationBootstrap');
+    this.logger.log('+MOCK onApplicationBootstrap');
     const mockDataPath = join(process.cwd(), 'data/mocktrends.json');
     this.loadData(mockDataPath);
     watch(mockDataPath, () => this.loadData(mockDataPath)); // watching for changes in the mock data file...
   }
 
   private loadData(path: string) {
-    console.log('+MOCK loadData');
+    this.logger.log('+MOCK loadData');
     readFile(path, (err, data) => {
       if (err) {
-        console.error('Error reading mock data:', err);
+        this.logger.error('Error reading mock data:', err);
         return;
       }
       try {
         this.mockData = JSON.parse(data.toString()) as TrendObjExtApi[];
         this.woeids = this.mockData.map((country) => country.woeid);
-        console.log('Mock data updated');
+        this.logger.log('Mock data updated');
       } catch {
         this.mockData = [];
       }
@@ -39,7 +40,7 @@ export class MockDataApiService implements OnApplicationBootstrap {
   async fetchNextData(): Promise<TrendObjExtApi | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
-      console.log('MOCK: fetchDataByWoeId woeid: ', woeid);
+      this.logger.log('MOCK: fetchDataByWoeId woeid: ', woeid);
       const trend = this.mockData.find(
         (trend: TrendObjExtApi) => trend.woeid === woeid,
       );

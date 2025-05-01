@@ -1,4 +1,4 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { TrendObjApi, TrendObjExtApi } from '../_utils/interfaces';
 // import { DatabaseService } from '../database/database.service';
 import { XAPI_API_FETCH_INTERVAL_MS, XAPI_IN_USE } from '../_utils/constants';
@@ -6,6 +6,7 @@ import { XdataApiService } from './xdata-api.services';
 
 @Injectable()
 export class XdataService {
+  private readonly logger = new Logger(XdataService.name);
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
   // private trendCycle: number = 0;
@@ -51,7 +52,7 @@ export class XdataService {
       } else {
         this.trendCache.push(trendObj);
       }
-      //console.log('Current data: ', this.trendCache);
+      //this.logger.log('Current data: ', this.trendCache);
     } catch (error) {
       console.error('Error fetching refined trends: ', error);
     } finally {
@@ -61,14 +62,14 @@ export class XdataService {
 
   private async fetchAndProcessTrend() {
     try {
-      console.log('fetch');
+      this.logger.log('fetch');
       const nextTrend = await this.xdataApiService.fetchNextData();
       if (!nextTrend) {
         throw new Error('nextTrend is undefined');
       }
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
-      //console.log('fetchAndProcessTrend: ');
-      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      //this.logger.log('fetchAndProcessTrend: ');
+      //this.logger.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.xdataApiService.isCycleDone()) {
         this.xdataApiService.resetCycleDone();
@@ -107,7 +108,7 @@ export class XdataService {
   }
 
   findOneByWoeid(woeid: number): TrendObjApi {
-    console.log('woeId to search: ', woeid);
+    this.logger.log('woeId to search: ', woeid);
     const trend = this.trendCache.find(
       (trend: TrendObjApi) => trend.woeid == woeid,
     );

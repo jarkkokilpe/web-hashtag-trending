@@ -1,4 +1,4 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { TrendObjApi, TrendObjExtApi } from '../_utils/interfaces';
 import { RedditApiService } from './reddit-api.service';
 // import { DatabaseService } from '../database/database.service';
@@ -9,6 +9,7 @@ import {
 
 @Injectable()
 export class RedditService {
+  private readonly logger = new Logger(RedditService.name);
   private intervalId: NodeJS.Timeout;
   private isUpdating: boolean = false;
   // private trendCycle: number = 0;
@@ -54,7 +55,7 @@ export class RedditService {
       } else {
         this.trendCache.push(trendObj);
       }
-      //console.log('Current data: ', this.trendCache);
+      //this.logger.log('Current data: ', this.trendCache);
     } catch (error) {
       console.error('Error fetching refined trends: ', error);
     } finally {
@@ -69,13 +70,13 @@ export class RedditService {
         throw new Error('nextTrend is undefined');
       }
       const convertedTrendApiObj = this.fitExtApiObjToApi(nextTrend);
-      console.log(
+      this.logger.log(
         'REDDIT fetchAndProcessTrend: ',
         convertedTrendApiObj.woeid,
         convertedTrendApiObj.trends[0].name,
         convertedTrendApiObj.trends[0].tweet_volume,
       );
-      //console.log(JSON.stringify(convertedTrendApiObj, null, 2));
+      //this.logger.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
       if (this.redditApiService.isCycleDone()) {
         this.redditApiService.resetCycleDone();
@@ -114,7 +115,7 @@ export class RedditService {
   }
 
   findOneByWoeid(woeid: number): TrendObjApi {
-    console.log('woeId to search: ', woeid);
+    this.logger.log('woeId to search: ', woeid);
     const trend = this.trendCache.find(
       (trend: TrendObjApi) => trend.woeid == woeid,
     );

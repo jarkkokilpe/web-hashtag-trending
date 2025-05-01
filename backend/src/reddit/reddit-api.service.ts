@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { TrendObjExtApi } from '../_utils/interfaces';
 
 @Injectable()
 export class RedditApiService {
+  private readonly logger = new Logger(RedditApiService.name);
   private woeids = subredditTable.map((country) => country.woeid);
   private woeidCounter = 0;
   private subredditCycleDone = false;
@@ -20,7 +21,7 @@ export class RedditApiService {
 
   private async initialize() {
     await this.refreshToken(); // Initial fetch
-    console.log(
+    this.logger.log(
       `Token issued at ${this.tokenIssuedAt?.toLocaleString('en-US', { timeZone: 'Europe/Helsinki' })}`,
     );
   }
@@ -54,7 +55,7 @@ export class RedditApiService {
 
     this.token = response.access_token;
     this.tokenIssuedAt = new Date();
-    console.log(
+    this.logger.log(
       `Token refreshed at ${this.tokenIssuedAt.toLocaleString('en-US', {
         timeZone: 'Europe/Helsinki',
       })}`,
@@ -70,7 +71,7 @@ export class RedditApiService {
   }
 
   async getSubredditVolume(subreddits: string[], limit = 5) {
-    //console.log('+getSubredditVolume', subreddits);
+    //this.logger.log('+getSubredditVolume', subreddits);
     if (!this.token) await this.refreshToken();
     let url: string;
     if (subreddits[0] === 'USA') {
@@ -136,7 +137,7 @@ export class RedditApiService {
       throw new Error('Invalid WOEID');
     }
 
-    //console.log('getSubredditVolumeByWoeid:', result);
+    //this.logger.log('getSubredditVolumeByWoeid:', result);
     if (!result.area) {
       throw new Error('Invalid area');
     }
@@ -193,7 +194,7 @@ export class RedditApiService {
   @Cron('0 0 0,6,12,18 * * *') // Every 6 hours
   async handleTokenRefresh() {
     await this.refreshToken();
-    console.log(
+    this.logger.log(
       `Scheduled refresh at ${new Date().toLocaleString('en-US', { timeZone: 'Europe/Helsinki' })}`,
     );
   }

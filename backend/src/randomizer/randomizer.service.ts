@@ -5,13 +5,14 @@
  * All this is done because of I didn't have access to real XAPI trends. So we use mock data.
  */
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 import { TrendObjExtApi } from '../_utils/interfaces';
 
 @Injectable()
 export class RandService {
+  private readonly logger = new Logger(RandService.name);
   private originalData: Array<TrendObjExtApi> | null = null;
   private callCount: number = 0; // Counter to track the number of calls
   private readonly filePath: string = path.resolve(
@@ -47,9 +48,9 @@ export class RandService {
 
       this.callCount = 0;
 
-      console.log('Data reset to original state successfully.');
+      this.logger.log('Data reset to original state successfully.');
     } catch (error) {
-      console.error('Error resetting data to original state:', error);
+      this.logger.error('Error resetting data to original state:', error);
       throw new Error('Failed to reset data to original state');
     }
   }
@@ -71,7 +72,7 @@ export class RandService {
       // reset to original data after 10 calls to prevent long term shrinking/growing
       if (++this.callCount % 10 === 0) {
         this.resetDataToOriginalState();
-        console.log('Data reset to original state after 10 calls.');
+        this.logger.log('Data reset to original state after 10 calls.');
         return;
       }
 
@@ -80,7 +81,7 @@ export class RandService {
         fileContent,
       ) as Array<TrendObjExtApi>;
 
-      console.log('randomizePostVolumes: data', data);
+      this.logger.log('randomizePostVolumes: data', data);
 
       // randomize tweet_volume valuse in the trends array
       const updatedData = data.map((item) => ({
@@ -99,9 +100,11 @@ export class RandService {
         'utf-8',
       );
 
-      console.log('Tweet volumes randomized and file updated successfully.');
+      this.logger.log(
+        'Tweet volumes randomized and file updated successfully.',
+      );
     } catch (error) {
-      console.error('Error randomizing tweet volumes:', error);
+      this.logger.error('Error randomizing tweet volumes:', error);
       throw new Error('Failed to randomize tweet volumes');
     }
   }

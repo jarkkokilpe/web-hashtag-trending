@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { TrendObjExtApi } from '../_utils/interfaces';
@@ -6,6 +6,7 @@ import { rollingXapiWoeid } from './data/request';
 
 @Injectable()
 export class XdataApiService {
+  private readonly logger = new Logger(XdataApiService.name);
   private woeids = rollingXapiWoeid.map((country) => country.woeid);
   private woeidCounter = 0;
   private xApiCycleDone = false;
@@ -15,7 +16,7 @@ export class XdataApiService {
   async fetchNextData(): Promise<TrendObjExtApi | undefined> {
     try {
       const woeid = this.woeids[this.woeidCounter];
-      console.log('XAPI: fetchNextData woeid:', woeid);
+      this.logger.log('XAPI: fetchNextData woeid:', woeid);
       const response = await firstValueFrom(
         this.httpService.get(`https://api.x.com/2/trends/by/woeid/${woeid}`, {
           headers: {
@@ -30,10 +31,10 @@ export class XdataApiService {
         this.xApiCycleDone = true;
       }
 
-      console.log('XAPI: fetchTrendsByWoeid ', data);
+      this.logger.log('XAPI: fetchTrendsByWoeid ', data);
       return data;
     } catch (error) {
-      console.error('XAPI: Error fetching data from API:', error);
+      this.logger.error('XAPI: Error fetching data from API:', error);
       return undefined;
     }
   }
