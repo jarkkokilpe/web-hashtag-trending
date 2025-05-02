@@ -14,6 +14,7 @@ export interface TrendApiObj {
   diff10: number;
   trends: TrendContent[];
   subscriptions: number;
+  updatedAt: number;
 }
 
 export interface HashObj {

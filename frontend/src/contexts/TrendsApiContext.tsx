@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { fetchAllTrends } from '../services/apidata';
+import React, { createContext, useState, useContext, useEffect, useRef } from 'react';
+import { fetchAllTrends, fetchDeltaTrends } from '../services/apidata';
 import { numData as initialNumData  } from '../data/countryinfo';
 import { usNumData as initialUsNumData  } from '../data/us/stateinfo';
 import { AreaData, TrendContent, TrendApiObj  } from '../types/interfaces';
@@ -35,6 +35,7 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
           totalvolume: trendData.totalvolume,
           totalvolumePrev: trendData.totalvolumePrev,
           subscriptions: trendData.subscriptions,
+          updatedAt: trendData.updatedAt,
           diff2: trendData.diff2,
           diff3: trendData.diff3,
           diff5: trendData.diff5,
@@ -56,12 +57,24 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
 export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) => {
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+  const isInitialFetch = useRef(true);
 
   const fetchAndProcessTrends = async () => {
     try {
-      const trends = await fetchAllTrends();
-      setNumData((prevNumData) => processTrendData(prevNumData, trends));
-      setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
+      if (isInitialFetch.current) {
+        // Initial fetch using fetchAllTrends
+        const trends = await fetchAllTrends();
+        setNumData((prevNumData) => processTrendData(prevNumData, trends));
+        setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
+        isInitialFetch.current = false; // Mark initial fetch as completed
+      } else {
+        // Subsequent fetches using fetchDeltaTrends
+        const trends = await fetchDeltaTrends(lastUpdate);
+        setNumData((prevNumData) => processTrendData(prevNumData, trends)); // Replace updated objects
+        setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends)); // Replace updated objects
+        setLastUpdate(Date.now()); // Update the last fetch timestamp
+      }
     } catch (error) {
       console.error('Error fetching trends:', error);
     }

@@ -4,6 +4,7 @@ import {
   Param,
   HttpException,
   HttpStatus,
+  Query,
 } from '@nestjs/common';
 import { MockDataService } from './mock.service';
 import { TrendObjApi } from '../_utils/interfaces';
@@ -15,6 +16,12 @@ export class MockDataController {
   @Get('all')
   getTrends(): TrendObjApi[] {
     return this.mockService.fetchAll();
+  }
+
+  @Get('delta')
+  getDelta(@Query('since') since: string): TrendObjApi[] {
+    const sinceTimestamp = parseInt(since) || 0;
+    return this.mockService.fetchDelta(sinceTimestamp);
   }
 
   @Get('single/:woeid')

@@ -4,6 +4,7 @@ import {
   HttpException,
   HttpStatus,
   Param,
+  Query,
 } from '@nestjs/common';
 import { XdataService } from './xdata.service';
 import { TrendObjApi } from 'src/_utils/interfaces';
@@ -15,6 +16,12 @@ export class XdataController {
   @Get('all')
   getTrends(): TrendObjApi[] {
     return this.xdataService.fetchAll();
+  }
+
+  @Get('delta')
+  getDelta(@Query('since') since: string): TrendObjApi[] {
+    const sinceTimestamp = parseInt(since) || 0;
+    return this.xdataService.fetchDelta(sinceTimestamp);
   }
 
   @Get('single/:woeid')

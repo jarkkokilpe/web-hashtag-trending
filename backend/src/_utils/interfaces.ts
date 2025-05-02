@@ -18,4 +18,5 @@ export interface TrendObjApi extends TrendObjExtApi {
   diff5: number;
   diff10: number;
   subscriptions: number;
+  updatedAt: number;
 }

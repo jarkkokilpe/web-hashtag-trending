@@ -92,6 +92,7 @@ export class XdataService {
       diff5: 0,
       diff10: 0,
       subscriptions: extApiObj.subscriptions,
+      updatedAt: Date.now(),
     };
 
     return apiobj;
@@ -105,6 +106,12 @@ export class XdataService {
 
   fetchAll(): TrendObjApi[] {
     return this.trendCache;
+  }
+
+  fetchDelta(since: number): TrendObjApi[] {
+    return Array.from(this.trendCache.values()).filter(
+      (trend) => trend.updatedAt > since,
+    );
   }
 
   findOneByWoeid(woeid: number): TrendObjApi {

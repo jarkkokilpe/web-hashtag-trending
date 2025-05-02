@@ -21,6 +21,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
           <li>{`Pop.: ${inputData?.value}`}</li>
           <li>{`Subs.: ${inputData?.subscriptions}`}</li>
           <li>{`Volume: ${inputData?.totalvolume.toFixed(0)}`}</li>
+          <li>{`Updated: ${inputData?.updatedAt}`}</li>
         </ul>
         <p />
         <p>Top mentions:</p>

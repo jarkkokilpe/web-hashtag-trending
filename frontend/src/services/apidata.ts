@@ -20,6 +20,22 @@ export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
   }
 }
 
+// Fetch delta trends
+export const fetchDeltaTrends = async (lastUpdate: number): Promise<TrendApiObj[]> => {
+  const state = store.getState(); // Access the current state with redux approach
+  const dataSource = state.dataSource.dataSource;
+
+  try {
+    const response = await axios.get<TrendApiObj[]>(
+      `${API_BASE_URL}/trends/${dataSource}/delta?since=${lastUpdate}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching delta trends:', error);
+    return [];
+  }
+};
+
 // Fetch a single trend by woeid - not used in the current implementation
 export const fetchSingleTrend = async (woeid: number): Promise<TrendApiObj> => {
   try {
@@ -36,7 +52,8 @@ export const fetchSingleTrend = async (woeid: number): Promise<TrendApiObj> => {
       diff5: 0,
       diff10: 0,
       trends: [],
-      subscriptions: 0
+      subscriptions: 0,
+      updatedAt: 0
     };
   }
 }
