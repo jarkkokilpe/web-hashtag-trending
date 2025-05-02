@@ -4,6 +4,8 @@ import { numData as initialNumData  } from '../data/countryinfo';
 import { usNumData as initialUsNumData  } from '../data/us/stateinfo';
 import { AreaData, TrendContent, TrendApiObj  } from '../types/interfaces';
 import { DATA_FETCH_INTERVAL_MS  } from '../config/constants';
+// import useDataSourceStore from '../stores/zustand/useDataSourceStore';
+import store from '../stores/redux/store';
 
 interface TrendsContextProps {
   numData: AreaData[];
@@ -59,18 +61,21 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
   const lastUpdateRef = useRef(Date.now());
   const isInitialFetch = useRef(true);
+  //const dataSource: string = useDataSourceStore.getState().dataSource; // zustand approach
+  const dataSourceRef = useRef(store.getState().dataSource.dataSource); // Track the current dataSource
 
+  // Fetch and process trends
   const fetchAndProcessTrends = React.useCallback(async () => {
     try {
       if (isInitialFetch.current) {
         // Initial fetch using fetchAllTrends
-        const trends = await fetchAllTrends();
+        const trends = await fetchAllTrends(dataSourceRef.current);
         setNumData((prevNumData) => processTrendData(prevNumData, trends));
         setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
         isInitialFetch.current = false; // Mark initial fetch as completed
       } else {
         // Subsequent fetches using fetchDeltaTrends
-        const trends = await fetchDeltaTrends(lastUpdateRef.current);
+        const trends = await fetchDeltaTrends(dataSourceRef.current, lastUpdateRef.current);
         setNumData((prevNumData) => processTrendData(prevNumData, trends)); // Replace updated objects
         setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends)); // Replace updated objects
         lastUpdateRef.current = Date.now(); // Update the last fetch timestamp
@@ -80,8 +85,22 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
     }
   }, []);
 
+  // Detect changes in dataSource and trigger initial fetch
   useEffect(() => {
-    fetchAndProcessTrends();
+    const unsubscribe = store.subscribe(() => {
+      const newDataSource = store.getState().dataSource.dataSource;
+      if (newDataSource !== dataSourceRef.current) {
+        dataSourceRef.current = newDataSource; // Update the ref
+        isInitialFetch.current = true; // Trigger initial fetch
+        fetchAndProcessTrends(); // Perform the initial fetch immediately
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup the subscription on unmount
+  }, [fetchAndProcessTrends]);
+
+  // Periodic delta updates
+  useEffect(() => {
     const intervalId = setInterval(fetchAndProcessTrends, DATA_FETCH_INTERVAL_MS);
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
   }, [fetchAndProcessTrends]);

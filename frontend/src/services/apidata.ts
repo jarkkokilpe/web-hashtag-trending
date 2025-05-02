@@ -1,16 +1,10 @@
 import axios from 'axios';
 import { TrendApiObj } from '../types/interfaces';
-// import useDataSourceStore from '../stores/zustand/useDataSourceStore';
-import store from '../stores/redux/store';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 // Fetch all trends
-export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
-  //const dataSource: string = useDataSourceStore.getState().dataSource; // zustand approach
-  const state = store.getState(); // Access the current state with redux approach
-  const dataSource = state.dataSource.dataSource;
-  
+export const fetchAllTrends = async (dataSource: string): Promise<TrendApiObj[]> => {
   try {
     const response = await axios.get<TrendApiObj[]>(`${API_BASE_URL}/trends/${dataSource}/all`);
     return response.data;
@@ -21,9 +15,8 @@ export const fetchAllTrends = async (): Promise<TrendApiObj[]> => {
 }
 
 // Fetch delta trends
-export const fetchDeltaTrends = async (lastUpdate: number): Promise<TrendApiObj[]> => {
-  const state = store.getState(); // Access the current state with redux approach
-  const dataSource = state.dataSource.dataSource;
+export const fetchDeltaTrends = async (dataSource: string, lastUpdate: number): Promise<TrendApiObj[]> => {
+
 
   try {
     const response = await axios.get<TrendApiObj[]>(
