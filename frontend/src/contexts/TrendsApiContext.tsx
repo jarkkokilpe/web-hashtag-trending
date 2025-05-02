@@ -57,7 +57,7 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
 export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) => {
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
-  const [lastUpdate, setLastUpdate] = useState(Date.now());
+  const lastUpdateRef = useRef(Date.now());
   const isInitialFetch = useRef(true);
 
   const fetchAndProcessTrends = React.useCallback(async () => {
@@ -70,15 +70,15 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
         isInitialFetch.current = false; // Mark initial fetch as completed
       } else {
         // Subsequent fetches using fetchDeltaTrends
-        const trends = await fetchDeltaTrends(lastUpdate);
+        const trends = await fetchDeltaTrends(lastUpdateRef.current);
         setNumData((prevNumData) => processTrendData(prevNumData, trends)); // Replace updated objects
         setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends)); // Replace updated objects
-        setLastUpdate(Date.now()); // Update the last fetch timestamp
+        lastUpdateRef.current = Date.now(); // Update the last fetch timestamp
       }
     } catch (error) {
       console.error('Error fetching trends:', error);
     }
-  }, [lastUpdate]);
+  }, []);
 
   useEffect(() => {
     fetchAndProcessTrends();
