@@ -60,7 +60,7 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
   const [lastUpdate, setLastUpdate] = useState(Date.now());
   const isInitialFetch = useRef(true);
 
-  const fetchAndProcessTrends = async () => {
+  const fetchAndProcessTrends = React.useCallback(async () => {
     try {
       if (isInitialFetch.current) {
         // Initial fetch using fetchAllTrends
@@ -78,13 +78,13 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
     } catch (error) {
       console.error('Error fetching trends:', error);
     }
-  };
+  }, [lastUpdate]);
 
   useEffect(() => {
     fetchAndProcessTrends();
     const intervalId = setInterval(fetchAndProcessTrends, DATA_FETCH_INTERVAL_MS);
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
-  }, []);
+  }, [fetchAndProcessTrends]);
 
   return (
     <TrendsApiContext.Provider value={{ numData, setNumData, usNumData, setUsNumData }}>
