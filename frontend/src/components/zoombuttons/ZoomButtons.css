@@ -23,10 +23,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
 }
 
-.zoom-button:hover {
-  background-color: #06cdf0; /* Darker background on hover */
-}
-
 .zoom-icon {
   pointer-events: none; /* Prevent interaction with the icon */
 }
