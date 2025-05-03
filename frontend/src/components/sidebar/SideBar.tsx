@@ -1,33 +1,28 @@
 import React, { useEffect, useState } from 'react';
-// import useDataModeStore, { DATAMODE_VOLUME, DATAMODE_DENSITY, DATAMODE_CHANGE } from '../../stores/zustand/useDataModeStore';
-import { useDispatch } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
+import { RootState } from '../../stores/redux/store';
 import { setDataMode } from '../../stores/redux/slices/dataModeSlice'; 
 import { DATAMODE_VOLUME, DATAMODE_DENSITY, DATAMODE_CHANGE } from '../../stores/redux/slices/dataModeSlice'; 
-
-import { useMobile } from '../../contexts/MobileContext';
 import SideBarDataGrid from './SideBarDataGrid';
 import TabDataBar from './TabDataBar';
 import SideBarToggleButton from './SideBarToggleButton';
 import './SideBar.css';
 import TabSourceBar from './TabSourceBar';
+import { toggleSidebar, setSidebarHidden } from '../../stores/redux/slices/sideBarSlice';
+import { setInfoBoxVisibility } from '../../stores/redux/slices/infoBoxSlice';
 
 const SideBar: React.FC = () => {
-  const { isMobile } = useMobile();
-  const [isHidden, setIsHidden] = useState<boolean>(isMobile);
+  const isMobile = useSelector((state: RootState) => state.mobile.isMobile);
+  const isInfoBoxVisible = useSelector((state: RootState) => state.infoBox.isVisible);
+  const isSideBarHidden = useSelector((state: RootState) => state.sidebar.isHidden);
   const [activeTab, setActiveTab] = useState<string>('tabVolume');
-  // const { setDataMode: setMode } = useDataModeStore(); // zustand approach
-  const dispatch = useDispatch(); // redux approach
+  const dispatch = useDispatch();
 
-  /* zustand approach
-  useEffect(() => {
-    setActiveTab('tabVolume');
-    setMode(DATAMODE_VOLUME);
-  }, [setMode]); */
-  
   useEffect(() => {
     setActiveTab('tabVolume');
     dispatch(setDataMode(DATAMODE_VOLUME));
-  }, [dispatch]); 
+    dispatch(setSidebarHidden(isMobile));
+  }, [dispatch, isMobile]); 
   
   const handleTabDataClick = (tab: string) => {
     switch (tab) {
@@ -39,18 +34,21 @@ const SideBar: React.FC = () => {
     setActiveTab(tab);
   };
 
-  const toggleSidebar = () => {
-    setIsHidden(!isHidden);
+  const toggleSidebarHandler = () => {
+    if(isMobile && isSideBarHidden && isInfoBoxVisible) {
+      dispatch(setInfoBoxVisibility(false));
+    }
+    dispatch(toggleSidebar());
   };
 
   return (
     <>
-      <div className={`sidebar ${isHidden ? 'hidden' : ''}`}>
+      <div className={`sidebar ${isSideBarHidden ? 'hidden' : ''}`}>
         <TabSourceBar />
         <TabDataBar activeTab={activeTab} onTabClick={handleTabDataClick} />
         <SideBarDataGrid activeTab={activeTab} />
       </div>
-      <SideBarToggleButton isHidden={isHidden} toggleSidebar={toggleSidebar} />
+      <SideBarToggleButton isHidden={isSideBarHidden} toggleSidebar={toggleSidebarHandler} />
     </>
   );
 };

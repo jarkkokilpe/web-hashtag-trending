@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Provider } from 'react-redux';
-import store from './stores/redux/store';
+import { useDispatch } from 'react-redux';
+import { setIsMobile } from './stores/redux/slices/mobileSlice';
 import Map from './components/map/Map';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer'; 
 import SideBar from './components/sidebar/SideBar';
 import { SizeProps } from './types/interfaces'
 import { TrendsApiProvider } from './contexts/TrendsApiContext';
 import { ZoomProvider } from './contexts/ZoomContext';
-import { MobileProvider } from './contexts/MobileContext';
 import { ZOOM_MAX } from './config/constants';
 import { getMinZoom } from './utils/maptools';
 import './App.css';
@@ -17,30 +17,31 @@ export default function App() {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const handleResize = () => {
       setMapProps({
         width: window.innerWidth,
         height: window.innerHeight,
       });
+      dispatch(setIsMobile(window.innerWidth <= 768));
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [dispatch]);
 
   return (
-    <Provider store={store}> 
-      <MobileProvider>
-        <div className="base">
-          <TrendsApiProvider>
-            <Header />
-            <ZoomProvider mapprops={mapprops} minZoom={getMinZoom(mapprops.width)} maxZoom={ZOOM_MAX}>
-              <SideBar />
-              <Map mapprops={mapprops} />
-            </ZoomProvider>
-          </TrendsApiProvider>
-        </div>
-      </MobileProvider>
-    </Provider>
+    <div className="base">
+      <TrendsApiProvider>
+        <Header />
+        <ZoomProvider mapprops={mapprops} minZoom={getMinZoom(mapprops.width)} maxZoom={ZOOM_MAX}>
+          <SideBar />
+          <Map mapprops={mapprops} />
+        </ZoomProvider>
+        <Footer />
+      </TrendsApiProvider>
+    </div>
   );
 };

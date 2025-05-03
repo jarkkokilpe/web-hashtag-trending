@@ -2,7 +2,7 @@
   position: fixed;
   left: 0px;
   top: 100px;
-  bottom: 4px;
+  bottom: 30px;
   width: 275px;
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(197, 211, 238);
@@ -88,8 +88,8 @@
   position: fixed;
   left: 285px;
   top: 100px;
-  bottom: 4px; /* Match the sidebar's bottom position */
-  width: 30px; /* Narrow width to make it a handle */
+  bottom: 30px;
+  width: 30px;
   background: rgba(0, 0, 0, 0.3);
   color: rgb(197, 211, 238);
   border: none;

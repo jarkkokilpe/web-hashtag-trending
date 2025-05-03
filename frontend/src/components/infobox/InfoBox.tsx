@@ -8,7 +8,7 @@ interface InfoBoxProps {
   isVisible: boolean;
   inputData?: AreaData | null;
 }
-//<li>{`Top mention: ${inputData?.hashtag.hashstr} (${inputData?.hashtag?.count?.toFixed(0)})`}</li>
+
 const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
   return (
     <div className={`infoBoxContainer ${isVisible ? 'visible' : ''}`}>

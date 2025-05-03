@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../stores/redux/store';
+import { showInfoBox, hideInfoBox } from '../../stores/redux/slices/infoBoxSlice';
 import * as d3 from 'd3';
 import Bubbles from '../bubbles/Bubbles';
 import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
-import ZoomButtons from '../zoombuttons/ZoomButtons';
+import ZoomButtons from './zoombuttons/ZoomButtons';
 import { useZoomContext } from '../../contexts/ZoomContext';
 import { SizeProps, PositionOnMap, AreaData } from '../../types/interfaces'
 import { geoCountries, CountryFeature, CountryProps } from '../../data/worldbounds'
@@ -12,6 +15,7 @@ import { getMapname } from '../../utils/stats'
 import { getTooltipPosition, createProjection } from '../../utils/maptools'
 import { getAreaSize, getFixedAreaCentroid } from '../../utils/maptools'
 import { getFontSize, isCountryLabelVisible } from '../../utils/labels'
+import { setSidebarHidden } from '../../stores/redux/slices/sideBarSlice';
 import { ID_PREFIX_COUNTRY, ID_PREFIX_USSTATE } from '../../config/strings';
 import { 
   ZOOM_THRESHOLD_US_STATES, 
@@ -29,7 +33,10 @@ interface MapComponentProps {
 const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const { width = VIEWPORT_DEFAULT_WIDTH, height = VIEWPORT_DEFAULT_HEIGHT } = mapprops; 
   const [toolTipCountry, setToolTipCountry] = useState<string>('');
-  const [isInfoBoxVisible, setIsInfoBoxVisible] = useState(false);
+  const isMobile = useSelector((state: RootState) => state.mobile.isMobile);
+  const isInfoBoxVisible = useSelector((state: RootState) => state.infoBox.isVisible);
+  const isSideBarHidden = useSelector((state: RootState) => state.sidebar.isHidden);
+  const dispatch = useDispatch();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [infoBoxData, setInfoBoxData] = useState<AreaData | null>(null);
@@ -42,7 +49,10 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
 
   const updateSelectedBubbleData = (areaData: AreaData | null) => {
     setInfoBoxData(areaData);
-    setIsInfoBoxVisible(true);
+    if(isMobile && !isSideBarHidden && !isInfoBoxVisible) {
+      dispatch(setSidebarHidden(true));
+    }
+    dispatch(showInfoBox());
   };
 
   const handleClick = (countryCode: string) => {
@@ -65,7 +75,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   };
 
   const handleCloseInfoBox = () => {
-    setIsInfoBoxVisible(false);
+    dispatch(hideInfoBox());
   };
 
   const generateArea = (idprefix: string, feature: d3.GeoPermissibleObjects) => {

@@ -1,10 +1,11 @@
 import React from 'react';
 import { APP_NAME } from '../../config/strings'
-import { useMobile } from '../../contexts/MobileContext'; // Import the useMobile hook
+import { useSelector } from 'react-redux';
+import { RootState } from '../../stores/redux/store';
 import './Header.css';
 
 const Header: React.FC = () => {
-  const { isMobile } = useMobile(); // Access the isMobile state
+  const isMobile = useSelector((state: RootState) => state.mobile.isMobile);
 
   return (
     <header className="sticky-header">
