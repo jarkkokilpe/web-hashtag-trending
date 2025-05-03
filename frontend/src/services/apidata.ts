@@ -3,6 +3,19 @@ import { TrendApiObj } from '../types/interfaces';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
+export const syncTimeWithServer = async (): Promise<number> => {
+  const t1 = Date.now();
+  const response = await axios.get<{ timestamp: number }>(`${API_BASE_URL}/trends/time/sync`);
+  const t2 = Date.now();
+  const serverTime = response.data.timestamp;
+
+  const latency = (t2 - t1) / 2;
+  const adjustedServerTime = serverTime + latency;
+  const offset = adjustedServerTime - t2;
+
+  return offset;
+};
+
 // Fetch all trends
 export const fetchAllTrends = async (dataSource: string): Promise<TrendApiObj[]> => {
   try {

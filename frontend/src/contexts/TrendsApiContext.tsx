@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect, useRef } from 'react';
-import { fetchAllTrends, fetchDeltaTrends } from '../services/apidata';
+import { fetchAllTrends, fetchDeltaTrends, syncTimeWithServer } from '../services/apidata';
 import { numData as initialNumData  } from '../data/countryinfo';
 import { usNumData as initialUsNumData  } from '../data/us/stateinfo';
 import { AreaData, TrendContent, TrendApiObj  } from '../types/interfaces';
@@ -60,13 +60,14 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
   const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
   const lastUpdateRef = useRef(Date.now());
+  const calibrationOffsetRef = useRef(0); // Store the calibration offset
   const isInitialFetch = useRef(true);
-  //const dataSource: string = useDataSourceStore.getState().dataSource; // zustand approach
   const dataSourceRef = useRef(store.getState().dataSource.dataSource); // Track the current dataSource
 
   // Fetch and process trends
   const fetchAndProcessTrends = React.useCallback(async () => {
     try {
+      console.log('timestamp', new Date());
       if (isInitialFetch.current) {
         // Initial fetch using fetchAllTrends
         const trends = await fetchAllTrends(dataSourceRef.current);
@@ -78,12 +79,28 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
         const trends = await fetchDeltaTrends(dataSourceRef.current, lastUpdateRef.current);
         setNumData((prevNumData) => processTrendData(prevNumData, trends)); // Replace updated objects
         setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends)); // Replace updated objects
-        lastUpdateRef.current = Date.now(); // Update the last fetch timestamp
+        lastUpdateRef.current = Date.now() + calibrationOffsetRef.current; // Apply calibration offset
       }
     } catch (error) {
       console.error('Error fetching trends:', error);
     }
   }, []);
+
+  // Sync time with the server on mount
+  useEffect(() => {
+    const calibrateTime = async () => {
+      try {
+        const offset = await syncTimeWithServer(); // Get the time offset from the server
+        calibrationOffsetRef.current = offset; // Store the calibration offset
+        lastUpdateRef.current += offset; // Adjust the lastUpdateRef with the offset
+        console.log(`Time calibrated with offset: ${offset}ms`);
+      } catch (error) {
+        console.error('Error syncing time with server:', error);
+      }
+    };
+
+    calibrateTime(); // Call the calibration function once on mount
+  }, []); // Empty dependency array ensures this runs only once
 
   // Detect changes in dataSource and trigger initial fetch
   useEffect(() => {
@@ -101,6 +118,7 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
 
   // Periodic delta updates
   useEffect(() => {
+    fetchAndProcessTrends(); // Immediately fetch trends on mount
     const intervalId = setInterval(fetchAndProcessTrends, DATA_FETCH_INTERVAL_MS);
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
   }, [fetchAndProcessTrends]);
