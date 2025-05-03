@@ -18,12 +18,15 @@ interface UseZoomReturn {
   setCurrentTransform: React.Dispatch<React.SetStateAction<d3.ZoomTransform | undefined>>;
   //centerAndZoom: (center: { x: number; y: number }, bbox: SVGRect) => void;
   zoomToArea: (countryCode: string) => void;
+  onZoomIn: () => void;
+  onZoomOut: () => void;
 }
 
 const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomReturn => {
   const svgRef = useRef<SVGSVGElement>(null!);
   const [zoomScale, setZoomScale] = useState<number>(minZoom);
   const [currentTransform, setCurrentTransform] = useState<d3.ZoomTransform>();
+  const zoomBehavior = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
 
   useEffect(() => {
     if (svgRef.current) {
@@ -38,7 +41,8 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
       const zoom = d3.zoom<SVGSVGElement, unknown>()
         .scaleExtent([minZoom, maxZoom])
         .on('zoom', zoomed);
-
+        
+      zoomBehavior.current = zoom;
       svg.call(zoom);
 
       let initialTransform;
@@ -96,6 +100,62 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
       });
   }, [minZoom, maxZoom]);
 
+  const onZoomIn = () => {
+    if (!svgRef.current || !zoomBehavior.current) return;
+  
+    const svg = d3.select(svgRef.current);
+    const currentTransform = d3.zoomTransform(svgRef.current);
+  
+    // Calculate the center of the SVG viewport
+    const svgRect = svgRef.current.getBoundingClientRect();
+    const centerX = svgRect.width / 2;
+    const centerY = svgRect.height / 2;
+  
+    // Calculate the new zoom scale
+    const newScale = Math.min(currentTransform.k * 1.2, maxZoom);
+  
+    // Calculate the new transform centered on the SVG viewport
+    const newTransform = d3.zoomIdentity
+      .translate(
+        centerX - (centerX - currentTransform.x) * (newScale / currentTransform.k),
+        centerY - (centerY - currentTransform.y) * (newScale / currentTransform.k)
+      )
+      .scale(newScale);
+  
+    // Apply the new transform
+    svg.transition()
+      .duration(300) // Smooth transition
+      .call(zoomBehavior.current.transform as any, newTransform);
+  };
+  
+  const onZoomOut = () => {
+    if (!svgRef.current || !zoomBehavior.current) return;
+  
+    const svg = d3.select(svgRef.current);
+    const currentTransform = d3.zoomTransform(svgRef.current);
+  
+    // Calculate the center of the SVG viewport
+    const svgRect = svgRef.current.getBoundingClientRect();
+    const centerX = svgRect.width / 2;
+    const centerY = svgRect.height / 2;
+  
+    // Calculate the new zoom scale
+    const newScale = Math.max(currentTransform.k / 1.2, minZoom);
+  
+    // Calculate the new transform centered on the SVG viewport
+    const newTransform = d3.zoomIdentity
+      .translate(
+        centerX - (centerX - currentTransform.x) * (newScale / currentTransform.k),
+        centerY - (centerY - currentTransform.y) * (newScale / currentTransform.k)
+      )
+      .scale(newScale);
+  
+    // Apply the new transform
+    svg.transition()
+      .duration(300) // Smooth transition
+      .call(zoomBehavior.current.transform as any, newTransform);
+  };
+
   const zoomToArea = (areaCode: string) => {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);
@@ -123,6 +183,8 @@ const useZoom = ({ width, height, minZoom, maxZoom }: UseZoomProps): UseZoomRetu
     setZoomScale,
     setCurrentTransform,
     zoomToArea,
+    onZoomIn,
+    onZoomOut,
   };
 };
 

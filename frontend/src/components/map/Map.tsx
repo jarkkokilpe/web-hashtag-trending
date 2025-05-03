@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import Bubbles from '../bubbles/Bubbles';
 import InfoBox from '../infobox/InfoBox'
 import ToolTip from '../tooltip/ToolTip'
+import ZoomButtons from '../zoombuttons/ZoomButtons';
 import { useZoomContext } from '../../contexts/ZoomContext';
 import { SizeProps, PositionOnMap, AreaData } from '../../types/interfaces'
 import { geoCountries, CountryFeature, CountryProps } from '../../data/worldbounds'
@@ -32,7 +33,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [position, setPosition] = useState<PositionOnMap>({ top: 0, left: 0 });
   const [infoBoxData, setInfoBoxData] = useState<AreaData | null>(null);
-  const { svgRef, zoomScale, currentTransform, zoomToArea } = useZoomContext();
+  const { svgRef, zoomScale, currentTransform, zoomToArea, onZoomIn, onZoomOut } = useZoomContext();
   
   const areaTooltipSize:SizeProps = {
     width: TOOLTIP_WIDTH,
@@ -139,6 +140,7 @@ const Map: React.FC<MapComponentProps> = ({ mapprops }) => {
         )}
       </svg>
       <InfoBox onClose={handleCloseInfoBox} inputData={infoBoxData} isVisible={isInfoBoxVisible} />
+      <ZoomButtons onZoomIn={onZoomIn} onZoomOut={onZoomOut} />
     </div>
   );
 };

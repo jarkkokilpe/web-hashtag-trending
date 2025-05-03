@@ -58,28 +58,25 @@ const processTrendData = (data: AreaData[], trends: TrendApiObj[]): AreaData[] =
 
 export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) => {
   const [numData, setNumData] = useState<AreaData[]>(initialNumData);
-  const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData); // Initialize US states data
+  const [usNumData, setUsNumData] = useState<AreaData[]>(initialUsNumData);
   const lastUpdateRef = useRef(Date.now());
-  const calibrationOffsetRef = useRef(0); // Store the calibration offset
+  const calibrationOffsetRef = useRef(0); 
   const isInitialFetch = useRef(true);
-  const dataSourceRef = useRef(store.getState().dataSource.dataSource); // Track the current dataSource
+  const dataSourceRef = useRef(store.getState().dataSource.dataSource); 
 
   // Fetch and process trends
   const fetchAndProcessTrends = React.useCallback(async () => {
     try {
-      console.log('timestamp', new Date());
       if (isInitialFetch.current) {
-        // Initial fetch using fetchAllTrends
         const trends = await fetchAllTrends(dataSourceRef.current);
         setNumData((prevNumData) => processTrendData(prevNumData, trends));
         setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
-        isInitialFetch.current = false; // Mark initial fetch as completed
+        isInitialFetch.current = false;
       } else {
-        // Subsequent fetches using fetchDeltaTrends
         const trends = await fetchDeltaTrends(dataSourceRef.current, lastUpdateRef.current);
-        setNumData((prevNumData) => processTrendData(prevNumData, trends)); // Replace updated objects
-        setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends)); // Replace updated objects
-        lastUpdateRef.current = Date.now() + calibrationOffsetRef.current; // Apply calibration offset
+        setNumData((prevNumData) => processTrendData(prevNumData, trends));
+        setUsNumData((prevUsNumData) => processTrendData(prevUsNumData, trends));
+        lastUpdateRef.current = Date.now() + calibrationOffsetRef.current;
       }
     } catch (error) {
       console.error('Error fetching trends:', error);
@@ -90,37 +87,37 @@ export const TrendsApiProvider: React.FC<TrendsProviderProps> = ({ children }) =
   useEffect(() => {
     const calibrateTime = async () => {
       try {
-        const offset = await syncTimeWithServer(); // Get the time offset from the server
-        calibrationOffsetRef.current = offset; // Store the calibration offset
-        lastUpdateRef.current += offset; // Adjust the lastUpdateRef with the offset
+        const offset = await syncTimeWithServer();
+        calibrationOffsetRef.current = offset;
+        lastUpdateRef.current += offset;
         console.log(`Time calibrated with offset: ${offset}ms`);
       } catch (error) {
         console.error('Error syncing time with server:', error);
       }
     };
 
-    calibrateTime(); // Call the calibration function once on mount
-  }, []); // Empty dependency array ensures this runs only once
+    calibrateTime();
+  }, []);
 
   // Detect changes in dataSource and trigger initial fetch
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
       const newDataSource = store.getState().dataSource.dataSource;
       if (newDataSource !== dataSourceRef.current) {
-        dataSourceRef.current = newDataSource; // Update the ref
-        isInitialFetch.current = true; // Trigger initial fetch
-        fetchAndProcessTrends(); // Perform the initial fetch immediately
+        dataSourceRef.current = newDataSource;
+        isInitialFetch.current = true;
+        fetchAndProcessTrends();
       }
     });
 
-    return () => unsubscribe(); // Cleanup the subscription on unmount
+    return () => unsubscribe();
   }, [fetchAndProcessTrends]);
 
   // Periodic delta updates
   useEffect(() => {
-    fetchAndProcessTrends(); // Immediately fetch trends on mount
+    fetchAndProcessTrends();
     const intervalId = setInterval(fetchAndProcessTrends, DATA_FETCH_INTERVAL_MS);
-    return () => clearInterval(intervalId); // Cleanup the interval on unmount
+    return () => clearInterval(intervalId);
   }, [fetchAndProcessTrends]);
 
   return (

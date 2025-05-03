@@ -9,8 +9,8 @@ import { TrendsApiProvider } from './contexts/TrendsApiContext';
 import { ZoomProvider } from './contexts/ZoomContext';
 import { MobileProvider } from './contexts/MobileContext';
 import { ZOOM_MAX } from './config/constants';
-import './App.css';
 import { getMinZoom } from './utils/maptools';
+import './App.css';
 
 export default function App() {
   const [mapprops, setMapProps] = useState<SizeProps>({
