@@ -1,10 +1,10 @@
 .zoom-button-container {
   position: absolute;
-  top: 55px; /* Adjust to place it below the header */
-  left: 5px; /* Align to the left viewport border */
+  top: 55px;
+  left: 5px;
   display: flex;
-  flex-direction: row; /* Align buttons horizontally */
-  gap: 5px; /* Add spacing between buttons */
+  flex-direction: row;
+  gap: 5px;
   z-index: 1000;
 }
 
@@ -12,17 +12,17 @@
   width: 30px;
   height: 30px;
   background-color: rgba(0, 0, 0, 0.5);
-  border: none; /* Remove default border */
-  color: white; /* Button text color */
-  font-size: 20px; /* Icon size */
+  border: none;
+  color: white; 
+  font-size: 20px; 
   font-weight: bold;
-  cursor: pointer; /* Change cursor to pointer on hover */
+  cursor: pointer; 
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .zoom-icon {
-  pointer-events: none; /* Prevent interaction with the icon */
+  pointer-events: none;
 }
