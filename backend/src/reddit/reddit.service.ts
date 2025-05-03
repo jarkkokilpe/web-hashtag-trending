@@ -75,6 +75,7 @@ export class RedditService {
         convertedTrendApiObj.woeid,
         convertedTrendApiObj.trends[0].name,
         convertedTrendApiObj.trends[0].tweet_volume,
+        convertedTrendApiObj.updatedAt,
       );
       //this.logger.log(JSON.stringify(convertedTrendApiObj, null, 2));
       this.updateTrendCache(convertedTrendApiObj);
@@ -117,9 +118,8 @@ export class RedditService {
 
   // Get delta since last fetch
   fetchDelta(since: number): TrendObjApi[] {
-    return Array.from(this.trendCache.values()).filter(
-      (trend) => trend.updatedAt > since,
-    );
+    this.logger.log('Fetching delta since: ', since);
+    return this.trendCache.filter((trend) => trend.updatedAt > since);
   }
 
   findOneByWoeid(woeid: number): TrendObjApi {

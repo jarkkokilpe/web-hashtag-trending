@@ -21,7 +21,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({ onClose, isVisible, inputData }) => {
           <li>{`Pop.: ${inputData?.value}`}</li>
           <li>{`Subs.: ${inputData?.subscriptions}`}</li>
           <li>{`Volume: ${inputData?.totalvolume.toFixed(0)}`}</li>
-          <li>{`Updated: ${inputData?.updatedAt}`}</li>
+          <li>{`Updated: ${inputData?.updatedAt ? new Date(inputData.updatedAt).toLocaleString() : 'N/A'}`}</li>
         </ul>
         <p />
         <p>Top mentions:</p>

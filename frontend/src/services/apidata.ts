@@ -16,12 +16,12 @@ export const fetchAllTrends = async (dataSource: string): Promise<TrendApiObj[]>
 
 // Fetch delta trends
 export const fetchDeltaTrends = async (dataSource: string, lastUpdate: number): Promise<TrendApiObj[]> => {
-
-
+  console.log('+fetchDeltaTrends');
   try {
     const response = await axios.get<TrendApiObj[]>(
       `${API_BASE_URL}/trends/${dataSource}/delta?since=${lastUpdate}`
     );
+    console.log(JSON.stringify(response, null, 2));
     return response.data;
   } catch (error) {
     console.error('Error fetching delta trends:', error);
