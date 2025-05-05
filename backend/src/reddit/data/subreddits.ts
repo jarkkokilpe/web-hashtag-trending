@@ -56,7 +56,7 @@ export const subredditTable = [
   { area: 'croatia', woeid: 23424843 },
   { area: 'cuba', woeid: 23424793 },
   { area: 'curacao', woeid: 56558057 },
-  { area: 'cyprus', woeid: 23424763 },
+  { area: 'cyprus', woeid: 26812346 },
   { area: 'czechrepublic', woeid: 23424810 },
   { area: 'denmark', woeid: 23424796 },
   { area: 'djibouti', woeid: 23424797 },
